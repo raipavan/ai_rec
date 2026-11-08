@@ -217,7 +217,8 @@
     </section>
 
     <!-- ============ Feature split: AI Interviews ============ -->
-    <section class="section section--tint">
+    <section class="section section--dark on-dark">
+      <span class="grain" aria-hidden="true"></span>
       <div class="container">
         <div class="split">
           <div class="split-media reveal">
@@ -237,7 +238,7 @@
               <li>Skills radar calibrated to your role profile</li>
               <li>Proctoring flags reviewed by a human before rejection</li>
             </ul>
-            <a class="btn btn-dark" href="#contact">See an interview replay</a>
+            <a class="btn btn-accent" href="#contact">See an interview replay</a>
           </div>
         </div>
       </div>
@@ -429,20 +430,61 @@
       </div>
     </section>
 
-    <!-- ============ Testimonial ============ -->
-    <section class="section section--tint">
+    <!-- ============ Customer stories ============ -->
+    <section class="section section--tint" id="stories">
       <div class="container">
-        <p class="eyebrow reveal">Customer story</p>
-        <figure class="quote reveal">
-          <blockquote>
-            We cut time-to-hire from 54 days to 19 without adding a single recruiter.
-            The shortlists arrive with the evidence already attached — my team reviews, they don't chase.
-          </blockquote>
-          <figcaption>
-            <span class="quote-name">Lena Voss</span>
-            <span class="quote-role">Head of Talent Acquisition — Meridian Health Group</span>
-          </figcaption>
-        </figure>
+        <div class="section-head section-head--center reveal">
+          <p class="eyebrow">Customer stories</p>
+          <h2>Teams that stopped chasing candidates</h2>
+        </div>
+
+        <div class="quotes reveal" id="quote-scroller" tabindex="0" role="region" aria-label="Customer stories">
+          <div class="quote-track">
+            <figure class="quote-card">
+              <blockquote>
+                We cut time-to-hire from 54 days to 19 without adding a single recruiter.
+                The shortlists arrive with the evidence already attached — my team reviews, they don't chase.
+              </blockquote>
+              <figcaption>
+                <span class="quote-name">Lena Voss</span>
+                <span class="quote-role">Head of Talent Acquisition — Meridian Health Group</span>
+              </figcaption>
+            </figure>
+
+            <figure class="quote-card">
+              <blockquote>
+                We were screening 900 engineers a quarter with two recruiters. The scoring rubric is
+                the first one our panel actually agreed on — and the first one we can defend when a
+                candidate asks why.
+              </blockquote>
+              <figcaption>
+                <span class="quote-name">Marcus Feld</span>
+                <span class="quote-role">CTO — Vantek</span>
+              </figcaption>
+            </figure>
+
+            <figure class="quote-card">
+              <blockquote>
+                Regulated hiring means every decision needs a paper trail. The platform produces one
+                automatically, so audit review that used to take a week now takes an afternoon.
+              </blockquote>
+              <figcaption>
+                <span class="quote-name">Priya Nair</span>
+                <span class="quote-role">Talent Director — Bluebridge Bank</span>
+              </figcaption>
+            </figure>
+          </div>
+        </div>
+
+        <div class="quote-controls">
+          <button class="quote-btn" type="button" data-dir="-1" aria-controls="quote-scroller" aria-label="Previous story">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg>
+          </button>
+          <span class="quote-count" aria-live="polite">1 / 3</span>
+          <button class="quote-btn" type="button" data-dir="1" aria-controls="quote-scroller" aria-label="Next story">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg>
+          </button>
+        </div>
       </div>
     </section>
 
@@ -712,6 +754,14 @@
             <span>Talent<em>Pool</em>365</span>
           </a>
           <p>The AI recruitment platform for teams that measure hiring in days.</p>
+          <form class="newsletter" action="#" method="post">
+            <label class="newsletter-label" for="nl-email">Hiring notes, once a month</label>
+            <div class="newsletter-row">
+              <input id="nl-email" name="email" type="email" placeholder="you@company.com" autocomplete="email" required>
+              <button class="btn btn-accent btn--sm" type="submit">Subscribe</button>
+            </div>
+            <p class="newsletter-hint">One short email. Unsubscribe anytime.</p>
+          </form>
         </div>
 
         <div class="footer-cols">
@@ -732,7 +782,7 @@
               <li><a href="#solutions">By Industry</a></li>
               <li><a href="#solutions">By Company Size</a></li>
               <li><a href="#solutions">By Use Case</a></li>
-              <li><a href="#metrics">Customers</a></li>
+              <li><a href="#stories">Customers</a></li>
               <li><a href="#metrics">ROI &amp; Metrics</a></li>
             </ul>
           </div>

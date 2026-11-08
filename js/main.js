@@ -114,6 +114,67 @@
     });
   }
 
+  /* ---------- Customer story carousel ---------- */
+  var quotes = document.getElementById("quote-scroller");
+  if (quotes) {
+    var qTrack = quotes.querySelector(".quote-track");
+    var qCards = qTrack ? Array.prototype.slice.call(qTrack.children) : [];
+    var qPrev = document.querySelector('.quote-btn[data-dir="-1"]');
+    var qNext = document.querySelector('.quote-btn[data-dir="1"]');
+    var qCount = document.querySelector(".quote-count");
+
+    var qMax = function () {
+      return quotes.scrollWidth - quotes.clientWidth;
+    };
+    var qIndex = function () {
+      var mid = quotes.scrollLeft + quotes.clientWidth / 2;
+      var best = 0;
+      var bestDist = Infinity;
+      qCards.forEach(function (card, i) {
+        var d = Math.abs(card.offsetLeft + card.offsetWidth / 2 - mid);
+        if (d < bestDist) { bestDist = d; best = i; }
+      });
+      return best;
+    };
+    var qState = function () {
+      if (qCount) qCount.textContent = (qIndex() + 1) + " / " + qCards.length;
+      if (qPrev) qPrev.disabled = quotes.scrollLeft <= 2;
+      if (qNext) qNext.disabled = quotes.scrollLeft >= qMax() - 2;
+    };
+    var qGo = function (dir) {
+      var idx = Math.max(0, Math.min(qCards.length - 1, qIndex() + dir));
+      var card = qCards[idx];
+      var left = card.offsetLeft + card.offsetWidth / 2 - quotes.clientWidth / 2;
+      quotes.scrollTo({
+        left: Math.max(0, Math.min(left, qMax())),
+        behavior: prefersReduced ? "auto" : "smooth"
+      });
+    };
+    if (qPrev) qPrev.addEventListener("click", function () { qGo(-1); });
+    if (qNext) qNext.addEventListener("click", function () { qGo(1); });
+    quotes.addEventListener("scroll", function () {
+      window.clearTimeout(quotes._settle);
+      quotes._settle = window.setTimeout(qState, 90);
+    }, { passive: true });
+    quotes.addEventListener("keydown", function (e) {
+      if (e.key === "ArrowRight") { e.preventDefault(); qGo(1); }
+      if (e.key === "ArrowLeft") { e.preventDefault(); qGo(-1); }
+    });
+    window.addEventListener("resize", qState);
+    qState();
+  }
+
+  /* ---------- Newsletter ---------- */
+  var newsletter = document.querySelector(".newsletter");
+  if (newsletter) {
+    newsletter.addEventListener("submit", function (e) {
+      e.preventDefault();
+      var hint = newsletter.querySelector(".newsletter-hint");
+      if (hint) hint.textContent = "You're on the list — the first notes arrive next month.";
+      newsletter.reset();
+    });
+  }
+
   /* ---------- Footer year ---------- */
   var yearEl = document.querySelector("[data-year]");
   if (yearEl) yearEl.textContent = new Date().getFullYear();
