@@ -91,6 +91,7 @@ const strokePaths: Record<StrokeIconName, ReactElement> = {
   ),
   'chevron-left': <path d="M15 18l-6-6 6-6" />,
   'chevron-right': <path d="M9 6l6 6-6 6" />,
+  'chevron-down': <path d="M6 9l6 6 6-6" />,
 };
 
 interface IconProps {

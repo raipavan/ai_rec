@@ -15,18 +15,57 @@ export type IconName =
   | 'trend'
   | 'play'
   | 'chevron-left'
-  | 'chevron-right';
+  | 'chevron-right'
+  | 'chevron-down';
+
+export interface NavLink {
+  label: string;
+  description: string;
+  href: string;
+}
 
 export interface NavItem {
   id: string;
   label: string;
+  links?: NavLink[];
 }
 
 export const navItems: NavItem[] = [
   { id: 'home', label: 'Home' },
-  { id: 'products', label: 'Products' },
-  { id: 'solutions', label: 'Solutions' },
-  { id: 'integrations', label: 'Integrations' },
+  {
+    id: 'products',
+    label: 'Products',
+    links: [
+      { label: 'Talent Sourcing', description: 'Search every channel at once', href: '#products' },
+      { label: 'Candidate Screening', description: 'Ranked shortlists with reasons', href: '#products' },
+      { label: 'AI Assessments', description: 'Tests that grade themselves', href: '#products' },
+      { label: 'AI Interviews', description: 'Structured, proctored, scored', href: '#products' },
+      { label: 'Recruiter Workspace', description: 'Pipeline, notes and approvals', href: '#products' },
+      { label: 'Offers & Analytics', description: 'Offers, e-sign and KPI dashboards', href: '#products' },
+    ],
+  },
+  {
+    id: 'solutions',
+    label: 'Solutions',
+    links: [
+      { label: 'IT & Technology', description: 'Coding tests and Git-based screening', href: '#solutions' },
+      { label: 'Healthcare', description: 'Licensing and credential tracking', href: '#solutions' },
+      { label: 'BFSI', description: 'Audit-ready regulated hiring', href: '#solutions' },
+      { label: 'Manufacturing', description: 'High-volume plant hiring', href: '#solutions' },
+      { label: 'Retail', description: 'Seasonal surge hiring', href: '#solutions' },
+      { label: 'BPO & Contact Centers', description: 'Voice simulations at scale', href: '#solutions' },
+    ],
+  },
+  {
+    id: 'integrations',
+    label: 'Integrations',
+    links: [
+      { label: 'ATS & HRMS', description: 'Workday, SuccessFactors, Greenhouse', href: '#integrations' },
+      { label: 'Communication', description: 'Teams, Slack and WhatsApp', href: '#integrations' },
+      { label: 'Email & calendars', description: 'Outlook, Gmail and Google Meet', href: '#integrations' },
+      { label: 'REST API & webhooks', description: 'Custom systems, live in two weeks', href: '#integrations' },
+    ],
+  },
   { id: 'pricing', label: 'Pricing' },
   { id: 'about', label: 'About Us' },
 ];
