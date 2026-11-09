@@ -9,17 +9,14 @@ export function Hero() {
       <div className="container">
         <div className="hero-grid">
           <div className="hero-copy">
-            <p className="eyebrow enter" style={enterDelay(0)}>
-              AI recruitment platform
-            </p>
-            <h1 className="enter" style={enterDelay(1)}>
+            <h1 className="enter" style={enterDelay(0)}>
               Hiring that's measured in <span className="hl">days</span>, not months.
             </h1>
-            <p className="lede enter" style={enterDelay(2)}>
+            <p className="lede enter" style={enterDelay(1)}>
               TalentPool365 sources, screens, assesses and interviews candidates automatically —
               so your recruiters spend their time on people worth hiring, not resumes worth skipping.
             </p>
-            <div className="hero-cta enter" style={enterDelay(3)}>
+            <div className="hero-cta enter" style={enterDelay(2)}>
               <a className="btn btn-primary" href="#contact">
                 Book a live demo
               </a>
@@ -28,7 +25,7 @@ export function Hero() {
                 Watch the 3-min tour
               </a>
             </div>
-            <ul className="hero-proof enter" style={enterDelay(4)}>
+            <ul className="hero-proof enter" style={enterDelay(3)}>
               {heroProof.map((item) => (
                 <li key={item}>
                   <Icon name="shield" strokeWidth={2.4} />
