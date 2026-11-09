@@ -132,8 +132,7 @@ export function Header() {
                           {item.links?.map((link) => (
                             <li key={link.label}>
                               <a href={link.href} onClick={closeNavigation}>
-                                <strong>{link.label}</strong>
-                                <span>{link.description}</span>
+                                {link.label}
                               </a>
                             </li>
                           ))}

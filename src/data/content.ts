@@ -20,7 +20,6 @@ export type IconName =
 
 export interface NavLink {
   label: string;
-  description: string;
   href: string;
 }
 
@@ -36,34 +35,34 @@ export const navItems: NavItem[] = [
     id: 'products',
     label: 'Products',
     links: [
-      { label: 'Talent Sourcing', description: 'Search every channel at once', href: '#products' },
-      { label: 'Candidate Screening', description: 'Ranked shortlists with reasons', href: '#products' },
-      { label: 'AI Assessments', description: 'Tests that grade themselves', href: '#products' },
-      { label: 'AI Interviews', description: 'Structured, proctored, scored', href: '#products' },
-      { label: 'Recruiter Workspace', description: 'Pipeline, notes and approvals', href: '#products' },
-      { label: 'Offers & Analytics', description: 'Offers, e-sign and KPI dashboards', href: '#products' },
+      { label: 'Talent Sourcing', href: '#products' },
+      { label: 'Candidate Screening', href: '#products' },
+      { label: 'AI Assessments', href: '#products' },
+      { label: 'AI Interviews', href: '#products' },
+      { label: 'Recruiter Workspace', href: '#products' },
+      { label: 'Offers & Analytics', href: '#products' },
     ],
   },
   {
     id: 'solutions',
     label: 'Solutions',
     links: [
-      { label: 'IT & Technology', description: 'Coding tests and Git-based screening', href: '#solutions' },
-      { label: 'Healthcare', description: 'Licensing and credential tracking', href: '#solutions' },
-      { label: 'BFSI', description: 'Audit-ready regulated hiring', href: '#solutions' },
-      { label: 'Manufacturing', description: 'High-volume plant hiring', href: '#solutions' },
-      { label: 'Retail', description: 'Seasonal surge hiring', href: '#solutions' },
-      { label: 'BPO & Contact Centers', description: 'Voice simulations at scale', href: '#solutions' },
+      { label: 'IT & Technology', href: '#solutions' },
+      { label: 'Healthcare', href: '#solutions' },
+      { label: 'BFSI', href: '#solutions' },
+      { label: 'Manufacturing', href: '#solutions' },
+      { label: 'Retail', href: '#solutions' },
+      { label: 'BPO & Contact Centers', href: '#solutions' },
     ],
   },
   {
     id: 'integrations',
     label: 'Integrations',
     links: [
-      { label: 'ATS & HRMS', description: 'Workday, SuccessFactors, Greenhouse', href: '#integrations' },
-      { label: 'Communication', description: 'Teams, Slack and WhatsApp', href: '#integrations' },
-      { label: 'Email & calendars', description: 'Outlook, Gmail and Google Meet', href: '#integrations' },
-      { label: 'REST API & webhooks', description: 'Custom systems, live in two weeks', href: '#integrations' },
+      { label: 'ATS & HRMS', href: '#integrations' },
+      { label: 'Communication', href: '#integrations' },
+      { label: 'Email & calendars', href: '#integrations' },
+      { label: 'REST API & webhooks', href: '#integrations' },
     ],
   },
   { id: 'pricing', label: 'Pricing' },
