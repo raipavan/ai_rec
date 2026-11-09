@@ -4,25 +4,36 @@ Single-page marketing site for TalentPool365, built to the brand handoff v1.0.
 
 ## Stack
 
-Plain HTML, CSS and vanilla JS. No build step.
+React 19 + TypeScript, bundled with Vite.
 
-- `index.html` — the landing page
-- `css/styles.css` — brand tokens, layout and responsive rules
-- `js/main.js` — navigation, reveals, counters, pricing toggle
-- `assets/` — product UI imagery (optimised JPEG)
+- `src/App.tsx` — page composition
+- `src/components/` — one component per page section
+- `src/data/content.ts` — all page copy and structured content
+- `src/lib/` — scroll reveals, counters, carousel and nav hooks
+- `src/styles/global.css` — brand tokens, layout, motion and responsive rules
+- `public/assets/` — logo lockups, favicons and product UI imagery
 
-## Local preview
+## Local development
 
 ```bash
-python -m http.server 8931
+npm install
+npm run dev
 ```
 
-Then open http://127.0.0.1:8931
+Then open http://127.0.0.1:5173
+
+## Build
+
+```bash
+npm run build
+```
+
+Outputs the static site to `dist/`. `npm run preview` serves the build locally.
 
 ## Deploy (Render)
 
-`render.yaml` defines a free static site with the repository root as the publish
-directory. Connect this repo to Render and apply the Blueprint.
+`render.yaml` defines a free static site that runs `npm ci && npm run build` and
+publishes `dist/`. Connect this repo to Render and apply the Blueprint.
 
 Brand tokens: `#172554` Deep Navy · `#4F46E5` Royal Violet · `#06B6D4` Cyan ·
 `#FFFFFF` · `#F8FAFC`. Type: Plus Jakarta Sans (headings), Inter (body),
