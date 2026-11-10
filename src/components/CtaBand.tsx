@@ -3,6 +3,7 @@ import { Reveal } from './Reveal';
 export function CtaBand() {
   return (
     <section className="cta-band on-dark">
+      <span className="cta-bg" aria-hidden="true" />
       <span className="grain" aria-hidden="true" />
       <div className="container cta-inner">
         <Reveal>

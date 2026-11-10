@@ -5,6 +5,7 @@ import { Icon } from './Icon';
 export function Hero() {
   return (
     <section className="hero on-dark" id="home">
+      <span className="hero-bg" aria-hidden="true" />
       <span className="grain" aria-hidden="true" />
       <div className="container">
         <div className="hero-grid">
