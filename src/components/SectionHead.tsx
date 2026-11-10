@@ -2,7 +2,7 @@ import type { CSSProperties } from 'react';
 import { Reveal, type RevealVariant } from './Reveal';
 
 interface SectionHeadProps {
-  eyebrow: string;
+  eyebrow?: string;
   title: string;
   body?: string;
   center?: boolean;
@@ -30,7 +30,7 @@ export function SectionHead({
 
   return (
     <Reveal className={classes} style={style} variant={variant}>
-      <p className="eyebrow">{eyebrow}</p>
+      {eyebrow ? <p className="eyebrow">{eyebrow}</p> : null}
       <h2>{title}</h2>
       {body ? <p>{body}</p> : null}
     </Reveal>

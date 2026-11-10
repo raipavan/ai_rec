@@ -15,7 +15,6 @@ export function Contact() {
       <div className="container">
         <div className="split" style={{ alignItems: 'start' }}>
           <Reveal className="split-copy" variant="left">
-            <p className="eyebrow">Contact sales</p>
             <h2>Talk to a human who knows hiring</h2>
             <p>
               No SDR scripts, no 45-minute qualification gauntlet. You get a product specialist and,

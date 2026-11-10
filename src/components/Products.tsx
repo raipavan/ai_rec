@@ -8,7 +8,6 @@ export function Products() {
     <section className="section" id="products">
       <div className="container">
         <SectionHead
-          eyebrow="One platform, six capabilities"
           title="Everything between requisition and offer letter"
           body={'Most teams stitch together five tools to move a candidate from "applied" to "signed." TalentPool365 runs the whole workflow — with the evidence trail to back every decision.'}
         />

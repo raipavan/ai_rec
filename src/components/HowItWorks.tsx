@@ -7,7 +7,6 @@ export function HowItWorks() {
     <section className="section section--tint" id="how-it-works">
       <div className="container">
         <SectionHead
-          eyebrow="How it works"
           title="From requisition to signed offer in six moves"
           body="The same disciplined flow every time — with a human decision at every step that matters."
         />
