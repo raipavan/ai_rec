@@ -22,7 +22,7 @@ export function Pricing() {
         <SectionHead
           center
           eyebrow="Pricing"
-          title="Pay for hires, not seats of software"
+          title="Pay *for hires*, not seats of software"
           body="Every plan includes sourcing, screening and the recruiter workspace. Upgrade when you need assessments, interviews and deep integrations."
         />
 

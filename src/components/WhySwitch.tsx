@@ -21,7 +21,8 @@ export function WhySwitch() {
         </div>
 
         <Reveal variant="left">
-          <h2 className="why-title">The tools are fine. The handoffs are where hiring dies.</h2>
+          <h2 className="why-title">The tools are fine. The handoffs are <em className="accent">where hiring dies.</em>
+          </h2>
         </Reveal>
         <Reveal variant="left" delay={1}>
           <p className="why-lede">

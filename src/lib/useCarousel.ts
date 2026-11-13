@@ -1,11 +1,15 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { prefersReducedMotion } from './motion';
+import { useAutoDrift } from './useAutoDrift';
 
+/**
+ * Story carousel that drifts left to right on its own in a seamless loop.
+ * The track renders the cards three times over; `index` is the story nearest
+ * the middle, counted within one set.
+ */
 export function useCarousel(cardCount: number) {
   const scrollerRef = useRef<HTMLDivElement | null>(null);
-  const [index, setIndex] = useState(0);
-  const [atStart, setAtStart] = useState(true);
-  const [atEnd, setAtEnd] = useState(false);
+  const [nearestCard, setNearestCard] = useState(0);
 
   const readState = useCallback(() => {
     const el = scrollerRef.current;
@@ -26,11 +30,10 @@ export function useCarousel(cardCount: number) {
       }
     });
 
-    const max = el.scrollWidth - el.clientWidth;
-    setIndex(nearest);
-    setAtStart(el.scrollLeft <= 2);
-    setAtEnd(el.scrollLeft >= max - 2);
+    setNearestCard(nearest);
   }, []);
+
+  const { hold } = useAutoDrift(scrollerRef, '.quote-card', { speed: 0.04, onTick: readState });
 
   const go = useCallback(
     (direction: number) => {
@@ -40,7 +43,8 @@ export function useCarousel(cardCount: number) {
       const cards = Array.from(el.querySelectorAll<HTMLElement>('.quote-card'));
       if (!cards.length) return;
 
-      const target = cards[Math.max(0, Math.min(cards.length - 1, index + direction))];
+      hold(1400);
+      const target = cards[Math.max(0, Math.min(cards.length - 1, nearestCard + direction))];
       const max = el.scrollWidth - el.clientWidth;
       const left = target.offsetLeft + target.offsetWidth / 2 - el.clientWidth / 2;
 
@@ -49,7 +53,7 @@ export function useCarousel(cardCount: number) {
         behavior: prefersReducedMotion() ? 'auto' : 'smooth',
       });
     },
-    [index],
+    [nearestCard, hold],
   );
 
   useEffect(() => {
@@ -74,5 +78,6 @@ export function useCarousel(cardCount: number) {
     };
   }, [cardCount, readState]);
 
-  return { scrollerRef, index, atStart, atEnd, go };
+  const index = cardCount > 0 ? nearestCard % cardCount : 0;
+  return { scrollerRef, index, go };
 }

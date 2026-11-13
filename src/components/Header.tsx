@@ -15,6 +15,23 @@ export function Header() {
   const toggleRef = useRef<HTMLButtonElement>(null);
   const headerRef = useRef<HTMLElement>(null);
   const caretRefs = useRef<Record<string, HTMLButtonElement | null>>({});
+  const progressRef = useRef<HTMLSpanElement>(null);
+
+  // Reading-progress line along the bottom edge of the header
+  useEffect(() => {
+    const onScroll = () => {
+      const max = document.documentElement.scrollHeight - window.innerHeight;
+      const done = max > 0 ? Math.min(1, window.scrollY / max) : 0;
+      if (progressRef.current) progressRef.current.style.transform = `scaleX(${done})`;
+    };
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll);
+    return () => {
+      window.removeEventListener('scroll', onScroll);
+      window.removeEventListener('resize', onScroll);
+    };
+  }, []);
 
   const closeNavigation = () => {
     setOpen(false);
@@ -59,12 +76,19 @@ export function Header() {
   };
 
   return (
-    <header ref={headerRef} className={`site-header${scrolled ? ' is-scrolled' : ''}`}>
+    <header ref={headerRef} className={`site-header${scrolled ? ' is-scrolled' : ''}${!scrolled && !open ? ' is-top' : ''}`}>
       <div className="container header-inner">
         <a className="brand" href="#home" aria-label="TalentPool365 home">
           <img
             className="brand-logo"
             src="/assets/talentpool365-logo.png"
+            alt=""
+            width="462"
+            height="76"
+          />
+          <img
+            className="brand-logo brand-logo--light"
+            src="/assets/talentpool365-logo-light.png"
             alt=""
             width="462"
             height="76"
@@ -128,15 +152,25 @@ export function Header() {
                   {hasMenu ? (
                     <div className="nav-menu" id={`nav-menu-${item.id}`} inert={!isOpen}>
                       <div className="nav-menu-panel">
-                        <ul>
-                          {item.links?.map((link) => (
-                            <li key={link.label}>
-                              <a href={link.href} onClick={closeNavigation}>
-                                {link.label}
-                              </a>
-                            </li>
-                          ))}
-                        </ul>
+                        <div className="nav-mega">
+                          {item.intro ? (
+                            <div className="nav-mega-intro">
+                              <p className="nav-mega-title">{item.intro.title}</p>
+                              <p className="nav-mega-blurb">{item.intro.blurb}</p>
+                              <img src={item.intro.image} alt="" width="1536" height="1024" loading="lazy" decoding="async" />
+                            </div>
+                          ) : null}
+                          <ul className="nav-mega-links">
+                            {item.links?.map((link) => (
+                              <li key={link.label}>
+                                <a href={link.href} onClick={closeNavigation}>
+                                  <span className="nav-mega-label">{link.label}</span>
+                                  {link.desc ? <span className="nav-mega-desc">{link.desc}</span> : null}
+                                </a>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
                       </div>
                     </div>
                   ) : null}
@@ -166,6 +200,7 @@ export function Header() {
           </button>
         </div>
       </div>
+      <span className="scroll-progress" ref={progressRef} aria-hidden="true" />
     </header>
   );
 }

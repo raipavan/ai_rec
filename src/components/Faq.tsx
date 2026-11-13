@@ -14,7 +14,7 @@ export function Faq() {
           <SectionHead
             variant="left"
             eyebrow="Questions, answered"
-            title="What hiring teams ask before the trial"
+            title="What hiring teams ask *before the trial*"
             body="No discovery call required to get an answer. If yours isn't here, send it over — a product specialist replies within one business day."
           />
           <Reveal variant="left" delay={1}>

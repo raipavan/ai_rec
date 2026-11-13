@@ -16,17 +16,28 @@ export type IconName =
   | 'play'
   | 'chevron-left'
   | 'chevron-right'
-  | 'chevron-down';
+  | 'chevron-down'
+  | 'pause';
 
 export interface NavLink {
   label: string;
   href: string;
+  /** One line shown under the label in the desktop mega menu. */
+  desc?: string;
+}
+
+/** Intro column on the left of the desktop mega menu. */
+export interface NavMenuIntro {
+  title: string;
+  blurb: string;
+  image: string;
 }
 
 export interface NavItem {
   id: string;
   label: string;
   links?: NavLink[];
+  intro?: NavMenuIntro;
 }
 
 export const navItems: NavItem[] = [
@@ -34,37 +45,38 @@ export const navItems: NavItem[] = [
   {
     id: 'products',
     label: 'Products',
+    intro: {
+      title: 'Our Hiring Products',
+      blurb: 'Every step of hiring, from the first search to the signed offer, on one platform.',
+      image: '/assets/dashboard-hero.jpg',
+    },
     links: [
-      { label: 'Talent Sourcing', href: '#products' },
-      { label: 'Candidate Screening', href: '#products' },
-      { label: 'AI Assessments', href: '#products' },
-      { label: 'AI Interviews', href: '#products' },
-      { label: 'Recruiter Workspace', href: '#products' },
-      { label: 'Offers & Analytics', href: '#products' },
+      { label: 'Talent Sourcing', href: '#products', desc: 'Find candidates across your ATS, job boards and referral pools in one search.' },
+      { label: 'Candidate Screening', href: '#products', desc: 'Every application parsed, ranked and shortlisted, with the reasons shown.' },
+      { label: 'AI Assessments', href: '#products', desc: 'Technical, aptitude and cognitive tests that grade themselves against your bar.' },
+      { label: 'AI Interviews', href: '#products', desc: 'Structured video, voice and coding interviews scored on a consistent rubric.' },
+      { label: 'Recruiter Workspace', href: '#products', desc: 'A shared pipeline with notes, feedback and approval workflows.' },
+      { label: 'Offers & Analytics', href: '#products', desc: 'Offer letters, e-signature and KPI dashboards that explain the funnel.' },
     ],
   },
   {
     id: 'solutions',
     label: 'Solutions',
+    intro: {
+      title: 'Our Industry Solutions',
+      blurb: 'Hiring workflows tuned to the roles, volumes and rules of your sector.',
+      image: '/assets/workspace-analytics.jpg',
+    },
     links: [
-      { label: 'IT & Technology', href: '#solutions' },
-      { label: 'Healthcare', href: '#solutions' },
-      { label: 'BFSI', href: '#solutions' },
-      { label: 'Manufacturing', href: '#solutions' },
-      { label: 'Retail', href: '#solutions' },
-      { label: 'BPO & Contact Centers', href: '#solutions' },
+      { label: 'IT & Technology', href: '#solutions', desc: 'Coding interviews and Git-based screening for engineering, data and product roles.' },
+      { label: 'Healthcare', href: '#solutions', desc: 'License verification and shift-friendly scheduling for clinical and support staff.' },
+      { label: 'BFSI', href: '#solutions', desc: 'Audit-ready screening and background checks for regulated finance roles.' },
+      { label: 'Manufacturing', href: '#solutions', desc: 'High-volume plant and floor hiring with mobile-first applications.' },
+      { label: 'Retail', href: '#solutions', desc: 'Seasonal surge hiring with same-day interview loops.' },
+      { label: 'BPO & Contact Centers', href: '#solutions', desc: 'Language tests, voice simulations and bulk scheduling for hiring waves.' },
     ],
   },
-  {
-    id: 'integrations',
-    label: 'Integrations',
-    links: [
-      { label: 'ATS & HRMS', href: '#integrations' },
-      { label: 'Communication', href: '#integrations' },
-      { label: 'Email & calendars', href: '#integrations' },
-      { label: 'REST API & webhooks', href: '#integrations' },
-    ],
-  },
+  { id: 'case-studies', label: 'Case Studies' },
   { id: 'pricing', label: 'Pricing' },
   { id: 'about', label: 'About Us' },
 ];
@@ -139,7 +151,7 @@ export const products: Product[] = [
 
 export const interviewSplit = {
   eyebrow: 'Inside AI Interviews',
-  title: 'Interviews that grade themselves — recruiters make the call',
+  title: 'Interviews that *grade themselves* — recruiters make the call',
   body: 'Every interview is transcribed, time-stamped and scored against the same rubric your panel agreed on before the req opened. Recruiters review the evidence in minutes and decide — the AI never does.',
   points: [
     'Transcript, waveform and score in one view',
@@ -147,6 +159,18 @@ export const interviewSplit = {
     'Proctoring flags reviewed by a human before rejection',
   ],
   cta: 'See an interview replay',
+};
+
+/**
+ * Demo video beside the "Inside AI Interviews" copy.
+ * Set `src` to a file in /public (e.g. '/assets/demo.mp4') or a YouTube / Vimeo link.
+ * While it is empty the section shows the poster with a "coming soon" tag.
+ */
+export const demoVideo = {
+  src: '/assets/demo.mp4',
+  poster: '/assets/workspace-analytics.jpg',
+  title: 'TalentPool365 product demo',
+  length: '30 sec',
 };
 
 export interface Industry {
@@ -271,30 +295,51 @@ export const integrations: Integration[] = [
   { mark: 'API', label: 'Your system' },
 ];
 
-export interface Story {
-  quote: string;
-  name: string;
-  role: string;
+export interface CaseStudy {
+  company: string;
+  industry: string;
+  /** Headline result and what it measures. */
+  stat: string;
+  statLabel: string;
+  challenge: string;
+  approach: string;
+  results: string[];
 }
 
-export const stories: Story[] = [
+/* Illustrative case studies. Replace with approved customer figures before launch. */
+export const caseStudies: CaseStudy[] = [
   {
-    quote:
-      'We cut time-to-hire from 54 days to 19 without adding a single recruiter. The shortlists arrive with the evidence already attached — my team reviews, they don\u2019t chase.',
-    name: 'Lena Voss',
-    role: 'Head of Talent Acquisition — Meridian Health Group',
+    company: 'Meridian Health Group',
+    industry: 'Healthcare',
+    stat: '54 \u2192 19 days',
+    statLabel: 'time-to-hire, same team size',
+    challenge:
+      'Clinical roles sat open for almost two months while recruiters chased licence checks and shift availability by hand.',
+    approach:
+      'Sourcing, credential verification and screening run automatically, so every shortlist arrives with the evidence attached.',
+    results: ['No recruiters added', 'Licence checks done before the first interview', 'Shortlists reviewed, not chased'],
   },
   {
-    quote:
-      'We were screening 900 engineers a quarter with two recruiters. The scoring rubric is the first one our panel actually agreed on — and the first one we can defend when a candidate asks why.',
-    name: 'Marcus Feld',
-    role: 'CTO — Vantek',
+    company: 'Vantek',
+    industry: 'IT & Technology',
+    stat: '900',
+    statLabel: 'engineers screened a quarter by two recruiters',
+    challenge:
+      'Two recruiters faced 900 engineering applicants a quarter, and the interview panel could not agree on one scoring rubric.',
+    approach:
+      'One rubric agreed before each role opens, with coding assessments and AI interviews scored against it.',
+    results: ['Every score traceable to the rubric', 'Panel time spent on finalists only', 'Clear answers when a candidate asks why'],
   },
   {
-    quote:
-      'Regulated hiring means every decision needs a paper trail. The platform produces one automatically, so audit review that used to take a week now takes an afternoon.',
-    name: 'Priya Nair',
-    role: 'Talent Director — Bluebridge Bank',
+    company: 'Bluebridge Bank',
+    industry: 'BFSI',
+    stat: '1 week \u2192 1 afternoon',
+    statLabel: 'to complete an audit review',
+    challenge:
+      'Regulated hiring needs a paper trail for every decision, and assembling one took the team a week per audit.',
+    approach:
+      'Every score, note and approval is logged as it happens, so the audit pack is produced by the platform.',
+    results: ['Audit trail generated automatically', 'Human review recorded before any rejection', 'Reviews closed in an afternoon'],
   },
 ];
 
@@ -420,37 +465,45 @@ export const values: Value[] = [
   },
 ];
 
-export interface TeamMember {
+export interface Hire {
   initials: string;
   name: string;
+  /** The role they were hired into, and where. */
   role: string;
-  bio: string;
+  company: string;
+  /** How the hire happened. */
+  detail: string;
 }
 
-export const team: TeamMember[] = [
+/* Illustrative hires made through the platform. Replace with real, consented profiles before launch. */
+export const hires: Hire[] = [
   {
-    initials: 'AM',
-    name: 'Arjun Mehta',
-    role: 'Co-founder & CEO',
-    bio: 'Former agency recruiter. Still reads every rejection-letter complaint personally.',
+    initials: 'AT',
+    name: 'Ava Thompson',
+    role: 'Frontend Developer',
+    company: 'Vantek',
+    detail: 'Hired in 16 days. Matched from the talent pool and cleared the coding assessment first time.',
   },
   {
-    initials: 'PR',
-    name: 'Priya Raghavan',
-    role: 'Co-founder & CTO',
-    bio: 'Ex-search infrastructure lead. Keeps the explainability bar technically honest.',
+    initials: 'RC',
+    name: 'Rafael Costa',
+    role: 'Registered Nurse',
+    company: 'Meridian Health Group',
+    detail: 'Hired in 12 days. Licence verified and shifts agreed before the first interview.',
   },
   {
-    initials: 'DO',
-    name: 'Daniel Okoye',
-    role: 'VP, Customer Success',
-    bio: 'Owns onboarding-to-first-hire in 30 days — the metric his team is paid on.',
+    initials: 'GP',
+    name: 'Grace Park',
+    role: 'Credit Risk Analyst',
+    company: 'Bluebridge Bank',
+    detail: 'Hired in 19 days. Every step of the decision logged for audit.',
   },
   {
-    initials: 'SL',
-    name: 'Sofia Lindqvist',
-    role: 'Head of AI Research',
-    bio: 'Runs the quarterly bias audits and publishes the methodology, not just the summary.',
+    initials: 'JO',
+    name: 'James Okafor',
+    role: 'Production Supervisor',
+    company: 'Ardent Manufacturing',
+    detail: 'Hired in 14 days. Re-engaged from an earlier role he had narrowly missed.',
   },
 ];
 
@@ -561,7 +614,7 @@ export const footerColumns: FooterColumn[] = [
       { label: 'By Industry', href: '#solutions' },
       { label: 'By Company Size', href: '#solutions' },
       { label: 'By Use Case', href: '#solutions' },
-      { label: 'Customers', href: '#stories' },
+      { label: 'Case Studies', href: '#case-studies' },
       { label: 'ROI & Metrics', href: '#metrics' },
     ],
   },
@@ -579,7 +632,7 @@ export const footerColumns: FooterColumn[] = [
     title: 'Company',
     links: [
       { label: 'About Us', href: '#about' },
-      { label: 'Leadership', href: '#about' },
+      { label: 'People Hired', href: '#people-hired' },
       { label: 'Careers', href: '#about' },
       { label: 'Partners', href: '#about' },
       { label: 'News & Press', href: '#about' },
@@ -613,4 +666,81 @@ export const footerLegalLinks = [
   { label: 'Terms', href: '#footer' },
   { label: 'Security', href: '#footer' },
   { label: 'Status: All systems operational', href: '#footer' },
+];
+
+/* Words that rotate through the hero headline — one per industry playbook. */
+export const heroRoles = [
+  'engineers',
+  'nurses',
+  'analysts',
+  'operators',
+  'cashiers',
+  'advisors',
+];
+
+export interface HeroStage {
+  label: string;
+  status: string;
+  value: string;
+  note: string;
+  /** Share of the original candidate pool still in play, 0-100. */
+  share: number;
+}
+
+/* One requisition followed from first search to signed offer. Illustrative figures. */
+export const heroStages: HeroStage[] = [
+  { label: 'Source', status: 'Sourcing complete', value: '300', note: 'profiles matched across 30+ channels', share: 100 },
+  { label: 'Screen', status: 'Screening complete', value: '214', note: 'of 300 scored in 8 min', share: 71 },
+  { label: 'Assess', status: 'Assessments graded', value: '38', note: 'cleared the calibrated skills test', share: 34 },
+  { label: 'Interview', status: 'Interviews scored', value: '12', note: 'reviewed against your panel rubric', share: 16 },
+  { label: 'Offer', status: 'Offer signed', value: 'Day 19', note: 'pre-boarding already under way', share: 6 },
+];
+
+export interface Agent {
+  /** Short label under the station in the scene. */
+  station: string;
+  name: string;
+  body: string;
+  /** Candidates still in play once this agent has finished. Illustrative figures. */
+  count: number;
+  countLabel: string;
+}
+
+/* The scroll-driven scene: five agents hand one requisition down the line. */
+export const agents: Agent[] = [
+  {
+    station: 'Source',
+    name: 'Sourcing agent',
+    body: 'Searches 30+ channels and the database you already own, then pulls every matching profile into one pool.',
+    count: 300,
+    countLabel: 'profiles matched',
+  },
+  {
+    station: 'Screen',
+    name: 'Screening agent',
+    body: 'Parses each resume, extracts the skills and ranks every candidate, with the reasons attached to each score.',
+    count: 214,
+    countLabel: 'scored in 8 minutes',
+  },
+  {
+    station: 'Assess',
+    name: 'Assessment agent',
+    body: 'Runs calibrated technical and aptitude tests around the clock and grades them against your bar.',
+    count: 38,
+    countLabel: 'cleared the skills test',
+  },
+  {
+    station: 'Interview',
+    name: 'Interview agent',
+    body: 'Holds structured interviews, transcribes them and scores each answer on the rubric your panel agreed.',
+    count: 12,
+    countLabel: 'on the shortlist, evidence attached',
+  },
+  {
+    station: 'Offer',
+    name: 'Offer agent',
+    body: 'Your panel makes the call. The agent drafts the letter, collects the signature and starts pre-boarding.',
+    count: 1,
+    countLabel: 'offer signed on day 19',
+  },
 ];

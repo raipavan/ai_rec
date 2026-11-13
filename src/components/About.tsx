@@ -1,15 +1,17 @@
-import { team, timeline, values } from '../data/content';
+import { hires, timeline, values } from '../data/content';
 import { Reveal } from './Reveal';
 import { SectionHead } from './SectionHead';
 
 export function About() {
   return (
-    <section className="section section--tint" id="about">
+    <section className="section section--light" id="about">
       <div className="container">
         <div className="split" style={{ marginBottom: 88 }}>
           <Reveal className="split-copy" variant="left">
             <p className="eyebrow">About TalentPool365</p>
-            <h2>Built by recruiters who were tired of recruiting software</h2>
+            <h2>
+              Built by recruiters who were <em className="accent">tired of recruiting software</em>
+            </h2>
             <p>
               TalentPool365 started in 2019 inside a 40-person agency that was drowning in resumes.
               The first version was an internal matching tool; it cut their screening workload by
@@ -39,7 +41,7 @@ export function About() {
           </Reveal>
         </div>
 
-        <SectionHead eyebrow="What we optimize for" title="Four commitments we hire and ship by" />
+        <SectionHead eyebrow="What we optimize for" title="Four commitments we *hire and ship by*" />
 
         <div className="grid grid-4 value-grid">
           {values.map((value, index) => (
@@ -51,20 +53,26 @@ export function About() {
         </div>
 
         <SectionHead
-          eyebrow="Leadership"
-          title="The people accountable for the product"
+          eyebrow="People hired"
+          title="The people *hired* through TalentPool365"
           style={{ marginTop: 88 }}
         />
 
-        <div className="grid team-grid">
-          {team.map((member, index) => (
-            <Reveal as="article" key={member.name} className="card team-card" delay={index}>
+        <div className="grid team-grid" id="people-hired">
+          {hires.map((hire, index) => (
+            <Reveal as="article" key={hire.name} className="card team-card" tabIndex={0} delay={index}>
               <span className="team-avatar" aria-hidden="true">
-                {member.initials}
+                {hire.initials}
               </span>
-              <h4>{member.name}</h4>
-              <span className="role">{member.role}</span>
-              <p>{member.bio}</p>
+              <h4>{hire.name}</h4>
+              <span className="team-role">{hire.role}</span>
+              {/* shown on hover / focus; always open on touch screens */}
+              <div className="team-details">
+                <div>
+                  <span className="role">{hire.company}</span>
+                  <p>{hire.detail}</p>
+                </div>
+              </div>
             </Reveal>
           ))}
         </div>

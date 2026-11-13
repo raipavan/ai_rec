@@ -26,7 +26,7 @@ export function Metrics() {
       <span className="grain" aria-hidden="true" />
       <div className="container">
         <SectionHead
-          title="What changes in the first quarter"
+          title="What changes in the *first quarter*"
           style={{ marginBottom: 0 }}
         />
 
