@@ -553,6 +553,41 @@ export const switchRows: SwitchRow[] = [
   },
 ];
 
+export interface Story {
+  stat: string;
+  statLabel: string;
+  quote: string;
+  name: string;
+  role: string;
+}
+
+export const stories: Story[] = [
+  {
+    stat: '54 → 19 days',
+    statLabel: 'time-to-hire, same team size',
+    quote:
+      'We cut time-to-hire from 54 days to 19 without adding a single recruiter. The shortlists arrive with the evidence already attached — my team reviews, they don\u2019t chase.',
+    name: 'Lena Voss',
+    role: 'Head of Talent Acquisition — Meridian Health Group',
+  },
+  {
+    stat: '900',
+    statLabel: 'engineers screened a quarter by two recruiters',
+    quote:
+      'We were screening 900 engineers a quarter with two recruiters. The scoring rubric is the first one our panel actually agreed on — and the first one we can defend when a candidate asks why.',
+    name: 'Marcus Feld',
+    role: 'CTO — Vantek',
+  },
+  {
+    stat: '1 week → 1 afternoon',
+    statLabel: 'to complete an audit review',
+    quote:
+      'Regulated hiring means every decision needs a paper trail. The platform produces one automatically, so audit review that used to take a week now takes an afternoon.',
+    name: 'Priya Nair',
+    role: 'Talent Director — Bluebridge Bank',
+  },
+];
+
 export interface FaqItem {
   question: string;
   answer: string;
