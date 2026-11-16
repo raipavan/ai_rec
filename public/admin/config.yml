@@ -1,0 +1,1212 @@
+# Content manager (Decap CMS) for the TalentPool365 website.
+# Open /admin/ on the site to use it. Every field below maps to a key in the
+# JSON files under /content; saving an entry commits that file to the repo,
+# and the host rebuilds the site.
+#
+# Before going live, replace the three YOUR-... values in `backend` and the
+# site URLs. See "Content manager" in README.md.
+backend:
+  name: github
+  repo: YOUR-GITHUB-USER/YOUR-REPO
+  branch: main
+  base_url: https://YOUR-CMS-AUTH-SERVICE.onrender.com
+  auth_endpoint: auth
+local_backend: true
+site_url: https://YOUR-SITE.onrender.com
+display_url: https://YOUR-SITE.onrender.com
+logo_url: /assets/talentpool365-logo.png
+media_folder: public/assets/uploads
+public_folder: /assets/uploads
+show_preview_links: false
+collections:
+- name: pages
+  label: Pages
+  description: Home, Solutions and Pricing.
+  editor:
+    preview: false
+  files:
+  - name: home
+    label: Home page
+    file: content/home.json
+    fields:
+    - label: 'Hero: rotating words'
+      name: heroRoles
+      widget: list
+      field:
+        label: 'Hero: rotating word'
+        name: item
+        widget: string
+      summary: '{{fields.item}}'
+    - label: 'Hero: proof points'
+      name: heroProof
+      widget: list
+      field:
+        label: 'Hero: proof point'
+        name: item
+        widget: string
+      summary: '{{fields.item}}'
+    - label: 'Hero: requisition walkthrough'
+      name: heroStages
+      widget: list
+      fields:
+      - label: Label
+        name: label
+        widget: string
+      - label: Status
+        name: status
+        widget: string
+      - label: Value
+        name: value
+        widget: string
+      - label: Note
+        name: note
+        widget: text
+      - label: Share
+        name: share
+        widget: number
+        value_type: int
+      summary: '{{fields.label}}'
+      label_singular: 'Hero: requisition walkthrough'
+      collapsed: true
+    - label: Trusted-by logos
+      name: companyLogos
+      widget: list
+      fields:
+      - label: Name
+        name: name
+        widget: string
+      - label: Style
+        name: style
+        widget: select
+        options:
+        - label: Bold
+          value: w1
+        - label: Italic
+          value: w2
+        - label: Spaced capitals
+          value: w3
+        - label: Plain sans
+          value: w4
+        - label: Small capitals
+          value: w5
+        - label: Wide
+          value: w6
+      summary: '{{fields.name}}'
+      label_singular: Trusted-by logo
+      collapsed: true
+    - label: AI agents scene
+      name: agents
+      widget: list
+      fields:
+      - label: Station
+        name: station
+        widget: string
+      - label: Name
+        name: name
+        widget: string
+      - label: Body
+        name: body
+        widget: text
+      - label: Count
+        name: count
+        widget: number
+        value_type: int
+      - label: Count label
+        name: countLabel
+        widget: string
+      summary: '{{fields.name}}'
+      label_singular: AI agents scene
+      collapsed: true
+    - label: Product showcase tabs
+      name: products
+      widget: list
+      fields:
+      - label: Icon
+        name: icon
+        widget: select
+        options: &id001
+        - search
+        - sliders
+        - clipboard-check
+        - video
+        - layout
+        - chart
+        - building
+        - pulse
+        - bank
+        - factory
+        - cart
+        - headset
+        - shield
+        - trend
+        - chat
+        - file-check
+        - users
+        - rocket
+        - globe
+        - cap
+        - briefcase
+        - refresh
+        - layers
+        - cpu
+        - handshake
+        - megaphone
+        - mail
+        - pin
+      - label: Link
+        name: href
+        hint: 'Start with / for a page on this site, # for a section on the same page.'
+        widget: string
+      - label: Title
+        name: title
+        widget: string
+      - label: Body
+        name: body
+        widget: text
+      - label: Bullet points
+        name: points
+        widget: list
+        field:
+          label: Point
+          name: item
+          widget: string
+        summary: '{{fields.item}}'
+      summary: '{{fields.title}}'
+      label_singular: Product showcase tab
+      collapsed: true
+    - label: Inside AI Interviews
+      name: interviewSplit
+      widget: object
+      fields:
+      - label: Eyebrow
+        name: eyebrow
+        widget: string
+      - label: Title
+        name: title
+        widget: string
+      - label: Body
+        name: body
+        widget: text
+      - label: Bullet points
+        name: points
+        widget: list
+        field:
+          label: Point
+          name: item
+          widget: string
+        summary: '{{fields.item}}'
+      - label: Button label
+        name: cta
+        widget: string
+      collapsed: false
+    - label: Demo video
+      name: demoVideo
+      widget: object
+      fields:
+      - label: Video file or link
+        name: src
+        hint: Leave empty to show the poster with a "coming soon" tag.
+        widget: string
+      - label: Poster
+        name: poster
+        widget: image
+      - label: Title
+        name: title
+        widget: string
+      - label: Length
+        name: length
+        widget: string
+      collapsed: false
+    - label: Industries rail
+      name: industries
+      widget: list
+      fields:
+      - label: Icon
+        name: icon
+        widget: select
+        options: *id001
+      - label: Title
+        name: title
+        widget: string
+      - label: Body
+        name: body
+        widget: text
+      - label: Stat figure
+        name: statValue
+        hint: A number in it (48 hrs, 31%, 12,000+) counts up on screen.
+        widget: string
+      - label: Stat caption
+        name: statLabel
+        widget: string
+      summary: '{{fields.title}}'
+      label_singular: Industries rail
+      collapsed: true
+    - label: How it works steps
+      name: steps
+      widget: list
+      fields:
+      - label: Title
+        name: title
+        widget: string
+      - label: Body
+        name: body
+        widget: text
+      summary: '{{fields.title}}'
+      label_singular: How it works step
+      collapsed: true
+    - label: Metrics band
+      name: metrics
+      widget: list
+      fields:
+      - label: Value
+        name: value
+        widget: number
+        value_type: float
+      - label: Suffix
+        name: suffix
+        widget: string
+        required: false
+      - label: Label
+        name: label
+        widget: string
+      - label: Decimals
+        name: decimals
+        widget: number
+        value_type: int
+        required: false
+      summary: '{{fields.label}}'
+      label_singular: Metrics band
+      collapsed: true
+    - label: Why switch rows
+      name: switchRows
+      widget: list
+      fields:
+      - label: Eyebrow
+        name: eyebrow
+        widget: string
+      - label: Title
+        name: title
+        widget: string
+      - label: Body
+        name: body
+        widget: text
+      - label: Bullet points
+        name: points
+        widget: list
+        field:
+          label: Point
+          name: item
+          widget: string
+        summary: '{{fields.item}}'
+      - label: Visual
+        name: visual
+        widget: select
+        options:
+        - search
+        - score
+        - interview
+      summary: '{{fields.title}}'
+      label_singular: Why switch row
+      collapsed: true
+    - label: Integration tiles
+      name: integrations
+      widget: list
+      fields:
+      - label: Mark
+        name: mark
+        widget: string
+      - label: Label
+        name: label
+        widget: string
+      summary: '{{fields.label}}'
+      label_singular: Integration tile
+      collapsed: true
+    - label: Case studies
+      name: caseStudies
+      widget: list
+      fields:
+      - label: Company
+        name: company
+        widget: string
+      - label: Industry
+        name: industry
+        widget: string
+      - label: Stat
+        name: stat
+        widget: string
+      - label: Stat caption
+        name: statLabel
+        widget: string
+      - label: Challenge
+        name: challenge
+        widget: text
+      - label: Approach
+        name: approach
+        widget: text
+      - label: Results
+        name: results
+        widget: list
+        field:
+          label: Result
+          name: item
+          widget: string
+        summary: '{{fields.item}}'
+      summary: '{{fields.company}}'
+      label_singular: Case studie
+      collapsed: true
+    - label: Company timeline
+      name: timeline
+      widget: list
+      fields:
+      - label: Year
+        name: year
+        widget: string
+      - label: Title
+        name: title
+        widget: string
+      - label: Body
+        name: body
+        widget: text
+      summary: '{{fields.title}}'
+      label_singular: Company timeline
+      collapsed: true
+    - label: Company commitments
+      name: values
+      widget: list
+      fields:
+      - label: Title
+        name: title
+        widget: string
+      - label: Body
+        name: body
+        widget: text
+      summary: '{{fields.title}}'
+      label_singular: Company commitment
+      collapsed: true
+    - label: People hired
+      name: hires
+      widget: list
+      fields:
+      - label: Initials
+        name: initials
+        widget: string
+      - label: Name
+        name: name
+        widget: string
+      - label: Role
+        name: role
+        widget: string
+      - label: Company
+        name: company
+        widget: string
+      - label: Detail
+        name: detail
+        widget: text
+      summary: '{{fields.name}}'
+      label_singular: People hired
+      collapsed: true
+    - label: FAQs
+      name: faqs
+      widget: list
+      fields:
+      - label: Question
+        name: question
+        widget: string
+      - label: Answer
+        name: answer
+        widget: text
+      summary: '{{fields.question}}'
+      label_singular: FAQ
+      collapsed: true
+  - name: solutions
+    label: Solutions page
+    file: content/solutions.json
+    fields:
+    - label: By industry
+      name: industrySolutions
+      widget: list
+      fields:
+      - label: Anchor id
+        name: id
+        hint: 'Lowercase words joined by hyphens. Used in links such as #by-industry; changing it breaks existing
+          links.'
+        widget: string
+      - label: Icon
+        name: icon
+        widget: select
+        options: *id001
+      - label: Title
+        name: title
+        widget: string
+      - label: Body
+        name: body
+        widget: text
+      - label: Bullet points
+        name: points
+        widget: list
+        field:
+          label: Point
+          name: item
+          widget: string
+        summary: '{{fields.item}}'
+      - label: Stat figure
+        name: statValue
+        hint: A number in it (48 hrs, 31%, 12,000+) counts up on screen.
+        widget: string
+      - label: Stat caption
+        name: statLabel
+        widget: string
+      summary: '{{fields.title}}'
+      label_singular: By industry
+      collapsed: true
+    - label: By company size
+      name: sizeSolutions
+      widget: list
+      fields:
+      - label: Anchor id
+        name: id
+        hint: 'Lowercase words joined by hyphens. Used in links such as #by-industry; changing it breaks existing
+          links.'
+        widget: string
+      - label: Icon
+        name: icon
+        widget: select
+        options: *id001
+      - label: Title
+        name: title
+        widget: string
+      - label: Profile
+        name: profile
+        widget: string
+      - label: Body
+        name: body
+        widget: text
+      - label: Bullet points
+        name: points
+        widget: list
+        field:
+          label: Point
+          name: item
+          widget: string
+        summary: '{{fields.item}}'
+      - label: Plan
+        name: plan
+        widget: string
+      summary: '{{fields.title}}'
+      label_singular: By company size
+      collapsed: true
+    - label: By use case
+      name: useCaseSolutions
+      widget: list
+      fields:
+      - label: Anchor id
+        name: id
+        hint: 'Lowercase words joined by hyphens. Used in links such as #by-industry; changing it breaks existing
+          links.'
+        widget: string
+      - label: Icon
+        name: icon
+        widget: select
+        options: *id001
+      - label: Title
+        name: title
+        widget: string
+      - label: Body
+        name: body
+        widget: text
+      - label: Bullet points
+        name: points
+        widget: list
+        field:
+          label: Point
+          name: item
+          widget: string
+        summary: '{{fields.item}}'
+      - label: Product showcase tabs
+        name: products
+        hint: Slugs of product pages, e.g. talent-sourcing
+        widget: list
+        field:
+          label: Product showcase tab
+          name: item
+          widget: string
+        summary: '{{fields.item}}'
+      summary: '{{fields.title}}'
+      label_singular: By use case
+      collapsed: true
+  - name: pricing
+    label: Pricing page
+    file: content/pricing.json
+    fields:
+    - label: Plans
+      name: plans
+      widget: list
+      fields:
+      - label: Name
+        name: name
+        widget: string
+      - label: Sub-heading
+        name: sub
+        widget: string
+      - label: Price
+        name: price
+        widget: object
+        fields:
+        - label: Monthly
+          name: monthly
+          widget: number
+          value_type: int
+          required: false
+        - label: Annual
+          name: annual
+          widget: number
+          value_type: int
+          required: false
+        collapsed: false
+        required: false
+        hint: Leave both empty for a plan that shows "Custom" instead of a price.
+      - label: Note
+        name: note
+        widget: text
+      - label: Button label
+        name: cta
+        widget: string
+      - label: Button style
+        name: ctaClass
+        widget: select
+        options:
+        - label: Solid violet
+          value: btn-primary
+        - label: Outline
+          value: btn-outline
+        - label: Dark
+          value: btn-dark
+      - label: Features
+        name: features
+        widget: list
+        field:
+          label: Feature
+          name: item
+          widget: string
+        summary: '{{fields.item}}'
+      - label: Featured
+        name: featured
+        widget: boolean
+        default: false
+        required: false
+      summary: '{{fields.name}}'
+      label_singular: Plan
+      collapsed: true
+    - label: Compare plans table
+      name: compareRows
+      widget: list
+      fields:
+      - label: Feature
+        name: feature
+        widget: string
+      - label: Starter
+        name: starter
+        widget: object
+        fields:
+        - label: Text
+          name: text
+          widget: string
+        - label: Included
+          name: included
+          widget: boolean
+          default: false
+          required: false
+        collapsed: false
+      - label: Professional
+        name: professional
+        widget: object
+        fields:
+        - label: Text
+          name: text
+          widget: string
+        - label: Included
+          name: included
+          widget: boolean
+          default: false
+          required: false
+        collapsed: false
+      - label: Enterprise
+        name: enterprise
+        widget: object
+        fields:
+        - label: Text
+          name: text
+          widget: string
+        - label: Included
+          name: included
+          widget: boolean
+          default: false
+          required: false
+        collapsed: false
+      summary: '{{fields.feature}}'
+      label_singular: Compare plans table
+      collapsed: true
+    - label: Included in every plan
+      name: planBasics
+      widget: list
+      field:
+        label: Included in every plan
+        name: item
+        widget: string
+      summary: '{{fields.item}}'
+    - label: Billing questions
+      name: pricingFaqs
+      widget: list
+      fields:
+      - label: Question
+        name: question
+        widget: string
+      - label: Answer
+        name: answer
+        widget: text
+      summary: '{{fields.question}}'
+      label_singular: Billing question
+      collapsed: true
+- name: products
+  label: Product pages
+  label_singular: Product page
+  description: One entry per product. A new entry becomes a new page at /products/<slug>.
+  folder: content/products
+  extension: json
+  format: json
+  create: true
+  slug: '{{fields.slug}}'
+  identifier_field: title
+  summary: '{{order}}. {{title}}'
+  sortable_fields:
+  - order
+  - title
+  editor:
+    preview: false
+  fields:
+  - label: Order in the product list
+    name: order
+    hint: 1 comes first.
+    widget: number
+    value_type: int
+  - label: Page address (slug)
+    name: slug
+    hint: Lowercase words joined by hyphens. Becomes /products/<slug>.
+    widget: string
+  - label: Icon
+    name: icon
+    widget: select
+    options: *id001
+  - label: Hero illustration
+    name: mock
+    widget: select
+    options:
+    - label: Search results
+      value: 0
+    - label: Ranked shortlist
+      value: 1
+    - label: Assessment score
+      value: 2
+    - label: Interview recording
+      value: 3
+    - label: Pipeline board
+      value: 4
+    - label: Funnel chart
+      value: 5
+    - label: Candidate chat
+      value: 6
+    - label: Offer letter
+      value: 7
+    - label: Audit log
+      value: 8
+  - label: Bot costume
+    name: bot
+    widget: select
+    options:
+    - label: Sourcing (radar dish)
+      value: 0
+    - label: Screening (scanner visor)
+      value: 1
+    - label: Assessment (cap and glasses)
+      value: 2
+    - label: Interview (headset)
+      value: 3
+    - label: Offer (tie)
+      value: 4
+  - label: Position in the platform
+    name: kind
+    widget: select
+    options:
+    - label: A stage of the hiring line
+      value: stage
+    - label: A layer under every stage
+      value: layer
+  - label: Title
+    name: title
+    widget: string
+  - label: Summary
+    name: summary
+    widget: text
+  - label: Page headline
+    name: headline
+    hint: Wrap the phrase to highlight in *asterisks*.
+    widget: string
+  - label: Intro paragraph
+    name: lede
+    widget: text
+  - label: Capabilities
+    name: capabilities
+    widget: list
+    fields:
+    - label: Anchor id
+      name: id
+      hint: 'Lowercase words joined by hyphens. Used in links such as #by-industry; changing it breaks existing
+        links.'
+      widget: string
+    - label: Title
+      name: title
+      widget: string
+    - label: Body
+      name: body
+      widget: text
+    - label: Bullet points
+      name: points
+      widget: list
+      field:
+        label: Point
+        name: item
+        widget: string
+      summary: '{{fields.item}}'
+    summary: '{{fields.title}}'
+    label_singular: Capabilitie
+    collapsed: true
+  - label: Outcome figures
+    name: outcomes
+    widget: list
+    fields:
+    - label: Value
+      name: value
+      hint: A number in it counts up on screen.
+      widget: string
+    - label: Label
+      name: label
+      widget: string
+    summary: '{{fields.label}}'
+    label_singular: Outcome figure
+    collapsed: true
+- name: company
+  label: Company pages
+  description: Leadership, Careers, Partners, Technology, News and Contact.
+  editor:
+    preview: false
+  files:
+  - name: leadership
+    label: Leadership team
+    file: content/company/leadership.json
+    fields:
+    - label: Leaders
+      name: leaders
+      widget: list
+      fields:
+      - label: Initials
+        name: initials
+        widget: string
+      - label: Name
+        name: name
+        widget: string
+      - label: Title
+        name: title
+        widget: string
+      - label: Bio
+        name: bio
+        widget: text
+      - label: Owns
+        name: owns
+        widget: string
+      summary: '{{fields.title}}'
+      label_singular: Leader
+      collapsed: true
+    - label: How the team leads
+      name: leadershipPrinciples
+      widget: list
+      fields:
+      - label: Title
+        name: title
+        widget: string
+      - label: Body
+        name: body
+        widget: text
+      summary: '{{fields.title}}'
+      label_singular: How the team lead
+      collapsed: true
+  - name: careers
+    label: Careers
+    file: content/company/careers.json
+    fields:
+    - label: How we work
+      name: workPrinciples
+      widget: list
+      fields:
+      - label: Icon
+        name: icon
+        widget: select
+        options: *id001
+      - label: Title
+        name: title
+        widget: string
+      - label: Body
+        name: body
+        widget: text
+      summary: '{{fields.title}}'
+      label_singular: How we work
+      collapsed: true
+    - label: Benefits
+      name: benefits
+      widget: list
+      field:
+        label: Benefit
+        name: item
+        widget: string
+      summary: '{{fields.item}}'
+    - label: Open roles
+      name: vacancies
+      widget: list
+      fields:
+      - label: Title
+        name: title
+        widget: string
+      - label: Team
+        name: team
+        widget: string
+      - label: Location
+        name: location
+        widget: string
+      - label: Type
+        name: type
+        widget: string
+      summary: '{{fields.title}}'
+      label_singular: Open role
+      collapsed: true
+    - label: How we hire
+      name: hiringSteps
+      widget: list
+      fields:
+      - label: Title
+        name: title
+        widget: string
+      - label: Body
+        name: body
+        widget: text
+      summary: '{{fields.title}}'
+      label_singular: How we hire
+      collapsed: true
+  - name: partners
+    label: Partners
+    file: content/company/partners.json
+    fields:
+    - label: Partner programmes
+      name: partnerPrograms
+      widget: list
+      fields:
+      - label: Icon
+        name: icon
+        widget: select
+        options: *id001
+      - label: Title
+        name: title
+        widget: string
+      - label: Who
+        name: who
+        widget: string
+      - label: Body
+        name: body
+        widget: text
+      - label: Bullet points
+        name: points
+        widget: list
+        field:
+          label: Point
+          name: item
+          widget: string
+        summary: '{{fields.item}}'
+      summary: '{{fields.title}}'
+      label_singular: Partner programme
+      collapsed: true
+    - label: How to become a partner
+      name: partnerSteps
+      widget: list
+      fields:
+      - label: Title
+        name: title
+        widget: string
+      - label: Body
+        name: body
+        widget: text
+      summary: '{{fields.title}}'
+      label_singular: How to become a partner
+      collapsed: true
+  - name: technology
+    label: Technology & innovation
+    file: content/company/technology.json
+    fields:
+    - label: How a score gets made
+      name: scoreSteps
+      widget: list
+      fields:
+      - label: Title
+        name: title
+        widget: string
+      - label: Body
+        name: body
+        widget: text
+      summary: '{{fields.title}}'
+      label_singular: How a score gets made
+      collapsed: true
+    - label: Guardrails
+      name: guardrails
+      widget: list
+      fields:
+      - label: Icon
+        name: icon
+        widget: select
+        options: *id001
+      - label: Title
+        name: title
+        widget: string
+      - label: Body
+        name: body
+        widget: text
+      summary: '{{fields.title}}'
+      label_singular: Guardrail
+      collapsed: true
+    - label: Platform figures
+      name: platformFacts
+      widget: list
+      fields:
+      - label: Value
+        name: value
+        hint: A number in it counts up on screen.
+        widget: string
+      - label: Label
+        name: label
+        widget: string
+      summary: '{{fields.label}}'
+      label_singular: Platform figure
+      collapsed: true
+    - label: Platform building blocks
+      name: buildingBlocks
+      widget: list
+      fields:
+      - label: Title
+        name: title
+        widget: string
+      - label: Body
+        name: body
+        widget: text
+      summary: '{{fields.title}}'
+      label_singular: Platform building block
+      collapsed: true
+    - label: Current research
+      name: researchTracks
+      widget: list
+      fields:
+      - label: Title
+        name: title
+        widget: string
+      - label: Body
+        name: body
+        widget: text
+      summary: '{{fields.title}}'
+      label_singular: Current research
+      collapsed: true
+  - name: news
+    label: News & press releases
+    file: content/company/news.json
+    fields:
+    - label: Press releases
+      name: pressItems
+      widget: list
+      fields:
+      - label: Date
+        name: date
+        widget: string
+      - label: Date for search engines (YYYY-MM)
+        name: iso
+        hint: 'Example: 2026-10'
+        widget: string
+      - label: Tag
+        name: tag
+        widget: string
+      - label: Title
+        name: title
+        widget: string
+      - label: Summary
+        name: summary
+        widget: text
+      summary: '{{fields.title}}'
+      label_singular: Press release
+      collapsed: true
+    - label: Media kit files
+      name: mediaAssets
+      widget: list
+      fields:
+      - label: Label
+        name: label
+        widget: string
+      - label: Link
+        name: href
+        hint: 'Start with / for a page on this site, # for a section on the same page.'
+        widget: string
+      summary: '{{fields.label}}'
+      label_singular: Media kit file
+      collapsed: true
+  - name: contact
+    label: Contact us
+    file: content/company/contact.json
+    fields:
+    - label: Offices
+      name: offices
+      widget: list
+      fields:
+      - label: City
+        name: city
+        widget: string
+      - label: Role
+        name: role
+        widget: string
+      - label: Detail
+        name: detail
+        widget: text
+      - label: Hours
+        name: hours
+        widget: string
+      summary: '{{fields.city}}'
+      label_singular: Office
+      collapsed: true
+    - label: Team email addresses
+      name: contactChannels
+      widget: list
+      fields:
+      - label: Icon
+        name: icon
+        widget: select
+        options: *id001
+      - label: Title
+        name: title
+        widget: string
+      - label: Body
+        name: body
+        widget: text
+      - label: Email
+        name: email
+        widget: string
+      summary: '{{fields.title}}'
+      label_singular: Team email addresse
+      collapsed: true
+- name: settings
+  label: Site settings
+  editor:
+    preview: false
+  files:
+  - name: navigation
+    label: Navigation and footer
+    file: content/navigation.json
+    fields:
+    - label: Header menu
+      name: navItems
+      widget: list
+      fields:
+      - label: Anchor id
+        name: id
+        hint: 'Lowercase words joined by hyphens. Used in links such as #by-industry; changing it breaks existing
+          links.'
+        widget: string
+      - label: Label
+        name: label
+        widget: string
+      - label: Link
+        name: href
+        hint: 'Start with / for a page on this site, # for a section on the same page.'
+        widget: string
+      - label: Menu intro column
+        name: intro
+        widget: object
+        fields:
+        - label: Title
+          name: title
+          widget: string
+          required: false
+        - label: Blurb
+          name: blurb
+          widget: text
+          required: false
+        - label: Image
+          name: image
+          widget: image
+          required: false
+        collapsed: false
+        required: false
+        hint: Left column of the desktop dropdown. Leave empty for a menu without it.
+      - label: Links
+        name: links
+        widget: list
+        fields:
+        - label: Label
+          name: label
+          widget: string
+        - label: Link
+          name: href
+          hint: 'Start with / for a page on this site, # for a section on the same page.'
+          widget: string
+        - label: Description
+          name: desc
+          widget: text
+        summary: '{{fields.label}}'
+        label_singular: Link
+        collapsed: true
+        required: false
+      - label: Path prefix that marks this item current
+        name: match
+        widget: string
+        required: false
+      summary: '{{fields.label}}'
+      label_singular: Header menu
+      collapsed: true
+    - label: Footer columns
+      name: footerColumns
+      widget: list
+      fields:
+      - label: Title
+        name: title
+        widget: string
+      - label: Links
+        name: links
+        widget: list
+        fields:
+        - label: Label
+          name: label
+          widget: string
+        - label: Link
+          name: href
+          hint: 'Start with / for a page on this site, # for a section on the same page.'
+          widget: string
+        summary: '{{fields.label}}'
+        label_singular: Link
+        collapsed: true
+      summary: '{{fields.title}}'
+      label_singular: Footer column
+      collapsed: true
+    - label: Footer bottom links
+      name: footerLegalLinks
+      widget: list
+      fields:
+      - label: Label
+        name: label
+        widget: string
+      - label: Link
+        name: href
+        hint: 'Start with / for a page on this site, # for a section on the same page.'
+        widget: string
+      summary: '{{fields.label}}'
+      label_singular: Footer bottom link
+      collapsed: true

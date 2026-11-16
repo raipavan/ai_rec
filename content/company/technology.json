@@ -1,0 +1,88 @@
+{
+  "scoreSteps": [
+    {
+      "title": "Read",
+      "body": "Resumes, test answers and interview transcripts are turned into structured facts: skills, how recently they were used, and for how long."
+    },
+    {
+      "title": "Match",
+      "body": "Those facts are compared with the role profile. Must-haves and nice-to-haves are weighted the way your hiring manager set them."
+    },
+    {
+      "title": "Score",
+      "body": "Each criterion in your rubric gets a score, and each score links to the evidence it came from. Protected characteristics are never inputs."
+    },
+    {
+      "title": "Review",
+      "body": "A recruiter sees the ranking and the reasons, can override any score, and makes the decision. The model never rejects anyone."
+    }
+  ],
+  "guardrails": [
+    {
+      "icon": "search",
+      "title": "Explainable by design",
+      "body": "If the system cannot show why a candidate ranked where they did, the feature does not ship."
+    },
+    {
+      "icon": "sliders",
+      "title": "Audited for bias every quarter",
+      "body": "Pass-through rates are tested across monitored groups, and the results go to customers unedited."
+    },
+    {
+      "icon": "users",
+      "title": "A human decides",
+      "body": "AI shortlists and recruiters choose. Proctoring flags are reviewed by a person before any action."
+    },
+    {
+      "icon": "shield",
+      "title": "Your data stays yours",
+      "body": "Candidate data is never used to train shared models, and can be held in the EU on request."
+    }
+  ],
+  "platformFacts": [
+    {
+      "value": "SOC 2",
+      "label": "Type II certified"
+    },
+    {
+      "value": "99.9%",
+      "label": "uptime SLA on Enterprise"
+    },
+    {
+      "value": "2M+",
+      "label": "interviews processed a year"
+    },
+    {
+      "value": "40",
+      "label": "countries with active hiring"
+    }
+  ],
+  "buildingBlocks": [
+    {
+      "title": "Open by default",
+      "body": "A REST API and webhooks for every object in the platform, so your ATS and HRMS remain the system of record."
+    },
+    {
+      "title": "Built for hiring peaks",
+      "body": "Screening and interviews scale with demand, so a seasonal wave of ten thousand applicants is scored as quickly as ten."
+    },
+    {
+      "title": "Enterprise sign-in and access",
+      "body": "SSO / SAML, role-based permissions and a full audit trail of who saw and changed what."
+    }
+  ],
+  "researchTracks": [
+    {
+      "title": "Skills that transfer",
+      "body": "Recognising when experience in one field predicts success in another, to widen talent pools for hard-to-fill roles."
+    },
+    {
+      "title": "Fairer voice interviews",
+      "body": "Reducing the effect of accent and audio quality on transcription, so scoring depends on what was said."
+    },
+    {
+      "title": "Clearer candidate feedback",
+      "body": "Turning rubric scores into feedback an unsuccessful candidate can actually use."
+    }
+  ]
+}

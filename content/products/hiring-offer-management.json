@@ -1,0 +1,78 @@
+{
+  "order": 7,
+  "slug": "hiring-offer-management",
+  "icon": "file-check",
+  "mock": 7,
+  "bot": 4,
+  "kind": "stage",
+  "title": "Hiring & Offer Management",
+  "summary": "Final interviews, decisions, offer letters, e-signature and pre-onboarding.",
+  "headline": "From final interview to *signed offer* in one flow",
+  "lede": "The last mile is where good candidates are lost. Panels decide with the evidence in front of them, the offer goes out the same day, and pre-onboarding starts when it is signed.",
+  "capabilities": [
+    {
+      "id": "final-interview-management",
+      "title": "Final Interview Management",
+      "body": "Plan panel interviews with the right people, a question plan for each interviewer and the candidate’s full history attached.",
+      "points": [
+        "Interview kits built from earlier evidence",
+        "Panel availability matched in one step",
+        "No topic covered twice"
+      ]
+    },
+    {
+      "id": "hiring-decisions",
+      "title": "Hiring Decisions",
+      "body": "A debrief view with every scorecard side by side, so the decision and the reasons for it are recorded together.",
+      "points": [
+        "Finalists compared on the same criteria",
+        "Decision, reasons and approvers logged",
+        "Unsuccessful finalists added to the talent pool"
+      ]
+    },
+    {
+      "id": "offer-letter-generation",
+      "title": "Offer Letter Generation",
+      "body": "Offer letters produced from approved templates and salary bands, with the figures pulled from the requisition.",
+      "points": [
+        "Templates by country, grade and contract type",
+        "Compensation checked against the approved band",
+        "Approval chain before anything is sent"
+      ]
+    },
+    {
+      "id": "e-signature-integration",
+      "title": "E-Signature Integration",
+      "body": "Candidates sign on any device. You see when the offer was opened, signed or left waiting.",
+      "points": [
+        "Sign on a phone or laptop, no account needed",
+        "Reminders for unsigned offers",
+        "Signed copy filed to the candidate and your HRMS"
+      ]
+    },
+    {
+      "id": "pre-onboarding",
+      "title": "Pre-Onboarding",
+      "body": "Collect documents, run background checks and share first-day details in the gap between signature and start date.",
+      "points": [
+        "Document checklist by role and country",
+        "Background check status in the pipeline",
+        "New-hire record handed to your HRMS"
+      ]
+    }
+  ],
+  "outcomes": [
+    {
+      "value": "Day 19",
+      "label": "median signed offer on a requisition run end to end"
+    },
+    {
+      "value": "Same day",
+      "label": "from panel decision to offer letter sent"
+    },
+    {
+      "value": "1",
+      "label": "flow for letter, signature and pre-onboarding"
+    }
+  ]
+}

@@ -1,0 +1,55 @@
+{
+  "partnerPrograms": [
+    {
+      "icon": "cpu",
+      "title": "Technology partners",
+      "who": "ATS, HRMS, assessment and background-check providers",
+      "body": "Build a supported connection to TalentPool365 using the REST API and webhooks, and list it for our shared customers.",
+      "points": [
+        "Sandbox and technical documentation",
+        "Joint solution brief",
+        "Listing in the integration directory"
+      ]
+    },
+    {
+      "icon": "layers",
+      "title": "Implementation partners",
+      "who": "HR consultancies and system integrators",
+      "body": "Roll the platform out for enterprise customers: process design, data migration, rubric workshops and training.",
+      "points": [
+        "Certification for your consultants",
+        "Partner success manager",
+        "Early access to new releases"
+      ]
+    },
+    {
+      "icon": "handshake",
+      "title": "Referral & reseller partners",
+      "who": "Recruitment agencies, RPOs and advisors",
+      "body": "Introduce TalentPool365 to your clients, or resell it as part of your own service under a commercial agreement.",
+      "points": [
+        "Deal registration",
+        "Co-selling with our team",
+        "Revenue share on referred customers"
+      ]
+    }
+  ],
+  "partnerSteps": [
+    {
+      "title": "Tell us about your business",
+      "body": "Use the form on this page. A partner manager replies within two business days."
+    },
+    {
+      "title": "Agree the fit",
+      "body": "A short call to confirm the programme, the customers you serve and the commercial terms."
+    },
+    {
+      "title": "Get enabled",
+      "body": "Sandbox access, training and certification for your team."
+    },
+    {
+      "title": "Go to market together",
+      "body": "Joint plan, shared pipeline and a named contact on our side."
+    }
+  ]
+}

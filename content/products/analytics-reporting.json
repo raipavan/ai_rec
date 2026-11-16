@@ -1,0 +1,78 @@
+{
+  "order": 8,
+  "slug": "analytics-reporting",
+  "icon": "chart",
+  "mock": 5,
+  "bot": 1,
+  "kind": "layer",
+  "title": "Analytics & Reporting",
+  "summary": "KPI dashboards that explain the funnel, the sources and the team.",
+  "headline": "Hiring numbers that *explain themselves*",
+  "lede": "Because every stage runs on one platform, the reports are complete. See where candidates come from, where they drop out and how long each step really takes.",
+  "capabilities": [
+    {
+      "id": "recruitment-kpi-dashboard",
+      "title": "Recruitment KPI Dashboard",
+      "body": "Time to hire, time in stage, offer acceptance and cost per hire, live, for a single role or the whole organization.",
+      "points": [
+        "Drill from a number to the candidates behind it",
+        "Compare teams, locations and periods",
+        "Scheduled reports by email"
+      ]
+    },
+    {
+      "id": "source-effectiveness",
+      "title": "Source Effectiveness",
+      "body": "See which boards, agencies and campaigns produce hires rather than applications, and what each one costs.",
+      "points": [
+        "Source tracked from first touch to hire",
+        "Cost and quality per channel",
+        "Shows where to move budget"
+      ]
+    },
+    {
+      "id": "diversity-analytics",
+      "title": "Diversity Analytics",
+      "body": "Pass-through rates by stage for the groups you choose to monitor, reported in aggregate and separate from any decision.",
+      "points": [
+        "Voluntary self-identification only",
+        "Aggregated, never shown per candidate",
+        "Adverse impact ratios by stage"
+      ]
+    },
+    {
+      "id": "hiring-funnel-analysis",
+      "title": "Hiring Funnel Analysis",
+      "body": "Conversion at every stage of every role, so a slow requisition shows you exactly where it is stuck.",
+      "points": [
+        "Stage-by-stage conversion and timing",
+        "Benchmarks against your own past roles",
+        "Drop-off reasons captured"
+      ]
+    },
+    {
+      "id": "recruiter-productivity",
+      "title": "Recruiter Productivity",
+      "body": "Workload, response times and outcomes per recruiter, to balance requisitions fairly across the team.",
+      "points": [
+        "Open roles and candidates per recruiter",
+        "Time to first contact and to feedback",
+        "Built for coaching, not league tables"
+      ]
+    }
+  ],
+  "outcomes": [
+    {
+      "value": "68%",
+      "label": "shorter median time-to-hire across active customers"
+    },
+    {
+      "value": "5",
+      "label": "funnel stages measured on every requisition"
+    },
+    {
+      "value": "1",
+      "label": "source of truth, synced with your ATS"
+    }
+  ]
+}

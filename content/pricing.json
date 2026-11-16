@@ -1,0 +1,190 @@
+{
+  "plans": [
+    {
+      "name": "Starter",
+      "sub": "For small teams coming off spreadsheets.",
+      "price": {
+        "monthly": 149,
+        "annual": 119
+      },
+      "note": "billed monthly",
+      "cta": "Start free trial",
+      "ctaClass": "btn-outline",
+      "features": [
+        "3 active job roles",
+        "500 candidate profiles / month",
+        "AI screening & ranking",
+        "Email support"
+      ]
+    },
+    {
+      "name": "Professional",
+      "sub": "For growing teams that live in their ATS.",
+      "price": {
+        "monthly": 399,
+        "annual": 319
+      },
+      "note": "billed monthly",
+      "cta": "Start free trial",
+      "ctaClass": "btn-primary",
+      "featured": true,
+      "features": [
+        "25 active job roles",
+        "Unlimited candidate profiles",
+        "AI assessments & interviews",
+        "ATS, WhatsApp & calendar integrations",
+        "Priority support"
+      ]
+    },
+    {
+      "name": "Enterprise",
+      "sub": "For global and regulated organizations.",
+      "price": null,
+      "note": "annual agreement",
+      "cta": "Request a quote",
+      "ctaClass": "btn-dark",
+      "features": [
+        "Unlimited roles & regions",
+        "SSO / SAML & audit trails",
+        "Fair-hiring AI audits & DPIA support",
+        "Dedicated success manager",
+        "99.9% uptime SLA"
+      ]
+    }
+  ],
+  "compareRows": [
+    {
+      "feature": "AI candidate matching",
+      "starter": {
+        "text": "Included",
+        "included": true
+      },
+      "professional": {
+        "text": "Included",
+        "included": true
+      },
+      "enterprise": {
+        "text": "Included",
+        "included": true
+      }
+    },
+    {
+      "feature": "AI assessments",
+      "starter": {
+        "text": "—",
+        "included": false
+      },
+      "professional": {
+        "text": "Included",
+        "included": true
+      },
+      "enterprise": {
+        "text": "Included",
+        "included": true
+      }
+    },
+    {
+      "feature": "AI interviews with proctoring",
+      "starter": {
+        "text": "—",
+        "included": false
+      },
+      "professional": {
+        "text": "Included",
+        "included": true
+      },
+      "enterprise": {
+        "text": "Included",
+        "included": true
+      }
+    },
+    {
+      "feature": "ATS & HRMS integrations",
+      "starter": {
+        "text": "—",
+        "included": false
+      },
+      "professional": {
+        "text": "2 included",
+        "included": true
+      },
+      "enterprise": {
+        "text": "Unlimited",
+        "included": true
+      }
+    },
+    {
+      "feature": "WhatsApp & email automation",
+      "starter": {
+        "text": "—",
+        "included": false
+      },
+      "professional": {
+        "text": "Included",
+        "included": true
+      },
+      "enterprise": {
+        "text": "Included",
+        "included": true
+      }
+    },
+    {
+      "feature": "SSO / SAML & audit trails",
+      "starter": {
+        "text": "—",
+        "included": false
+      },
+      "professional": {
+        "text": "—",
+        "included": false
+      },
+      "enterprise": {
+        "text": "Included",
+        "included": true
+      }
+    },
+    {
+      "feature": "Dedicated success manager",
+      "starter": {
+        "text": "—",
+        "included": false
+      },
+      "professional": {
+        "text": "—",
+        "included": false
+      },
+      "enterprise": {
+        "text": "Included",
+        "included": true
+      }
+    }
+  ],
+  "planBasics": [
+    "Talent sourcing and AI screening",
+    "Recruiter workspace for the whole panel",
+    "No per-seat fees",
+    "14-day trial, no card required"
+  ],
+  "pricingFaqs": [
+    {
+      "question": "What counts as an active job role?",
+      "answer": "A requisition that is open and accepting candidates. Closed and paused roles do not count, and you can reopen a role later without losing its candidates."
+    },
+    {
+      "question": "Do we pay per user?",
+      "answer": "No. Plans are priced by active job roles, so recruiters, hiring managers and interviewers can all review candidates on one subscription."
+    },
+    {
+      "question": "What happens after the 14-day trial?",
+      "answer": "You choose a plan or the workspace is paused. No card is taken up front, and your roles and candidates are kept for 30 days in case you come back."
+    },
+    {
+      "question": "Can we change plan part way through?",
+      "answer": "Yes. Upgrades take effect straight away and are charged pro rata. Downgrades apply from the next billing period."
+    },
+    {
+      "question": "How is Enterprise priced?",
+      "answer": "On hiring volume, regions and the integrations you need. Send the quote form on this page and you will have a written quote within two business days."
+    }
+  ]
+}

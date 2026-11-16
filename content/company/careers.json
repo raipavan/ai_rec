@@ -1,0 +1,110 @@
+{
+  "workPrinciples": [
+    {
+      "icon": "clipboard-check",
+      "title": "We hire with our own product",
+      "body": "Every role has a rubric before it opens, and you can ask to see how you were scored."
+    },
+    {
+      "icon": "globe",
+      "title": "Three hubs, flexible weeks",
+      "body": "Teams sit in Amsterdam, Bengaluru and Austin. Most people are in the office two or three days a week."
+    },
+    {
+      "icon": "users",
+      "title": "Small teams, real ownership",
+      "body": "Squads of five to eight own a product area end to end, including the customer calls."
+    },
+    {
+      "icon": "cap",
+      "title": "Time to get better",
+      "body": "A learning budget, internal talks every fortnight and two hack weeks a year."
+    }
+  ],
+  "benefits": [
+    "Competitive salary with equity for every role",
+    "Health cover for you and your family",
+    "25 days of leave plus local public holidays",
+    "Paid parental leave for all parents",
+    "Annual learning budget",
+    "Home-office and equipment allowance"
+  ],
+  "vacancies": [
+    {
+      "title": "Senior Machine Learning Engineer, Matching",
+      "team": "Engineering",
+      "location": "Amsterdam",
+      "type": "Full-time"
+    },
+    {
+      "title": "Staff Frontend Engineer",
+      "team": "Engineering",
+      "location": "Bengaluru",
+      "type": "Full-time"
+    },
+    {
+      "title": "Site Reliability Engineer",
+      "team": "Engineering",
+      "location": "Bengaluru",
+      "type": "Full-time"
+    },
+    {
+      "title": "Product Manager, AI Interviews",
+      "team": "Product",
+      "location": "Amsterdam",
+      "type": "Full-time"
+    },
+    {
+      "title": "Product Designer",
+      "team": "Product",
+      "location": "Amsterdam or remote (EU)",
+      "type": "Full-time"
+    },
+    {
+      "title": "Enterprise Account Executive",
+      "team": "Sales",
+      "location": "Austin",
+      "type": "Full-time"
+    },
+    {
+      "title": "Solutions Consultant",
+      "team": "Sales",
+      "location": "Bengaluru",
+      "type": "Full-time"
+    },
+    {
+      "title": "Customer Success Manager",
+      "team": "Customer Success",
+      "location": "Austin",
+      "type": "Full-time"
+    },
+    {
+      "title": "Implementation Specialist",
+      "team": "Customer Success",
+      "location": "Amsterdam",
+      "type": "Full-time"
+    }
+  ],
+  "hiringSteps": [
+    {
+      "title": "Apply",
+      "body": "Send a resume. No cover letter needed. You hear back within five working days."
+    },
+    {
+      "title": "Skills task",
+      "body": "A short, role-specific exercise on our own assessment product, done when it suits you."
+    },
+    {
+      "title": "Structured interview",
+      "body": "The same questions for every candidate, scored on the rubric published with the role."
+    },
+    {
+      "title": "Meet the team",
+      "body": "A conversation with the people you would work with. Bring your own questions."
+    },
+    {
+      "title": "Offer",
+      "body": "A written offer within two days of the decision, with feedback whatever the outcome."
+    }
+  ]
+}

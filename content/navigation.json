@@ -1,0 +1,345 @@
+{
+  "navItems": [
+    {
+      "id": "home",
+      "label": "Home",
+      "href": "/"
+    },
+    {
+      "id": "products",
+      "label": "Products",
+      "href": "/products",
+      "intro": {
+        "title": "Our Hiring Products",
+        "blurb": "Every step of hiring, from the first search to the signed offer, on one platform.",
+        "image": "/assets/dashboard-hero.jpg"
+      },
+      "links": [
+        {
+          "label": "Platform Overview",
+          "href": "/products",
+          "desc": "How the nine products fit together, from requisition to onboarding."
+        },
+        {
+          "label": "Talent Sourcing",
+          "href": "/products/talent-sourcing",
+          "desc": "Find candidates across your ATS, job boards and referral pools in one search."
+        },
+        {
+          "label": "Candidate Screening",
+          "href": "/products/candidate-screening",
+          "desc": "Every application parsed, ranked and shortlisted, with the reasons shown."
+        },
+        {
+          "label": "AI Assessments",
+          "href": "/products/ai-assessments",
+          "desc": "Technical, aptitude and cognitive tests that grade themselves against your bar."
+        },
+        {
+          "label": "AI Interviews",
+          "href": "/products/ai-interviews",
+          "desc": "Structured video, voice and coding interviews scored on a consistent rubric."
+        },
+        {
+          "label": "Recruiter Workspace",
+          "href": "/products/recruiter-workspace",
+          "desc": "A shared pipeline with notes, feedback and approval workflows."
+        },
+        {
+          "label": "Candidate Engagement",
+          "href": "/products/candidate-engagement",
+          "desc": "Chatbot, WhatsApp and email follow-ups that keep every candidate informed."
+        },
+        {
+          "label": "Hiring & Offer Management",
+          "href": "/products/hiring-offer-management",
+          "desc": "Final interviews, decisions, offer letters, e-signature and pre-onboarding."
+        },
+        {
+          "label": "Analytics & Reporting",
+          "href": "/products/analytics-reporting",
+          "desc": "KPI dashboards that explain the funnel, the sources and the team."
+        },
+        {
+          "label": "Compliance & Security",
+          "href": "/products/compliance-security",
+          "desc": "GDPR, audit trails, fair-hiring checks and the controls behind them."
+        }
+      ]
+    },
+    {
+      "id": "solutions",
+      "label": "Solutions",
+      "href": "/solutions",
+      "intro": {
+        "title": "Our Hiring Solutions",
+        "blurb": "Hiring workflows tuned to the roles, volumes and rules of your organization.",
+        "image": "/assets/workspace-analytics.jpg"
+      },
+      "links": [
+        {
+          "label": "By Industry",
+          "href": "/solutions#by-industry",
+          "desc": "IT, healthcare, BFSI, manufacturing, retail and BPO playbooks."
+        },
+        {
+          "label": "By Company Size",
+          "href": "/solutions#by-company-size",
+          "desc": "Startups, mid-market, large enterprises and global organizations."
+        },
+        {
+          "label": "By Use Case",
+          "href": "/solutions#by-use-case",
+          "desc": "High-volume, campus, executive, contract, internal mobility and agencies."
+        }
+      ]
+    },
+    {
+      "id": "pricing",
+      "label": "Pricing",
+      "href": "/pricing"
+    },
+    {
+      "id": "about",
+      "label": "About Us",
+      "href": "/company/about",
+      "match": "/company",
+      "intro": {
+        "title": "Our Company",
+        "blurb": "Built by recruiters who were tired of recruiting software. Here is who we are and how we work.",
+        "image": "/assets/workspace-analytics.jpg"
+      },
+      "links": [
+        {
+          "label": "About Us",
+          "href": "/company/about",
+          "desc": "Where the platform came from and the commitments we ship by."
+        },
+        {
+          "label": "Leadership Team",
+          "href": "/company/leadership",
+          "desc": "The people accountable for the product, the models and your data."
+        },
+        {
+          "label": "Careers",
+          "href": "/company/careers",
+          "desc": "Open roles, how we work and how we hire."
+        },
+        {
+          "label": "Partners",
+          "href": "/company/partners",
+          "desc": "Technology, implementation and referral partner programs."
+        },
+        {
+          "label": "Technology & Innovation",
+          "href": "/company/technology",
+          "desc": "How a score gets made, and the guardrails around it."
+        },
+        {
+          "label": "News & Press Releases",
+          "href": "/company/news",
+          "desc": "Announcements, press releases and the media kit."
+        },
+        {
+          "label": "Contact Us",
+          "href": "/company/contact",
+          "desc": "Sales, support and press, with a reply in one business day."
+        }
+      ]
+    }
+  ],
+  "footerColumns": [
+    {
+      "title": "Platform",
+      "links": [
+        {
+          "label": "Platform Overview",
+          "href": "/products"
+        },
+        {
+          "label": "Talent Sourcing",
+          "href": "/products/talent-sourcing"
+        },
+        {
+          "label": "Candidate Screening",
+          "href": "/products/candidate-screening"
+        },
+        {
+          "label": "AI Assessments",
+          "href": "/products/ai-assessments"
+        },
+        {
+          "label": "AI Interviews",
+          "href": "/products/ai-interviews"
+        },
+        {
+          "label": "Recruiter Workspace",
+          "href": "/products/recruiter-workspace"
+        },
+        {
+          "label": "Integrations",
+          "href": "/#integrations"
+        },
+        {
+          "label": "How It Works",
+          "href": "/#how-it-works"
+        }
+      ]
+    },
+    {
+      "title": "Solutions",
+      "links": [
+        {
+          "label": "By Industry",
+          "href": "/solutions#by-industry"
+        },
+        {
+          "label": "By Company Size",
+          "href": "/solutions#by-company-size"
+        },
+        {
+          "label": "By Use Case",
+          "href": "/solutions#by-use-case"
+        },
+        {
+          "label": "Case Studies",
+          "href": "/#case-studies"
+        },
+        {
+          "label": "ROI & Metrics",
+          "href": "/#metrics"
+        },
+        {
+          "label": "Pricing",
+          "href": "/pricing"
+        }
+      ]
+    },
+    {
+      "title": "Resources",
+      "links": [
+        {
+          "label": "Blog",
+          "href": "/#about"
+        },
+        {
+          "label": "AI Recruitment Guides",
+          "href": "/#about"
+        },
+        {
+          "label": "White Papers",
+          "href": "/#about"
+        },
+        {
+          "label": "Webinars",
+          "href": "/#about"
+        },
+        {
+          "label": "FAQs",
+          "href": "/#faq"
+        }
+      ]
+    },
+    {
+      "title": "Company",
+      "links": [
+        {
+          "label": "About Us",
+          "href": "/company/about"
+        },
+        {
+          "label": "Leadership Team",
+          "href": "/company/leadership"
+        },
+        {
+          "label": "Careers",
+          "href": "/company/careers"
+        },
+        {
+          "label": "Partners",
+          "href": "/company/partners"
+        },
+        {
+          "label": "Technology & Innovation",
+          "href": "/company/technology"
+        },
+        {
+          "label": "News & Press",
+          "href": "/company/news"
+        },
+        {
+          "label": "Contact Us",
+          "href": "/company/contact"
+        }
+      ]
+    },
+    {
+      "title": "Support",
+      "links": [
+        {
+          "label": "Help Center",
+          "href": "/company/contact"
+        },
+        {
+          "label": "Documentation",
+          "href": "/company/contact"
+        },
+        {
+          "label": "Training Academy",
+          "href": "/company/contact"
+        },
+        {
+          "label": "Raise a Ticket",
+          "href": "/company/contact"
+        },
+        {
+          "label": "System Status",
+          "href": "/company/contact"
+        }
+      ]
+    },
+    {
+      "title": "Legal",
+      "links": [
+        {
+          "label": "Privacy Policy",
+          "href": "#footer"
+        },
+        {
+          "label": "Terms of Service",
+          "href": "#footer"
+        },
+        {
+          "label": "Cookies Policy",
+          "href": "#footer"
+        },
+        {
+          "label": "GDPR Compliance",
+          "href": "/products/compliance-security#gdpr-compliance"
+        },
+        {
+          "label": "Responsible AI Policy",
+          "href": "/company/technology#guardrails"
+        }
+      ]
+    }
+  ],
+  "footerLegalLinks": [
+    {
+      "label": "Privacy",
+      "href": "#footer"
+    },
+    {
+      "label": "Terms",
+      "href": "#footer"
+    },
+    {
+      "label": "Security",
+      "href": "/products/compliance-security"
+    },
+    {
+      "label": "Status: All systems operational",
+      "href": "#footer"
+    }
+  ]
+}

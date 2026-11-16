@@ -1,0 +1,48 @@
+{
+  "offices": [
+    {
+      "city": "Amsterdam",
+      "role": "Headquarters",
+      "detail": "Product, engineering and EMEA customers",
+      "hours": "Mon to Fri, 9:00 to 18:00 CET"
+    },
+    {
+      "city": "Bengaluru",
+      "role": "Engineering hub",
+      "detail": "Engineering, support and APAC customers",
+      "hours": "Mon to Fri, 9:30 to 18:30 IST"
+    },
+    {
+      "city": "Austin",
+      "role": "Americas office",
+      "detail": "Sales, success and Americas customers",
+      "hours": "Mon to Fri, 9:00 to 18:00 CT"
+    }
+  ],
+  "contactChannels": [
+    {
+      "icon": "chart",
+      "title": "Sales",
+      "body": "Demos, pricing and pilots",
+      "email": "sales@talentpool365.com"
+    },
+    {
+      "icon": "headset",
+      "title": "Support",
+      "body": "Help for existing customers",
+      "email": "support@talentpool365.com"
+    },
+    {
+      "icon": "megaphone",
+      "title": "Press",
+      "body": "Interviews and media requests",
+      "email": "press@talentpool365.com"
+    },
+    {
+      "icon": "handshake",
+      "title": "Partnerships",
+      "body": "Technology and referral partners",
+      "email": "partners@talentpool365.com"
+    }
+  ]
+}

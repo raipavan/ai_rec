@@ -1,0 +1,78 @@
+{
+  "order": 3,
+  "slug": "ai-assessments",
+  "icon": "clipboard-check",
+  "mock": 2,
+  "bot": 2,
+  "kind": "stage",
+  "title": "AI Assessments",
+  "summary": "Technical, aptitude and cognitive tests that grade themselves against your bar.",
+  "headline": "Tests that *grade themselves* against your bar",
+  "lede": "Send calibrated assessments the moment a candidate is shortlisted. Results come back graded against the standard your team set, with the working shown.",
+  "capabilities": [
+    {
+      "id": "technical-assessments",
+      "title": "Technical Assessments",
+      "body": "Role-specific tasks for engineering, data, finance and operations roles, built from a question library or your own material.",
+      "points": [
+        "Framework and language-specific question sets",
+        "Bring your own tasks and marking scheme",
+        "Difficulty calibrated to seniority"
+      ]
+    },
+    {
+      "id": "aptitude-assessments",
+      "title": "Aptitude Assessments",
+      "body": "Numerical, verbal and logical reasoning tests for roles where potential matters more than history.",
+      "points": [
+        "Short, mobile-friendly sittings",
+        "Benchmarked against the role, not the whole population",
+        "Suited to campus and volume hiring"
+      ]
+    },
+    {
+      "id": "cognitive-tests",
+      "title": "Cognitive Tests",
+      "body": "Measure problem solving, attention and learning speed with tasks that adapt as the candidate answers.",
+      "points": [
+        "Adaptive difficulty keeps tests brief",
+        "Accessible versions for candidates who need them",
+        "Plain-language result summaries"
+      ]
+    },
+    {
+      "id": "behavioral-analysis",
+      "title": "Behavioral Analysis",
+      "body": "Situational judgement scenarios that show how a candidate would handle the moments your role really involves.",
+      "points": [
+        "Scenarios written around your competencies",
+        "Scored on the response, never on appearance or voice",
+        "Results map to interview follow-up questions"
+      ]
+    },
+    {
+      "id": "automated-evaluation",
+      "title": "Automated Evaluation",
+      "body": "Answers are marked against your rubric in seconds, and every mark links back to the line of the rubric it came from.",
+      "points": [
+        "Consistent marking across every candidate",
+        "Reviewers can override any mark, with a note",
+        "Results sync to the pipeline and your ATS"
+      ]
+    }
+  ],
+  "outcomes": [
+    {
+      "value": "24/7",
+      "label": "candidates sit tests when it suits them"
+    },
+    {
+      "value": "40 sec",
+      "label": "to grade a completed assessment against your bar"
+    },
+    {
+      "value": "1",
+      "label": "rubric per role, applied to every candidate"
+    }
+  ]
+}

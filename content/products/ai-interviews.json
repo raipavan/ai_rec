@@ -1,0 +1,88 @@
+{
+  "order": 4,
+  "slug": "ai-interviews",
+  "icon": "video",
+  "mock": 3,
+  "bot": 3,
+  "kind": "stage",
+  "title": "AI Interviews",
+  "summary": "Structured video, voice and coding interviews scored on a consistent rubric.",
+  "headline": "Interviews that *don't wait* for calendars",
+  "lede": "Structured first-round interviews run whenever the candidate is ready. Each one is transcribed, time-stamped and scored on the rubric your panel agreed, then handed to a recruiter to decide.",
+  "capabilities": [
+    {
+      "id": "automated-video-interviews",
+      "title": "Automated Video Interviews",
+      "body": "Candidates answer the same structured questions on camera, on a laptop or a phone, with nothing to install.",
+      "points": [
+        "Same questions, same order, for every candidate",
+        "Works in the browser on any device",
+        "Recordings reviewed at double speed"
+      ]
+    },
+    {
+      "id": "voice-based-interviews",
+      "title": "Voice-Based Interviews",
+      "body": "Phone-style interviews for roles where the voice is the job, such as contact centre and field roles.",
+      "points": [
+        "Language and clarity assessed against the role",
+        "Twelve interview languages",
+        "Low-bandwidth friendly"
+      ]
+    },
+    {
+      "id": "conversational-ai-interviews",
+      "title": "Conversational AI Interviews",
+      "body": "An interviewer that listens and asks sensible follow-up questions, staying inside the topics your panel approved.",
+      "points": [
+        "Follow-ups drawn from the candidate’s own answers",
+        "Stays within your approved question plan",
+        "Candidates can ask about the role and process"
+      ]
+    },
+    {
+      "id": "coding-interviews",
+      "title": "Coding Interviews",
+      "body": "A live editor with real test cases, where the candidate’s reasoning is captured as well as the final code.",
+      "points": [
+        "Runs code against hidden and visible tests",
+        "Playback of how the solution was reached",
+        "Supports the common languages and frameworks"
+      ]
+    },
+    {
+      "id": "proctoring-monitoring",
+      "title": "Proctoring & Monitoring",
+      "body": "Integrity checks that flag unusual activity for a person to review. A flag alone never fails a candidate.",
+      "points": [
+        "Tab switches, second voices and screen sharing flagged",
+        "Every flag reviewed by a human before any action",
+        "Candidates told up front what is monitored"
+      ]
+    },
+    {
+      "id": "interview-analytics",
+      "title": "Interview Analytics",
+      "body": "Transcript, waveform and rubric scores in one view, so a panel can check the evidence in minutes.",
+      "points": [
+        "Jump from a score to the moment it came from",
+        "Skills radar calibrated to the role profile",
+        "Compare finalists on the same criteria"
+      ]
+    }
+  ],
+  "outcomes": [
+    {
+      "value": "2M+",
+      "label": "interviews processed a year across 40 countries"
+    },
+    {
+      "value": "12",
+      "label": "interview languages, with the same scoring in each"
+    },
+    {
+      "value": "0",
+      "label": "installs needed on laptop or phone"
+    }
+  ]
+}

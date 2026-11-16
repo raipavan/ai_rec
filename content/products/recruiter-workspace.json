@@ -1,0 +1,78 @@
+{
+  "order": 5,
+  "slug": "recruiter-workspace",
+  "icon": "layout",
+  "mock": 4,
+  "bot": 4,
+  "kind": "stage",
+  "title": "Recruiter Workspace",
+  "summary": "A shared pipeline with notes, feedback and approval workflows.",
+  "headline": "One pipeline the *whole panel* works from",
+  "lede": "Recruiters, hiring managers and interviewers see the same candidates, the same evidence and the same next step. Nothing lives in a private inbox.",
+  "capabilities": [
+    {
+      "id": "candidate-pipeline",
+      "title": "Candidate Pipeline",
+      "body": "A board for every requisition showing who is at which stage, what they are waiting for and who owns the next move.",
+      "points": [
+        "Drag candidates between stages",
+        "Stalled candidates surfaced automatically",
+        "Two-way sync with your ATS stages"
+      ]
+    },
+    {
+      "id": "hiring-dashboard",
+      "title": "Hiring Dashboard",
+      "body": "Open roles, time in stage and upcoming interviews on one screen, for a recruiter’s own desk or the whole team.",
+      "points": [
+        "Personal and team views",
+        "Roles at risk highlighted early",
+        "Filters by department, location and recruiter"
+      ]
+    },
+    {
+      "id": "team-collaboration",
+      "title": "Team Collaboration",
+      "body": "Mention a colleague on a candidate, assign a task or share a shortlist with a hiring manager in one click.",
+      "points": [
+        "Mentions and tasks tied to the candidate",
+        "Hiring managers review without a full licence",
+        "Slack and Teams notifications"
+      ]
+    },
+    {
+      "id": "notes-feedback",
+      "title": "Notes & Feedback",
+      "body": "Structured scorecards for every interviewer, collected before the debrief so opinions are formed independently.",
+      "points": [
+        "Scorecards match the role rubric",
+        "Feedback hidden until you submit your own",
+        "Reminders for overdue feedback"
+      ]
+    },
+    {
+      "id": "approval-workflow",
+      "title": "Approval Workflow",
+      "body": "Requisition, shortlist and offer approvals routed to the right people in the right order, with a record of who signed what.",
+      "points": [
+        "Approval chains by role, grade or budget",
+        "Approve from email or chat",
+        "Full history for audit"
+      ]
+    }
+  ],
+  "outcomes": [
+    {
+      "value": "41",
+      "label": "recruiter hours saved on every hire, on average"
+    },
+    {
+      "value": "1",
+      "label": "pipeline shared by recruiters, managers and interviewers"
+    },
+    {
+      "value": "No seat fees",
+      "label": "plans are priced by active roles, so the whole panel can review"
+    }
+  ]
+}

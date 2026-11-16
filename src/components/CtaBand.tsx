@@ -1,3 +1,4 @@
+import { BotBuddy } from './BotBuddy';
 import { Reveal } from './Reveal';
 
 export function CtaBand() {
@@ -7,17 +8,20 @@ export function CtaBand() {
       <span className="grain" aria-hidden="true" />
       <div className="container cta-inner">
         <Reveal>
-          <h2>See it on your own requisitions</h2>
+          <h2>
+            See it on <em className="accent">your own requisitions</em>
+          </h2>
           <p>
             Bring one live role to the demo. We'll run it through sourcing, screening and interview
             scoring — live, in 30 minutes.
           </p>
         </Reveal>
+        <BotBuddy />
         <Reveal className="cta-actions" delay={1}>
-          <a className="btn btn-primary" href="#contact">
+          <a className="btn btn-primary" href="/company/contact">
             Book a live demo
           </a>
-          <a className="btn btn-outline" href="#pricing">
+          <a className="btn btn-outline" href="/pricing">
             Start free trial
           </a>
         </Reveal>

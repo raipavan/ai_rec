@@ -1,0 +1,78 @@
+{
+  "order": 2,
+  "slug": "candidate-screening",
+  "icon": "sliders",
+  "mock": 1,
+  "bot": 1,
+  "kind": "stage",
+  "title": "Candidate Screening",
+  "summary": "Every application parsed, ranked and shortlisted, with the reasons shown.",
+  "headline": "Shortlists that arrive *with their reasons*",
+  "lede": "Every application is read, structured and scored against the role profile your panel agreed. Recruiters open a ranked list where each position can be explained in a sentence.",
+  "capabilities": [
+    {
+      "id": "resume-parsing",
+      "title": "Resume Parsing",
+      "body": "Turn PDFs, Word files and scanned resumes into clean, structured profiles without retyping a line.",
+      "points": [
+        "Handles mixed layouts and multiple languages",
+        "Work history, education and certifications extracted",
+        "Original document always one click away"
+      ]
+    },
+    {
+      "id": "skill-extraction",
+      "title": "Skill Extraction",
+      "body": "Identify the skills a candidate has actually used, how recently and for how long, rather than the ones listed in a keyword block.",
+      "points": [
+        "Skills tied to the roles they were used in",
+        "Related skills recognised, such as React and Next.js",
+        "Gaps against the role profile flagged"
+      ]
+    },
+    {
+      "id": "ai-candidate-matching",
+      "title": "AI Candidate Matching",
+      "body": "Score each candidate against the requirements of the role, weighting the criteria the way your hiring manager set them.",
+      "points": [
+        "Must-haves and nice-to-haves weighted separately",
+        "The same rubric applied to every candidate",
+        "Protected characteristics excluded from scoring"
+      ]
+    },
+    {
+      "id": "candidate-ranking",
+      "title": "Candidate Ranking",
+      "body": "See the whole applicant pool in order, with matched and missing skills side by side for each person.",
+      "points": [
+        "Reasons shown beside every score",
+        "Re-ranks when the role profile changes",
+        "No black-box numbers"
+      ]
+    },
+    {
+      "id": "smart-shortlisting",
+      "title": "Smart Shortlisting",
+      "body": "Propose a shortlist for recruiter review. Nobody is rejected by the model; a person confirms every decision.",
+      "points": [
+        "Suggested shortlist with the evidence attached",
+        "Borderline candidates queued for a human look",
+        "Decisions and reviewers recorded"
+      ]
+    }
+  ],
+  "outcomes": [
+    {
+      "value": "92%",
+      "label": "of manual resume screening removed from recruiter workload"
+    },
+    {
+      "value": "8 min",
+      "label": "to score 214 applications on one requisition"
+    },
+    {
+      "value": "0",
+      "label": "candidates rejected without a human review"
+    }
+  ]
+}

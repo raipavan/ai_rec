@@ -6,7 +6,7 @@ import { Icon } from './Icon';
 import { SectionHead } from './SectionHead';
 
 export function Stories() {
-  const { scrollerRef, index, atStart, atEnd, go } = useCarousel(stories.length);
+  const { scrollerRef, index, go } = useCarousel(stories.length);
   const reveal = useReveal(scrollerRef);
 
   const onKeyDown = (event: KeyboardEvent<HTMLDivElement>) => {
@@ -26,7 +26,7 @@ export function Stories() {
         <SectionHead
           center
           eyebrow="Customer stories"
-          title="Teams that stopped chasing candidates"
+          title="Teams that *stopped chasing* candidates"
         />
 
         <div
@@ -39,8 +39,16 @@ export function Stories() {
           onKeyDown={onKeyDown}
         >
           <div className="quote-track">
-            {stories.map((story) => (
-              <figure className="quote-card" key={story.name}>
+            {[...stories, ...stories, ...stories].map((story, i) => (
+              <figure
+                className="quote-card"
+                key={i}
+                aria-hidden={i >= stories.length ? true : undefined}
+              >
+                <p className="quote-stat">
+                  <strong>{story.stat}</strong>
+                  {story.statLabel}
+                </p>
                 <blockquote>{story.quote}</blockquote>
                 <figcaption>
                   <span className="quote-name">{story.name}</span>
@@ -57,12 +65,11 @@ export function Stories() {
             type="button"
             aria-controls="quote-scroller"
             aria-label="Previous story"
-            disabled={atStart}
             onClick={() => go(-1)}
           >
             <Icon name="chevron-left" />
           </button>
-          <span className="quote-count" aria-live="polite">
+          <span className="quote-count">
             {index + 1} / {stories.length}
           </span>
           <button
@@ -70,7 +77,6 @@ export function Stories() {
             type="button"
             aria-controls="quote-scroller"
             aria-label="Next story"
-            disabled={atEnd}
             onClick={() => go(1)}
           >
             <Icon name="chevron-right" />

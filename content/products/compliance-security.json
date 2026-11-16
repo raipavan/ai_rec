@@ -1,0 +1,78 @@
+{
+  "order": 9,
+  "slug": "compliance-security",
+  "icon": "shield",
+  "mock": 8,
+  "bot": 2,
+  "kind": "layer",
+  "title": "Compliance & Security",
+  "summary": "GDPR, audit trails, fair-hiring checks and the controls behind them.",
+  "headline": "Every decision *on the record*",
+  "lede": "Hiring is a regulated decision about a person. The platform is built so each score can be explained to a candidate, a client or a regulator, and so candidate data stays yours.",
+  "capabilities": [
+    {
+      "id": "gdpr-compliance",
+      "title": "GDPR Compliance",
+      "body": "Lawful basis, consent and retention handled per candidate, with access and erasure requests completed from one screen.",
+      "points": [
+        "Retention periods by country and role",
+        "Subject access and erasure workflows",
+        "EU data residency on request"
+      ]
+    },
+    {
+      "id": "data-privacy",
+      "title": "Data Privacy",
+      "body": "Candidate data is encrypted, access is limited by role, and it is never used to train shared models.",
+      "points": [
+        "Encryption in transit and at rest",
+        "Role-based access to candidate records",
+        "Your data is not used to train shared models"
+      ]
+    },
+    {
+      "id": "audit-trails",
+      "title": "Audit Trails",
+      "body": "Every score, note, approval and status change is logged as it happens, so an audit pack is an export rather than a project.",
+      "points": [
+        "Who did what, and when, for every candidate",
+        "Tamper-evident log",
+        "Exports for internal and external auditors"
+      ]
+    },
+    {
+      "id": "fair-hiring-ai",
+      "title": "Fair Hiring AI",
+      "body": "Models are tested for bias every quarter and the results are shared with customers unedited. A person makes every rejection.",
+      "points": [
+        "Quarterly bias audits",
+        "Explanations available for every score",
+        "Aligned with the EU AI Act for high-risk systems"
+      ]
+    },
+    {
+      "id": "security-controls",
+      "title": "Security Controls",
+      "body": "The controls enterprise security teams ask for, independently audited each year.",
+      "points": [
+        "SOC 2 Type II certified",
+        "SSO / SAML and enforced multi-factor sign-in",
+        "99.9% uptime SLA on Enterprise"
+      ]
+    }
+  ],
+  "outcomes": [
+    {
+      "value": "SOC 2",
+      "label": "Type II certified, audited every year"
+    },
+    {
+      "value": "100%",
+      "label": "of scores, notes and approvals in the audit trail"
+    },
+    {
+      "value": "Quarterly",
+      "label": "bias audits, shared with customers unedited"
+    }
+  ]
+}

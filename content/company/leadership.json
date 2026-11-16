@@ -1,0 +1,60 @@
+{
+  "leaders": [
+    {
+      "initials": "SV",
+      "name": "Sanne de Vries",
+      "title": "Co-founder & Chief Executive Officer",
+      "bio": "Ran the recruitment agency where the first matching tool was built. Still sits in on customer hiring debriefs every month.",
+      "owns": "Company direction and customer commitments"
+    },
+    {
+      "initials": "AR",
+      "name": "Arjun Rao",
+      "title": "Co-founder & Chief Technology Officer",
+      "bio": "Wrote the original matching engine and the rule that every score must carry its reasons.",
+      "owns": "Platform, models and reliability"
+    },
+    {
+      "initials": "MO",
+      "name": "Maya Okonkwo",
+      "title": "Chief Product Officer",
+      "bio": "A former head of talent acquisition who joined as a customer and stayed to run the roadmap.",
+      "owns": "Product roadmap and research"
+    },
+    {
+      "initials": "LB",
+      "name": "Lucas Bennett",
+      "title": "Chief Revenue Officer",
+      "bio": "Leads sales and partnerships from Austin, with a team that demos on your real requisitions.",
+      "owns": "Sales, partnerships and pricing"
+    },
+    {
+      "initials": "PI",
+      "name": "Priya Iyer",
+      "title": "VP Customer Success",
+      "bio": "Built the onboarding programme that gets most teams live in under two weeks.",
+      "owns": "Onboarding, support and renewals"
+    },
+    {
+      "initials": "EH",
+      "name": "Elena Hoffmann",
+      "title": "Chief Trust Officer",
+      "bio": "Privacy lawyer by training. Signs off the quarterly bias audits and publishes them to customers.",
+      "owns": "Security, privacy and responsible AI"
+    }
+  ],
+  "leadershipPrinciples": [
+    {
+      "title": "One named owner",
+      "body": "Every customer commitment, from uptime to bias audits, has a single leader accountable for it."
+    },
+    {
+      "title": "Close to customers",
+      "body": "Each leader spends time with hiring teams every month, in live debriefs rather than slide reviews."
+    },
+    {
+      "title": "Published, not promised",
+      "body": "Audit results, uptime and roadmap changes are shared with customers as they happen."
+    }
+  ]
+}

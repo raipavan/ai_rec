@@ -1,0 +1,57 @@
+{
+  "pressItems": [
+    {
+      "date": "October 2026",
+      "iso": "2026-10",
+      "tag": "Company",
+      "title": "TalentPool365 passes two million AI interviews a year",
+      "summary": "Hiring teams in 40 countries now run structured first-round interviews on the platform, with a recruiter making every decision."
+    },
+    {
+      "date": "June 2026",
+      "iso": "2026-06",
+      "tag": "Product",
+      "title": "Conversational AI interviews now available in twelve languages",
+      "summary": "The interviewer asks follow-up questions drawn from each answer while staying inside the question plan a panel has approved."
+    },
+    {
+      "date": "February 2026",
+      "iso": "2026-02",
+      "tag": "Responsible AI",
+      "title": "Quarterly bias audit results published to all customers",
+      "summary": "The latest audit covers screening, assessments and interviews, and is shared unedited alongside the method used."
+    },
+    {
+      "date": "September 2025",
+      "iso": "2025-09",
+      "tag": "Product",
+      "title": "WhatsApp applications and scheduling launch for volume hiring",
+      "summary": "Candidates for retail, manufacturing and contact centre roles can apply, book interviews and sign offers inside one chat."
+    },
+    {
+      "date": "November 2024",
+      "iso": "2024-11",
+      "tag": "Security",
+      "title": "TalentPool365 achieves SOC 2 Type II certification",
+      "summary": "The independent audit covers security, availability and confidentiality. The company also published its EU AI Act alignment."
+    }
+  ],
+  "mediaAssets": [
+    {
+      "label": "Logo for light backgrounds (PNG)",
+      "href": "/assets/talentpool365-logo.png"
+    },
+    {
+      "label": "Logo for dark backgrounds (PNG)",
+      "href": "/assets/talentpool365-logo-light.png"
+    },
+    {
+      "label": "Product screenshot: hiring dashboard (JPG)",
+      "href": "/assets/dashboard-hero.jpg"
+    },
+    {
+      "label": "Product screenshot: analytics workspace (JPG)",
+      "href": "/assets/workspace-analytics.jpg"
+    }
+  ]
+}

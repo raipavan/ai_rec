@@ -1,9 +1,23 @@
 import { useId, useState } from 'react';
-import { faqs } from '../data/content';
+import { faqs, type FaqItem } from '../data/content';
 import { Reveal } from './Reveal';
 import { SectionHead } from './SectionHead';
 
-export function Faq() {
+interface FaqProps {
+  items?: FaqItem[];
+  eyebrow?: string;
+  title?: string;
+  body?: string;
+  contactHref?: string;
+}
+
+export function Faq({
+  items = faqs,
+  eyebrow = 'Questions, answered',
+  title = 'What hiring teams ask *before the trial*',
+  body = "No discovery call required to get an answer. If yours isn't here, send it over — a product specialist replies within one business day.",
+  contactHref = '#contact',
+}: FaqProps) {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
   const baseId = useId();
 
@@ -13,12 +27,12 @@ export function Faq() {
         <div className="faq-intro">
           <SectionHead
             variant="left"
-            eyebrow="Questions, answered"
-            title="What hiring teams ask before the trial"
-            body="No discovery call required to get an answer. If yours isn't here, send it over — a product specialist replies within one business day."
+            eyebrow={eyebrow}
+            title={title}
+            body={body}
           />
           <Reveal variant="left" delay={1}>
-            <a className="faq-link" href="#contact">
+            <a className="faq-link" href={contactHref}>
               Ask us something else
               <span aria-hidden="true">→</span>
             </a>
@@ -26,7 +40,7 @@ export function Faq() {
         </div>
 
         <div className="faq-list">
-          {faqs.map((item, index) => {
+          {items.map((item, index) => {
             const isOpen = openIndex === index;
             const questionId = `${baseId}-q-${index}`;
             const answerId = `${baseId}-a-${index}`;

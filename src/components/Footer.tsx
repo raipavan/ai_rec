@@ -16,7 +16,7 @@ export function Footer() {
       <div className="container">
         <div className="footer-top">
           <div className="footer-brand">
-            <a className="brand" href="#home" aria-label="TalentPool365 home">
+            <a className="brand" href="/" aria-label="TalentPool365 home">
               <img
                 className="brand-logo"
                 src="/assets/talentpool365-logo-light.png"

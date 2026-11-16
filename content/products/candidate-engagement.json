@@ -1,0 +1,78 @@
+{
+  "order": 6,
+  "slug": "candidate-engagement",
+  "icon": "chat",
+  "mock": 6,
+  "bot": 3,
+  "kind": "stage",
+  "title": "Candidate Engagement",
+  "summary": "Chatbot, WhatsApp and email follow-ups that keep every candidate informed.",
+  "headline": "Candidates who always know *where they stand*",
+  "lede": "Questions answered at any hour, reminders sent before anyone has to chase, and interviews booked without a single back-and-forth email.",
+  "capabilities": [
+    {
+      "id": "ai-chatbot",
+      "title": "AI Chatbot",
+      "body": "Answers candidate questions about the role, the process and their application status, on your careers page or in chat.",
+      "points": [
+        "Answers drawn from your approved content",
+        "Hands over to a recruiter when it should",
+        "Pre-screens with a few structured questions"
+      ]
+    },
+    {
+      "id": "automated-follow-ups",
+      "title": "Automated Follow-Ups",
+      "body": "Nudges for incomplete applications, pending assessments and unsigned offers, sent on the schedule you choose.",
+      "points": [
+        "Triggered by stage and by silence",
+        "Stops the moment the candidate acts",
+        "Tone and timing set per role"
+      ]
+    },
+    {
+      "id": "whatsapp-integration",
+      "title": "WhatsApp Integration",
+      "body": "Reach candidates where they already reply. Applications, reminders and scheduling all work inside a WhatsApp chat.",
+      "points": [
+        "Apply and book interviews in the chat",
+        "Opt-in recorded for every candidate",
+        "Conversation history saved to the profile"
+      ]
+    },
+    {
+      "id": "email-automation",
+      "title": "Email Automation",
+      "body": "Templates for every stage that fill in the details themselves and send from the recruiter’s own address.",
+      "points": [
+        "Works with Outlook and Gmail",
+        "Personalised from the candidate record",
+        "Rejections that include useful feedback"
+      ]
+    },
+    {
+      "id": "interview-scheduling",
+      "title": "Interview Scheduling",
+      "body": "Candidates pick a slot from the panel’s real availability, and the invite, video link and reminders follow automatically.",
+      "points": [
+        "Reads Outlook and Google calendars",
+        "Teams, Zoom and Google Meet links added",
+        "Rescheduling without recruiter involvement"
+      ]
+    }
+  ],
+  "outcomes": [
+    {
+      "value": "24/7",
+      "label": "answers to candidate questions, in chat or WhatsApp"
+    },
+    {
+      "value": "3",
+      "label": "channels in one thread: WhatsApp, email and web chat"
+    },
+    {
+      "value": "0",
+      "label": "emails needed to book or move an interview"
+    }
+  ]
+}

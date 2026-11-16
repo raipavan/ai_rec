@@ -1,0 +1,78 @@
+{
+  "order": 1,
+  "slug": "talent-sourcing",
+  "icon": "search",
+  "mock": 0,
+  "bot": 0,
+  "kind": "stage",
+  "title": "Talent Sourcing",
+  "summary": "One search across your ATS, job boards, LinkedIn and referral pools.",
+  "headline": "Every candidate source, *in one search*",
+  "lede": "Describe the role once. TalentPool365 searches the database you already own alongside job boards and social channels, merges the duplicates and attaches every match to the requisition.",
+  "capabilities": [
+    {
+      "id": "ai-candidate-discovery",
+      "title": "AI Candidate Discovery",
+      "body": "Turn a plain-language role description into a ranked list of people who fit it, including those who never used your exact keywords.",
+      "points": [
+        "Matches on skills and experience, not job titles",
+        "Each match shows why it surfaced",
+        "Runs again automatically as new profiles arrive"
+      ]
+    },
+    {
+      "id": "resume-database-search",
+      "title": "Resume Database Search",
+      "body": "Semantic search over every resume your team has ever collected, so past applicants are the first place you look instead of the last.",
+      "points": [
+        "Searches meaning, not just exact words",
+        "Filters for location, notice period and work rights",
+        "Finds silver medallists from earlier roles"
+      ]
+    },
+    {
+      "id": "job-board-integration",
+      "title": "Job Board Integration",
+      "body": "Post to your boards from the requisition and pull applicants back into one pipeline, tagged with where they came from.",
+      "points": [
+        "Publish to several boards in one step",
+        "Applicants land in the same queue",
+        "Source kept on every profile for reporting"
+      ]
+    },
+    {
+      "id": "linkedin-social-sourcing",
+      "title": "LinkedIn & Social Sourcing",
+      "body": "Bring passive candidates from LinkedIn and other professional networks into the same search, with outreach tracked next to the profile.",
+      "points": [
+        "Passive profiles ranked beside applicants",
+        "Outreach history visible to the whole team",
+        "No copy and paste into spreadsheets"
+      ]
+    },
+    {
+      "id": "talent-pool-management",
+      "title": "Talent Pool Management",
+      "body": "Group candidates into pools by skill, location or campaign and keep them warm, so the next requisition starts with a shortlist.",
+      "points": [
+        "Pools refresh as profiles change",
+        "Duplicates merged into one record",
+        "Consent and retention dates tracked per person"
+      ]
+    }
+  ],
+  "outcomes": [
+    {
+      "value": "30+",
+      "label": "channels searched at once, plus your own database"
+    },
+    {
+      "value": "3.4×",
+      "label": "more qualified candidates reach the shortlist stage"
+    },
+    {
+      "value": "1",
+      "label": "record per person, however many sources found them"
+    }
+  ]
+}

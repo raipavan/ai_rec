@@ -1,4 +1,5 @@
 import type { CSSProperties } from 'react';
+import { accent } from '../lib/accent';
 import { Reveal, type RevealVariant } from './Reveal';
 
 interface SectionHeadProps {
@@ -31,7 +32,7 @@ export function SectionHead({
   return (
     <Reveal className={classes} style={style} variant={variant}>
       {eyebrow ? <p className="eyebrow">{eyebrow}</p> : null}
-      <h2>{title}</h2>
+      <h2>{accent(title)}</h2>
       {body ? <p>{body}</p> : null}
     </Reveal>
   );

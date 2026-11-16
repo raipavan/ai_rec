@@ -1,9 +1,13 @@
 import { useState } from 'react';
-import { compareRows, plans, type CompareCell } from '../data/content';
+import { compareRows, plans, type CompareCell, type Plan } from '../data/content';
 import { Reveal } from './Reveal';
 import { SectionHead } from './SectionHead';
 
 type BillingMode = 'monthly' | 'annual';
+
+/** A plan without both prices (Enterprise) shows "Custom" and a quote button. */
+const hasPrice = (plan: Plan): boolean =>
+  typeof plan.price?.monthly === 'number' && typeof plan.price?.annual === 'number';
 
 function CompareValue({ cell, label }: { cell: CompareCell; label: string }) {
   return (
@@ -13,18 +17,28 @@ function CompareValue({ cell, label }: { cell: CompareCell; label: string }) {
   );
 }
 
-export function Pricing() {
+interface PricingProps {
+  /** On the pricing page the page hero carries the heading. */
+  showHead?: boolean;
+  /** Where the trial buttons and the Enterprise quote button lead. */
+  trialHref?: string;
+  quoteHref?: string;
+}
+
+export function Pricing({ showHead = true, trialHref = '#contact', quoteHref = '#contact' }: PricingProps) {
   const [mode, setMode] = useState<BillingMode>('monthly');
 
   return (
     <section className="section" id="pricing">
       <div className="container">
-        <SectionHead
-          center
-          eyebrow="Pricing"
-          title="Pay for hires, not seats of software"
-          body="Every plan includes sourcing, screening and the recruiter workspace. Upgrade when you need assessments, interviews and deep integrations."
-        />
+        {showHead ? (
+          <SectionHead
+            center
+            eyebrow="Pricing"
+            title="Pay *for hires*, not seats of software"
+            body="Every plan includes sourcing, screening and the recruiter workspace. Upgrade when you need assessments, interviews and deep integrations."
+          />
+        ) : null}
 
         <div style={{ textAlign: 'center' }}>
           <Reveal className="billing-toggle" role="group" aria-label="Billing period">
@@ -59,11 +73,11 @@ export function Pricing() {
               {plan.featured ? <span className="plan-flag">Most popular</span> : null}
               <h3>{plan.name}</h3>
               <p className="plan-sub">{plan.sub}</p>
-              {plan.price ? (
+              {hasPrice(plan) ? (
                 <p className="price">
                   $
                   <span className="price-num" key={mode}>
-                    {plan.price[mode]}
+                    {plan.price?.[mode]}
                   </span>
                   <span className="per"> /mo</span>
                 </p>
@@ -71,9 +85,9 @@ export function Pricing() {
                 <p className="price">Custom</p>
               )}
               <p className="caption" style={{ marginTop: 6 }}>
-                {plan.price ? (mode === 'annual' ? 'billed annually' : 'billed monthly') : plan.note}
+                {hasPrice(plan) ? (mode === 'annual' ? 'billed annually' : 'billed monthly') : plan.note}
               </p>
-              <a className={`btn ${plan.ctaClass}`} href="#contact">
+              <a className={`btn ${plan.ctaClass}`} href={hasPrice(plan) ? trialHref : quoteHref}>
                 {plan.cta}
               </a>
               <ul className="ticks">
@@ -85,7 +99,7 @@ export function Pricing() {
           ))}
         </div>
 
-        <Reveal style={{ marginTop: 64 }}>
+        <Reveal style={{ marginTop: 64 }} id="compare-plans">
           <div className="compare-wrap" role="region" aria-label="Plan comparison" tabIndex={0}>
             <table className="compare">
               <thead>

@@ -10,6 +10,7 @@
     "dev": "vite",
     "build": "tsc --noEmit && vite build",
     "preview": "vite preview",
+    "cms": "npx --yes decap-server@3.11.6",
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
