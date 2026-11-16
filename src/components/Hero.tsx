@@ -46,17 +46,18 @@ export function Hero() {
       <div className="container">
         <div className="hero-grid">
           <div className="hero-copy">
+            <p className="hero-kicker enter">The human side of AI hiring</p>
             <h1 className="enter" style={enterDelay(0)}>
               <span className="sr-only">Hire the people you need in days, not months.</span>
               <span aria-hidden="true">
                 <span className="h1-line">
                   Hire{' '}
-                <span className="role-swap">
-                  <span className="accent role-word" key={role}>
-                    {heroRoles[role]}
+                  <span className="role-swap">
+                    <span className="accent role-word" key={role}>
+                      {heroRoles[role]}
+                    </span>
                   </span>
-                  </span>
-                </span>
+                </span>{' '}
                 <span className="h1-line">in days,</span> <span className="h1-line">not months.</span>
               </span>
             </h1>
@@ -65,7 +66,7 @@ export function Hero() {
               so your recruiters spend their time on people worth hiring, not resumes worth skipping.
             </p>
             <div className="hero-cta enter" style={enterDelay(2)}>
-              <a className="btn btn-primary" href="#contact">
+              <a className="btn btn-primary" href="/get-started">
                 Book a live demo
               </a>
               <a className="btn btn-outline" href="#demo">
@@ -105,7 +106,7 @@ export function Hero() {
                 <Icon name="trend" />
               </span>
               <span>
-                <strong>19 days</strong>median time-to-hire
+                <strong>Your next great hire.</strong>Less admin. More human.
               </span>
             </div>
 

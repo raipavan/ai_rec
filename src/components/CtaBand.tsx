@@ -18,10 +18,10 @@ export function CtaBand() {
         </Reveal>
         <BotBuddy />
         <Reveal className="cta-actions" delay={1}>
-          <a className="btn btn-primary" href="/company/contact">
+          <a className="btn btn-primary" href="/get-started#request-demo">
             Book a live demo
           </a>
-          <a className="btn btn-outline" href="/pricing">
+          <a className="btn btn-outline" href="/get-started#start-free-trial">
             Start free trial
           </a>
         </Reveal>

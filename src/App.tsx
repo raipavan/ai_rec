@@ -27,7 +27,7 @@ export default function App() {
   const path = usePath();
   const route = routes[path] ?? notFound;
   const mainRef = useRef<HTMLElement>(null);
-  const firstRender = useRef(true);
+  const previousRoute = useRef(route);
 
   // Internal links change the page without a reload
   useEffect(() => interceptLinkClicks(), []);
@@ -38,19 +38,20 @@ export default function App() {
     document.title = pageTitle(route);
     document.querySelector(DESCRIPTION)?.setAttribute('content', route.description);
 
-    if (firstRender.current) {
-      firstRender.current = false;
+    if (previousRoute.current === route) {
       // A deep link with a hash (/solutions#by-use-case) loads before its target exists
       if (window.location.hash) requestAnimationFrame(() => scrollToHash(window.location.hash));
       return;
     }
+    previousRoute.current = route;
     mainRef.current?.focus({ preventScroll: true });
   }, [route]);
 
   return (
     <>
+      <a className="skip-link" href="#main-content">Skip to content</a>
       <Header />
-      <main className="page" ref={mainRef} tabIndex={-1} key={path}>
+      <main id="main-content" className="page" ref={mainRef} tabIndex={-1} key={path}>
         {route.render()}
       </main>
       <Footer />

@@ -236,8 +236,7 @@ const nav = navigation as unknown as NavigationContent;
 const page = home as unknown as HomeContent;
 const price = pricing as unknown as PricingContent;
 
-/* Header, per the sitemap: Home, Products, Solutions, Pricing, About Us.
-   Integrations is linked from the footer only. */
+/* Header and footer destinations follow the supplied sitemap. */
 export const navItems = nav.navItems;
 export const footerColumns = nav.footerColumns;
 export const footerLegalLinks = nav.footerLegalLinks;

@@ -1,15 +1,7 @@
-import { useState, type FormEvent } from 'react';
 import { footerColumns, footerLegalLinks } from '../data/content';
 
 export function Footer() {
-  const [subscribed, setSubscribed] = useState(false);
   const year = new Date().getFullYear();
-
-  const onSubmit = (event: FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    setSubscribed(true);
-    event.currentTarget.reset();
-  };
 
   return (
     <footer className="site-footer" id="footer">
@@ -26,29 +18,10 @@ export function Footer() {
               />
             </a>
             <p>The AI recruitment platform for teams that measure hiring in days.</p>
-            <form className="newsletter" onSubmit={onSubmit}>
-              <label className="newsletter-label" htmlFor="nl-email">
-                Hiring notes, once a month
-              </label>
-              <div className="newsletter-row">
-                <input
-                  id="nl-email"
-                  name="email"
-                  type="email"
-                  placeholder="you@company.com"
-                  autoComplete="email"
-                  required
-                />
-                <button className="btn btn-accent btn--sm" type="submit">
-                  Subscribe
-                </button>
-              </div>
-              <p className="newsletter-hint" aria-live="polite">
-                {subscribed
-                  ? "You're on the list — the first notes arrive next month."
-                  : 'One short email. Unsubscribe anytime.'}
-              </p>
-            </form>
+            <div className="footer-reading">
+              <p>A little perspective for your next hiring day.</p>
+              <a href="/blog">Read our hiring notes <span aria-hidden="true">&nbsp;→</span></a>
+            </div>
           </div>
 
           <div className="footer-cols">

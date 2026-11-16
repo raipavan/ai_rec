@@ -197,10 +197,10 @@ export function Header() {
         </nav>
 
         <div className="header-actions">
-          <a className="link-quiet" href="/company/contact">
-            Sign in
+          <a className="link-quiet" href="/support">
+            Support
           </a>
-          <a className="btn btn-primary btn--sm" href="/company/contact">
+          <a className="btn btn-primary btn--sm" href="/get-started">
             Book a demo
           </a>
           <button

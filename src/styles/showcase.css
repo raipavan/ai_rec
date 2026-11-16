@@ -785,8 +785,8 @@ h3, h4 { font-weight: 600; }
   padding-top: calc(var(--header-h) + clamp(16px, 3vh, 40px));
   overflow: hidden;
   background:
-    radial-gradient(900px 600px at 90% 0%, rgba(79, 70, 229, .42), transparent 64%),
-    radial-gradient(700px 500px at 0% 60%, rgba(6, 182, 212, .12), transparent 66%),
+    radial-gradient(900px 600px at 90% 0%, rgba(56, 107, 87, .42), transparent 64%),
+    radial-gradient(700px 500px at 0% 60%, rgba(190, 232, 213, .12), transparent 66%),
     var(--color-primary);
 }
 .agents-head {
@@ -944,18 +944,16 @@ h3, h4 { font-weight: 600; }
    The page is one continuous #172554 surface. White product
    screens (.mock, .hero-chip) keep the light tokens.
    ============================================================ */
-:root {
-  --color-bg: #172554;
-  --color-bg-light: #1B2B60;            /* band step derived from Deep Navy */
-  --color-text: #FFFFFF;
-  --color-text-muted: rgba(255, 255, 255, .76);
-  --color-border: rgba(255, 255, 255, .16);
-  --color-outline-fill: rgba(255, 255, 255, .1);
-  --surface: rgba(255, 255, 255, .06);
-  --surface-solid: #1F3070;
-  --shadow-md: 0 10px 30px -12px rgba(2, 6, 23, .6);
-  --shadow-lg: 0 28px 56px -20px rgba(2, 6, 23, .7);
-  --header-h: 88px;
+.on-dark, .site-footer {
+  --color-bg: #123F3B;
+  --color-bg-light: #1B4D47;
+  --color-text: #F7FBF8;
+  --color-text-muted: #C3D7CE;
+  --color-border: #3E645C;
+  --color-outline-fill: #2A554C;
+  --surface: #204D45;
+  --surface-solid: #204D45;
+  color: var(--color-text);
   color-scheme: dark;
 }
 .mock, .hero-chip {
@@ -1617,14 +1615,13 @@ h4 { font-size: 1.375rem; }
    A section with `section--light` flips back to the light tokens, so cards,
    text and controls inside it read dark-on-light. Violet replaces cyan for
    text, because cyan is only allowed as text on Deep Navy. */
-:root { --color-bg-alt: #E8EFFB; }
 .section--light {
   --color-bg: var(--color-bg-alt);
-  --color-bg-light: #DCE6F8;
-  --color-text: #172554;
-  --color-text-muted: #475569;
-  --color-border: #C9D6EE;
-  --color-outline-fill: #DBE4FA;
+  --color-bg-light: #E4F1E9;
+  --color-text: #183D37;
+  --color-text-muted: #546A62;
+  --color-border: #D5E2D8;
+  --color-outline-fill: #E4F1E9;
   --surface: #FFFFFF;
   --surface-solid: #FFFFFF;
   --shadow-md: 0 6px 24px -8px rgba(23, 37, 84, .14);

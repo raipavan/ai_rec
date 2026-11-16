@@ -15,29 +15,24 @@ export interface LeadField {
 interface LeadFormProps {
   fields: LeadField[];
   submitLabel: string;
-  /** Shown under the button before sending. */
   hint: string;
-  /** Replaces the hint once the form has been sent. */
-  success: string;
+  recipient?: string;
+  subject?: string;
 }
 
-/**
- * Enquiry form used on the pricing, partners and careers pages. Like the home
- * page contact form it has no backend yet: wire `onSubmit` to your form
- * endpoint or CRM before launch.
- */
-export function LeadForm({ fields, submitLabel, hint, success }: LeadFormProps) {
-  const [sent, setSent] = useState(false);
+export function LeadForm({ fields, submitLabel, hint, recipient = 'sales@talentpool365.com', subject = 'Website enquiry' }: LeadFormProps) {
+  const [draft, setDraft] = useState('');
   const baseId = useId();
 
   const onSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    setSent(true);
-    event.currentTarget.reset();
+    const data = new FormData(event.currentTarget);
+    const body = fields.map((field) => `${field.label}: ${String(data.get(field.name) ?? '').trim()}`).join('\n\n');
+    setDraft(`mailto:${recipient}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`);
   };
 
   return (
-    <form className="form-panel" onSubmit={onSubmit} onInput={() => setSent(false)}>
+    <form className="form-panel" onSubmit={onSubmit} onInput={() => setDraft('')}>
       <div className="form-grid">
         {fields.map((field) => {
           const id = `${baseId}-${field.name}`;
@@ -77,9 +72,11 @@ export function LeadForm({ fields, submitLabel, hint, success }: LeadFormProps) 
       <button className="btn btn-primary" type="submit" style={{ width: '100%' }}>
         {submitLabel}
       </button>
-      <p className={`hint caption${sent ? ' is-sent' : ''}`} style={{ marginTop: 14 }} role="status">
-        {sent ? success : hint}
+      <p className="hint caption" style={{ marginTop: 14 }} role="status">
+        {draft ? 'Your draft is ready. Open your email app to review and send it. Your request has not been sent yet.' : hint}
       </p>
+      {draft ? <a className="btn btn-outline draft-link" href={draft}>Open email draft</a> : null}
+      <p className="form-privacy">Please do not include sensitive candidate data. <a href="/legal#privacy-policy">Privacy information</a></p>
     </form>
   );
 }

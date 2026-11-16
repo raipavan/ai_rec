@@ -1,4 +1,5 @@
 import { useSyncExternalStore } from 'react';
+import { prefersReducedMotion } from './motion';
 
 /**
  * Minimal client-side router (History API, no dependency).
@@ -20,14 +21,20 @@ const getPath = (): string => normalize(window.location.pathname);
 const subscribe = (listener: () => void) => {
   listeners.add(listener);
   window.addEventListener('popstate', listener);
+  window.addEventListener('hashchange', listener);
   return () => {
     listeners.delete(listener);
     window.removeEventListener('popstate', listener);
+    window.removeEventListener('hashchange', listener);
   };
 };
 
 export function usePath(): string {
   return useSyncExternalStore(subscribe, getPath, () => '/');
+}
+
+export function useHash(): string {
+  return useSyncExternalStore(subscribe, () => window.location.hash, () => '');
 }
 
 /** Scroll to the element a hash names; returns false when it is not on the page. */
@@ -51,8 +58,9 @@ export function navigate(to: string): void {
   // The store update above renders synchronously; wait a frame for layout.
   requestAnimationFrame(() => {
     if (samePage) {
-      if (url.hash && scrollToHash(url.hash, 'smooth')) return;
-      window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+      const behavior = prefersReducedMotion() ? 'instant' : 'smooth';
+      if (url.hash && scrollToHash(url.hash, behavior)) return;
+      window.scrollTo({ top: 0, left: 0, behavior });
       return;
     }
     if (url.hash && scrollToHash(url.hash, 'instant')) {

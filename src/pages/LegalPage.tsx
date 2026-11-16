@@ -1,0 +1,17 @@
+import { PageHero } from '../components/PageHero';
+import { SubNav } from '../components/SubNav';
+
+const policies = [
+  { id: 'privacy-policy', title: 'Privacy policy', body: 'A complete privacy notice should identify the responsible entity, the information collected, why it is processed, retention periods and the rights available to individuals. The approved policy has not been supplied for this website.', request: 'Request the approved privacy policy' },
+  { id: 'terms-of-service', title: 'Terms of service', body: 'The applicable terms should explain account responsibilities, permitted use, commercial terms, limitations and dispute handling. Your signed service agreement takes precedence over general marketing descriptions.', request: 'Request the terms of service' },
+  { id: 'cookies-policy', title: 'Cookies policy', body: 'A cookie notice should describe the cookies and similar technologies actually used, their purposes and available choices. Embedded media and third-party assets may involve separate providers. Ask for the current inventory before assessing consent requirements.', request: 'Request the cookie and tracking inventory' },
+  { id: 'gdpr-compliance', title: 'GDPR compliance', body: 'A GDPR assessment depends on the processing context, controller and processor roles, lawful basis and international transfers. Product controls alone are not a legal determination of compliance. Ask for the relevant contractual and technical documentation.', request: 'Request GDPR documentation' },
+  { id: 'responsible-ai', title: 'Responsible AI policy', body: 'Evaluate job relevance, transparency, accessibility, bias testing and meaningful human oversight before deploying AI in hiring. Ask how recommendations are explained, challenged and monitored in the workflow you intend to use.', request: 'Request the responsible AI policy' },
+  { id: 'data-processing-agreement', title: 'Data processing agreement', body: 'A DPA should specify processing instructions, security measures, subprocessors, breach handling, transfers and deletion or return of data. Review the approved agreement with your legal team before sharing candidate information.', request: 'Request the data processing agreement' },
+];
+
+export function LegalPage() {
+  return <><PageHero crumbs={[{ label: 'Legal & trust' }]} title="Trust starts with *clear answers.*" lede="A central place for privacy, contractual and responsible-AI documentation, so the right questions are part of your evaluation from the start." />
+    <SubNav label="Legal documents" links={policies.map((policy) => ({ label: policy.title, href: `#${policy.id}` }))} />
+    <section className="section section--light"><div className="container legal-layout"><aside className="legal-note"><span className="resource-meta">Publication notice</span><h2 className="small-heading">Approved policies are pending.</h2><p>These summaries explain which documents to request. They are not binding policies, legal advice or claims of certification.</p><a className="more-link" href="/company/contact">Contact the team</a></aside><div className="legal-documents">{policies.map((policy) => <article id={policy.id} key={policy.id}><h2>{policy.title}</h2><p>{policy.body}</p><a className="more-link" href={`mailto:support@talentpool365.com?subject=${encodeURIComponent(policy.request)}`}>{policy.request}</a>{policy.id === 'responsible-ai' && <a className="more-link" href="/company/technology#guardrails">Explore the technology guardrails</a>}</article>)}</div></div></section></>;
+}

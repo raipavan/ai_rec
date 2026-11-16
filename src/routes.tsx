@@ -15,6 +15,13 @@ import { PricingPage } from './pages/PricingPage';
 import { ProductPage } from './pages/ProductPage';
 import { ProductsOverview } from './pages/ProductsOverview';
 import { SolutionsPage } from './pages/SolutionsPage';
+import { IntegrationsPage } from './pages/IntegrationsPage';
+import { HowItWorksPage } from './pages/HowItWorksPage';
+import { CustomersPage } from './pages/CustomersPage';
+import { ResourcesPage, BlogPage } from './pages/ResourcesPage';
+import { SupportPage } from './pages/SupportPage';
+import { LegalPage } from './pages/LegalPage';
+import { GetStartedPage } from './pages/GetStartedPage';
 
 export interface Route {
   /** Browser tab title, without the site name. */
@@ -25,8 +32,7 @@ export interface Route {
 
 const HOME_TITLE = 'TalentPool365 — AI Recruitment Platform | Source, Screen & Hire Faster';
 
-/* Every page of the site, keyed by path. Header pages per the sitemap:
-   Home, Products (overview + 9), Solutions, Pricing and the 7 company pages. */
+/* Each sitemap destination has a route and page metadata. */
 export const routes: Record<string, Route> = {
   '/': {
     title: HOME_TITLE,
@@ -53,6 +59,46 @@ export const routes: Record<string, Route> = {
     title: 'Solutions',
     description: 'Hiring solutions by industry, company size and use case, from campus drives to executive search.',
     render: () => <SolutionsPage />,
+  },
+  '/integrations': {
+    title: 'Integrations',
+    description: 'Explore ATS, HRMS, video and communication integration options for your hiring workflow.',
+    render: () => <IntegrationsPage />,
+  },
+  '/how-it-works': {
+    title: 'How It Works',
+    description: 'Follow nine hiring steps, from a job requisition and AI sourcing to recruiter review and onboarding.',
+    render: () => <HowItWorksPage />,
+  },
+  '/customers': {
+    title: 'Customers & Hiring ROI',
+    description: 'Explore illustrative hiring stories and estimate the recruiter time your team could save.',
+    render: () => <CustomersPage />,
+  },
+  '/resources': {
+    title: 'Recruitment Resources',
+    description: 'Read practical AI recruitment guides, planning briefs, checklists and a plain-language hiring glossary.',
+    render: () => <ResourcesPage />,
+  },
+  '/blog': {
+    title: 'Recruitment Blog',
+    description: 'Ideas for more considered hiring decisions, clearer candidate communication and responsible AI.',
+    render: () => <BlogPage />,
+  },
+  '/support': {
+    title: 'Help & Support',
+    description: 'Find hiring workflow guidance, training resources and prepare a support email.',
+    render: () => <SupportPage />,
+  },
+  '/legal': {
+    title: 'Legal & Trust',
+    description: 'Request approved privacy, terms, data processing and responsible AI documentation.',
+    render: () => <LegalPage />,
+  },
+  '/get-started': {
+    title: 'Get Started',
+    description: 'Request a demo, discuss a trial, arrange a meeting or watch the TalentPool365 product tour.',
+    render: () => <GetStartedPage />,
   },
   '/pricing': {
     title: 'Pricing',

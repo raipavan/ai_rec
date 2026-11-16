@@ -62,7 +62,7 @@ export function PricingPage() {
 
       <SubNav label="Pricing sections" links={sectionLinks} current={`#${active}`} currentKind="location" />
 
-      <Pricing showHead={false} trialHref="/company/contact" quoteHref="#custom-quote" />
+      <Pricing showHead={false} trialHref="/get-started#start-free-trial" quoteHref="#custom-quote" />
 
       <section className="section section--light" id="custom-quote">
         <div className="container">
@@ -89,7 +89,7 @@ export function PricingPage() {
                 fields={quoteFields}
                 submitLabel="Request quote"
                 hint="We use these details only to prepare your quote."
-                success="Quote requested. You will have it by email within two business days."
+                subject="Custom quote request"
               />
             </Reveal>
           </div>

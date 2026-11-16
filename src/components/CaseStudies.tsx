@@ -39,7 +39,7 @@ export function CaseStudies() {
                   <li key={result}>{result}</li>
                 ))}
               </ul>
-              <a className="case-link" href="#contact">
+              <a className="case-link" href="/company/contact#contact">
                 Request the full case study <span aria-hidden="true">&rarr;</span>
               </a>
             </Reveal>

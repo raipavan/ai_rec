@@ -329,9 +329,10 @@ export function PartnersPage() {
             <Reveal className="split-media" variant="right" delay={1}>
               <LeadForm
                 fields={partnerFields}
-                submitLabel="Send partner application"
+                submitLabel="Prepare partner enquiry"
                 hint="A partner manager replies within two business days."
-                success="Application sent. A partner manager will reply within two business days."
+                recipient="partners@talentpool365.com"
+                subject="Partner application"
               />
             </Reveal>
           </div>

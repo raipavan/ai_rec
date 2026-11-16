@@ -1,27 +1,26 @@
-/* ============================================================
-   TalentPool365 — Brand styles v1.0
-   Palette: #172554 #4F46E5 #06B6D4 #FFFFFF #F8FAFC
-   Type: Plus Jakarta Sans (headings) / Inter (body) / DM Sans (CTA)
-   ============================================================ */
-
 :root {
-  --color-primary:        #172554;
-  --color-secondary:      #4F46E5;
-  --color-accent:         #06B6D4;
-  --color-bg:             #EDF4FB;
-  --color-bg-light:       #E0EBF7;
+  --color-primary:        #123F3B;
+  --color-secondary:      #146E63;
+  --color-accent:         #BEE8D5;
+  --color-bg:             #FAFCF9;
+  --color-bg-light:       #EFF5EF;
+  --color-bg-alt:         #EFF5EF;
+  --color-coral:          #F6A38D;
+  --color-coral-hover:    #EF8D74;
 
-  --color-primary-hover:  #1E3A8A;
-  --color-secondary-hover:#4338CA;
-  --color-accent-hover:   #22D3EE;
-  --color-outline-fill:   #E4EDFB;
-  --color-text:           #172554;
-  --color-text-muted:     #475569;
-  --color-border:         #D5E2F0;
+  --color-primary-hover:  #20574F;
+  --color-secondary-hover:#0D554C;
+  --color-accent-hover:   #D6F1E3;
+  --color-outline-fill:   #E4F1E9;
+  --color-text:           #183D37;
+  --color-text-muted:     #546A62;
+  --color-border:         #D5E2D8;
+  --surface:             #FFFFFF;
+  --surface-solid:       #FFFFFF;
 
-  --font-heading: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
-  --font-body:    'Inter', system-ui, -apple-system, sans-serif;
-  --font-button:  'DM Sans', system-ui, -apple-system, sans-serif;
+  --font-heading: 'Sora', sans-serif;
+  --font-body:    'DM Sans', sans-serif;
+  --font-button:  'DM Sans', sans-serif;
 
   --radius: 12px;
   --radius-lg: 16px;
@@ -208,7 +207,7 @@ section[id], footer[id] { scroll-margin-top: calc(var(--header-h) + 12px); }
 .btn--sm { min-height: 40px; padding: 0 20px; font-size: .9375rem; }
 .btn:disabled, .btn[aria-disabled="true"] { opacity: .5; cursor: not-allowed; pointer-events: none; }
 
-.btn .icon { width: 18px; height: 18px; flex: none; }
+.btn > svg { width: 18px; height: 18px; flex: none; }
 
 /* ---------- Header ---------- */
 .site-header {
@@ -644,7 +643,7 @@ section[id], footer[id] { scroll-margin-top: calc(var(--header-h) + 12px); }
   content: "";
   position: absolute;
   inset: 0;
-  background: radial-gradient(620px 420px at 86% 108%, rgba(79, 70, 229, .34), transparent 62%);
+  background: radial-gradient(620px 420px at 86% 108%, rgba(56, 107, 87, .34), transparent 62%);
   pointer-events: none;
 }
 .metrics .container { position: relative; z-index: 1; }
