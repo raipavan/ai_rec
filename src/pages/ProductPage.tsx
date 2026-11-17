@@ -25,6 +25,35 @@ export function ProductPage({ product }: { product: ProductData }) {
   const previous = productPages[position - 1];
   const next = productPages[position + 1];
 
+  // Talent Sourcing has a dedicated SeekOut Recruit replicated experience as full page layout
+  if (product.slug === 'talent-sourcing') {
+    return (
+      <main className="product-page-main">
+        <SourcingExperience product={product} />
+
+        {/* Adjacent product pagination */}
+        <section className="section product-pager-section" id="platform" style={{ padding: '40px 0', background: '#f8fafc', borderTop: '1px solid var(--color-border)' }}>
+          <div className="container">
+            <nav className="product-pager" aria-label="Adjacent products">
+              {previous ? (
+                <a className="product-pager-link product-pager-link--prev" href={productPath(previous)}>
+                  <span className="pager-direction">← Previous product</span>
+                  <span className="pager-title">{previous.title}</span>
+                </a>
+              ) : <span />}
+              {next ? (
+                <a className="product-pager-link product-pager-link--next" href={productPath(next)}>
+                  <span className="pager-direction">Next product →</span>
+                  <span className="pager-title">{next.title}</span>
+                </a>
+              ) : <span />}
+            </nav>
+          </div>
+        </section>
+      </main>
+    );
+  }
+
   // Helper to render the unique bespoke interactive layout for each product
   const renderUniqueProductExperience = () => {
     switch (product.slug) {

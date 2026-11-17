@@ -5,156 +5,245 @@ import { Reveal } from './Reveal';
 import { SectionHead } from './SectionHead';
 
 // -------------------------------------------------------------
-// 1. TALENT SOURCING EXPERIENCE
+// 1. TALENT SOURCING EXPERIENCE (SEEKOUT RECRUIT DESIGN)
+// Reference: https://www.seekout.com/solutions/recruit/
 // -------------------------------------------------------------
 export function SourcingExperience({ product }: { product: ProductData }) {
+  void product;
+  const [activePreset, setActivePreset] = useState<string>('react');
   const [activeSource, setActiveSource] = useState<'all' | 'db' | 'boards' | 'social' | 'pools'>('all');
-  const [query, setQuery] = useState('React developer, 4+ years, Bengaluru');
+  const [biasReducer, setBiasReducer] = useState<boolean>(false);
 
-  const candidates = [
-    {
-      name: 'Aiko Tanaka',
-      source: 'Resume Database (Archive)',
+  const presets: Record<string, { query: string; role: string; skills: string[]; location: string }> = {
+    react: {
+      query: 'Senior React Developer, 4+ years, Bengaluru (Notice < 30 days)',
       role: 'Senior Frontend Engineer',
-      exp: '5.5 yrs',
+      skills: ['React', 'TypeScript', 'Next.js', 'Redux', 'System Design'],
       location: 'Bengaluru / Hybrid',
+    },
+    cloud: {
+      query: 'Staff DevOps & Cloud Architect with Kubernetes & Terraform',
+      role: 'Staff DevOps Architect',
+      skills: ['AWS', 'Kubernetes', 'Terraform', 'CI/CD', 'Docker'],
+      location: 'Remote / Bengaluru',
+    },
+    nurse: {
+      query: 'ICU Specialist Nurse with ACLS/BLS and state clinical license',
+      role: 'Critical Care Staff Nurse',
+      skills: ['ICU Protocol', 'BLS / ACLS', 'Patient Triage', 'State RN License'],
+      location: 'Metro Hospitals',
+    },
+  };
+
+  const sampleCandidates = [
+    {
+      name: biasReducer ? 'Candidate #89201' : 'Aiko Tanaka',
+      title: 'Senior Frontend Engineer',
+      company: biasReducer ? '[Current Top Tech Employer]' : 'FinTech Labs Global',
+      exp: '5.5 yrs',
+      location: 'Bengaluru, India',
+      source: 'Resume Database (Archive)',
       score: 96,
-      skills: ['React', 'TypeScript', 'Next.js', 'Redux'],
-      tag: 'Silver Medalist (Q2)',
+      avatar: 'AT',
+      skills: ['React', 'TypeScript', 'Next.js', 'State Management'],
+      tag: 'Rediscovered Silver Medalist',
+      githubStats: '48 Repos · Top 5% TS Contributor',
+      patent: 'Co-inventor: Real-time Data Streaming UI',
     },
     {
-      name: 'Daniel Okafor',
+      name: biasReducer ? 'Candidate #89202' : 'Daniel Okafor',
+      title: 'Staff UI Systems Architect',
+      company: biasReducer ? '[Leading E-Commerce Platform]' : 'OmniScale Commerce',
+      exp: '6.2 yrs',
+      location: 'Bengaluru / Hybrid',
       source: 'LinkedIn & Social',
-      role: 'Staff UI Engineer',
-      exp: '6 yrs',
-      location: 'Bengaluru',
       score: 93,
-      skills: ['React', 'System Design', 'GraphQL', 'AWS'],
-      tag: 'Passive Candidate',
+      avatar: 'DO',
+      skills: ['React', 'GraphQL', 'AWS Microservices', 'Micro-frontends'],
+      tag: 'Passive Candidate (Not actively applying)',
+      githubStats: '12 Stars · 140 PRs merged',
+      patent: 'Published: Distributed Design Tokens',
     },
     {
-      name: 'Sofia Marin',
-      source: 'Job Board Integration',
-      role: 'Frontend Developer',
-      exp: '4 yrs',
+      name: biasReducer ? 'Candidate #89203' : 'Sofia Marin',
+      title: 'Frontend Developer (UI/UX Specialist)',
+      company: biasReducer ? '[Healthcare Tech Venture]' : 'CareCloud Health',
+      exp: '4.0 yrs',
       location: 'Bengaluru / Remote',
+      source: 'Job Board Integration',
       score: 89,
-      skills: ['React', 'JavaScript', 'CSS Modules', 'Jest'],
-      tag: 'New Applicant (1h ago)',
-    },
-    {
-      name: 'Jonas Weber',
-      source: 'Talent Pool Management',
-      role: 'Full-Stack React/Node',
-      exp: '5 yrs',
-      location: 'Bengaluru',
-      score: 87,
-      skills: ['React', 'Node.js', 'PostgreSQL', 'Docker'],
-      tag: 'Q3 Fintech Pool',
+      avatar: 'SM',
+      skills: ['React', 'JavaScript (ES6+)', 'TailwindCSS', 'Jest'],
+      tag: 'Applicant (Applied 2h ago)',
+      githubStats: 'Active OSS Maintainer',
+      patent: 'Certified: Web Accessibility (WCAG 2.1)',
     },
   ];
 
-  const filtered = candidates.filter((c) => {
-    if (activeSource === 'db') return c.source.includes('Resume Database');
-    if (activeSource === 'boards') return c.source.includes('Job Board');
-    if (activeSource === 'social') return c.source.includes('LinkedIn');
-    if (activeSource === 'pools') return c.source.includes('Talent Pool');
-    return true;
-  });
-
   return (
-    <div className="product-custom-experience sourcing-experience">
-      {/* Sourcing Command Center Sandbox */}
-      <section className="section section--light">
+    <div className="seekout-recruit-page">
+      {/* 1. Seekout-Style Hero Section with Interactive Live Search Console */}
+      <section className="seekout-hero-section">
         <div className="container">
-          <SectionHead
-            eyebrow="Interactive Command Center"
-            title="Multi-channel candidate search *in real time*"
-            body={product.sectionIntro || product.lede}
-          />
+          <div className="seekout-hero-header">
+            <span className="seekout-eyebrow-pill">
+              <Icon name="search" /> SEEKOUT SOURCING · AGENTIC AI RECRUITING
+            </span>
+            <h1 className="seekout-hero-title">
+              Find the right candidates <span className="text-highlight">before your competitors do.</span>
+            </h1>
+            <p className="seekout-hero-subtitle">
+              TalentPool365 searches your resume database, job boards, and social networks at the same time.
+              It ranks the best-fit people so your team spends time talking to candidates instead of hunting for them.
+            </p>
+            <div className="seekout-hero-ctas">
+              <a className="btn btn-primary btn-lg" href="/get-started#book-meeting">
+                Book a Live Demo
+              </a>
+              <a className="btn btn-outline btn-lg" href="/get-started#start-free-trial">
+                Start Free Trial
+              </a>
+              <span className="cta-note">No credit card required · Full ATS sync in 15 mins</span>
+            </div>
+          </div>
 
-          <div className="sourcing-terminal card">
-            <div className="sourcing-search-bar">
-              <span className="search-icon"><Icon name="search" /></span>
+          {/* SeekOut Search Console Interactive Visual */}
+          <div className="seekout-console card">
+            <div className="console-topbar">
+              <div className="console-agent-status">
+                <span className="pulsing-green-dot" />
+                <strong>AI Sourcing Agent Active:</strong> Scanning 1B+ global profiles and your ATS archive
+              </div>
+              <div className="console-toggle-bias">
+                <label className="toggle-switch-label">
+                  <input
+                    type="checkbox"
+                    checked={biasReducer}
+                    onChange={(e) => setBiasReducer(e.target.checked)}
+                  />
+                  <span>Bias-Reducer Mode (Blind Screening)</span>
+                </label>
+              </div>
+            </div>
+
+            {/* Natural Language Prompt & Presets Bar */}
+            <div className="console-search-box">
+              <span className="search-symbol"><Icon name="search" /></span>
               <input
                 type="text"
-                value={query}
-                onChange={(e) => setQuery(e.target.value)}
-                placeholder="Search across database, job boards and LinkedIn..."
-                className="sourcing-input"
+                value={presets[activePreset].query}
+                readOnly
+                className="console-search-input"
+                aria-label="Target search query"
               />
               <button type="button" className="btn btn-primary btn-sm">
-                Search All Sources
+                Search 1B+ Profiles
               </button>
             </div>
 
-            <div className="sourcing-source-tabs">
-              <span className="tab-label">Filter Intake Source:</span>
+            {/* Quick Preset Queries */}
+            <div className="console-preset-chips">
+              <span className="preset-label">Example Role Rubrics:</span>
               <button
                 type="button"
-                className={`source-chip${activeSource === 'all' ? ' is-active' : ''}`}
-                onClick={() => setActiveSource('all')}
+                className={`preset-pill${activePreset === 'react' ? ' is-active' : ''}`}
+                onClick={() => setActivePreset('react')}
               >
-                All Sources (4)
+                Senior React Engineer (Bengaluru)
               </button>
               <button
                 type="button"
-                className={`source-chip${activeSource === 'db' ? ' is-active' : ''}`}
-                onClick={() => setActiveSource('db')}
+                className={`preset-pill${activePreset === 'cloud' ? ' is-active' : ''}`}
+                onClick={() => setActivePreset('cloud')}
               >
-                Resume Archive
+                Staff DevOps & Cloud Architect
               </button>
               <button
                 type="button"
-                className={`source-chip${activeSource === 'boards' ? ' is-active' : ''}`}
-                onClick={() => setActiveSource('boards')}
+                className={`preset-pill${activePreset === 'nurse' ? ' is-active' : ''}`}
+                onClick={() => setActivePreset('nurse')}
               >
-                Job Boards
-              </button>
-              <button
-                type="button"
-                className={`source-chip${activeSource === 'social' ? ' is-active' : ''}`}
-                onClick={() => setActiveSource('social')}
-              >
-                LinkedIn & Social
-              </button>
-              <button
-                type="button"
-                className={`source-chip${activeSource === 'pools' ? ' is-active' : ''}`}
-                onClick={() => setActiveSource('pools')}
-              >
-                Talent Pools
+                Certified Critical Care Nurse
               </button>
             </div>
 
-            <div className="candidate-stream-grid">
-              {filtered.map((cand) => (
-                <div key={cand.name} className="cand-discovery-card">
-                  <div className="cand-head">
-                    <div>
-                      <h4>{cand.name}</h4>
-                      <p className="cand-role">{cand.role} · {cand.exp}</p>
+            {/* Channel Source Filter Bar */}
+            <div className="console-channels-bar">
+              <span className="channels-title">Integrated Intake Channels:</span>
+              <div className="channel-filter-pills">
+                <button
+                  type="button"
+                  className={`chan-pill${activeSource === 'all' ? ' is-active' : ''}`}
+                  onClick={() => setActiveSource('all')}
+                >
+                  All Channels (1,420 Found)
+                </button>
+                <button
+                  type="button"
+                  className={`chan-pill${activeSource === 'db' ? ' is-active' : ''}`}
+                  onClick={() => setActiveSource('db')}
+                >
+                  ATS & Resume Archive (312)
+                </button>
+                <button
+                  type="button"
+                  className={`chan-pill${activeSource === 'social' ? ' is-active' : ''}`}
+                  onClick={() => setActiveSource('social')}
+                >
+                  LinkedIn & GitHub (840)
+                </button>
+                <button
+                  type="button"
+                  className={`chan-pill${activeSource === 'boards' ? ' is-active' : ''}`}
+                  onClick={() => setActiveSource('boards')}
+                >
+                  Job Boards (Indeed/Naukri: 268)
+                </button>
+              </div>
+            </div>
+
+            {/* Candidates Live Match Stream */}
+            <div className="console-candidates-list">
+              {sampleCandidates.map((cand) => (
+                <div key={cand.name} className="seekout-candidate-row">
+                  <div className="cand-avatar-col">
+                    <div className="cand-circle-avatar">{biasReducer ? '?' : cand.avatar}</div>
+                  </div>
+
+                  <div className="cand-info-col">
+                    <div className="cand-title-line">
+                      <h3>{cand.name}</h3>
+                      <span className="source-tag">{cand.source}</span>
+                      <span className="status-tag">{cand.tag}</span>
                     </div>
-                    <div className="cand-score-pill">
+                    <p className="cand-subtitle">
+                      {cand.title} · <strong>{cand.company}</strong> · {cand.exp} · {cand.location}
+                    </p>
+
+                    <div className="cand-skills-row">
+                      {cand.skills.map((s) => (
+                        <span key={s} className="verified-skill-badge">
+                          ✓ {s}
+                        </span>
+                      ))}
+                    </div>
+
+                    <div className="cand-intel-row">
+                      <span className="intel-pill"><Icon name="cpu" /> {cand.githubStats}</span>
+                      <span className="intel-pill"><Icon name="shield" /> {cand.patent}</span>
+                    </div>
+                  </div>
+
+                  <div className="cand-actions-col">
+                    <div className="match-score-badge">
                       <strong>{cand.score}%</strong>
-                      <span>Match</span>
+                      <span>Smart Match</span>
                     </div>
-                  </div>
-
-                  <div className="cand-meta-row">
-                    <span className="cand-source-badge">{cand.source}</span>
-                    <span className="cand-tag-badge">{cand.tag}</span>
-                  </div>
-
-                  <div className="cand-skills-chips">
-                    {cand.skills.map((s) => (
-                      <span key={s}>{s}</span>
-                    ))}
-                  </div>
-
-                  <div className="cand-card-action">
-                    <button type="button" className="btn btn-outline btn-xs">
-                      Engage & Add to Pool <Icon name="arrow-right" />
+                    <button type="button" className="btn btn-outline btn-sm">
+                      1-Click Outreach
+                    </button>
+                    <button type="button" className="btn btn-text btn-xs">
+                      Clone Candidate Profile
                     </button>
                   </div>
                 </div>
@@ -164,29 +253,464 @@ export function SourcingExperience({ product }: { product: ProductData }) {
         </div>
       </section>
 
-      {/* 5 Core Capabilities Grid */}
-      <section className="section" id="capabilities">
+      {/* 2. Enterprise Social Proof / Logo Bar */}
+      <section className="seekout-logos-section">
+        <div className="container">
+          <p className="logos-lead">
+            TRUSTED BY TALENT ACQUISITION TEAMS AT WORLD-CLASS ENTERPRISES
+          </p>
+          <div className="seekout-logos-grid">
+            <div className="logo-item">SALESFORCE</div>
+            <div className="logo-item">MERCK & CO</div>
+            <div className="logo-item">VMWARE</div>
+            <div className="logo-item">UIPATH</div>
+            <div className="logo-item">SIEMENS HEALTH</div>
+            <div className="logo-item">LOCKHEED MARTIN</div>
+          </div>
+        </div>
+      </section>
+
+      {/* 3. Results & Impact Metrics Banner */}
+      <section className="seekout-stats-section">
+        <div className="container">
+          <div className="seekout-stats-grid">
+            <div className="seekout-stat-card">
+              <strong className="stat-number">10×</strong>
+              <span className="stat-title">Faster Search Across Pools</span>
+              <p>Natural-language search scans dormant ATS archives and external networks simultaneously.</p>
+            </div>
+            <div className="seekout-stat-card">
+              <strong className="stat-number">4.2×</strong>
+              <span className="stat-title">Higher Outreach Response</span>
+              <p>Personalized AI emails tailored to candidate code repositories, publications and background.</p>
+            </div>
+            <div className="seekout-stat-card">
+              <strong className="stat-number">68%</strong>
+              <span className="stat-title">Less Passive Sourcing Time</span>
+              <p>Eliminate manual Boolean string crafting with automatic semantic skill expansion.</p>
+            </div>
+            <div className="seekout-stat-card">
+              <strong className="stat-number">1B+</strong>
+              <span className="stat-title">Talent Pool Profiles</span>
+              <p>Global professional records, GitHub engineering data, clinical registries and publications.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 4. Alternating Editorial Feature Bands (SeekOut Recruit Exact Design) */}
+      <div id="capabilities">
+        {/* Band 1 (Warm Cream): Workspaces */}
+        <section className="so-band so-band--cream">
+          <div className="container">
+            <div className="so-split">
+              <div className="so-copy">
+                <span className="so-pill-eyebrow">IN TALENTPOOL365 SOURCING</span>
+                <h2 className="so-serif-title">Workspaces: AI-Powered Hiring Command Center</h2>
+                <p className="so-body">
+                  Unlock the power of AI with intuitive workflows to hire faster. From a simple job
+                  description, Workspaces uses AI to instantly generate search criteria, recommend
+                  profile matches, and personalize multi-step outreach.
+                </p>
+                <ul className="so-checklist">
+                  <li>AI generates search from job descriptions</li>
+                  <li>Smart profile matching and recommendations</li>
+                  <li>Personalized outreach sequences</li>
+                  <li>Full control over decisions and pipeline</li>
+                </ul>
+              </div>
+
+              <div className="so-visual">
+                <div className="so-mac-window">
+                  <div className="so-mac-topbar">
+                    <div className="so-mac-dots" aria-hidden="true">
+                      <span className="dot-red" />
+                      <span className="dot-yellow" />
+                      <span className="dot-green" />
+                    </div>
+                    <span className="so-mac-title">Workspaces</span>
+                  </div>
+                  <div className="so-mac-body so-mac-body--padded">
+                    <div className="so-ws-kpis">
+                      <div className="so-ws-kpi">
+                        <strong>12</strong>
+                        <span>Active Workspaces</span>
+                      </div>
+                      <div className="so-ws-kpi">
+                        <strong>847</strong>
+                        <span>Candidates in Pipeline</span>
+                      </div>
+                    </div>
+
+                    <div className="so-ws-meters">
+                      <div className="so-meter-row">
+                        <div className="so-meter-head">
+                          <span>Pipeline Progress</span>
+                          <strong>72%</strong>
+                        </div>
+                        <div className="so-meter-track">
+                          <div className="so-meter-fill" style={{ width: '72%' }} />
+                        </div>
+                      </div>
+                      <div className="so-meter-row">
+                        <div className="so-meter-head">
+                          <span>Response Rate</span>
+                          <strong>34%</strong>
+                        </div>
+                        <div className="so-meter-track">
+                          <div className="so-meter-fill so-meter-fill--soft" style={{ width: '34%' }} />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Band 2 (White): Job-Specific Workflows */}
+        <section className="so-band so-band--white">
+          <div className="container">
+            <div className="so-split">
+              <div className="so-copy">
+                <h2 className="so-serif-title">Job-Specific Workflows</h2>
+                <p className="so-body">
+                  Create role-specific workflows with AI-assisted search, automated rubrics, and smart
+                  shortlisting. Go from job description to qualified candidates faster.
+                </p>
+                <ul className="so-checklist">
+                  <li>AI generates search criteria from JD</li>
+                  <li>Automated candidate scoring rubrics</li>
+                  <li>Built-in recruiting best practices</li>
+                </ul>
+              </div>
+
+              <div className="so-visual">
+                <div className="so-mac-window">
+                  <div className="so-mac-topbar">
+                    <div className="so-mac-dots" aria-hidden="true">
+                      <span className="dot-red" />
+                      <span className="dot-yellow" />
+                      <span className="dot-green" />
+                    </div>
+                    <span className="so-mac-title">Job Workflow: Sr. Engineer</span>
+                  </div>
+                  <div className="so-workflow-frame">
+                    <div className="so-wf-sidebar" aria-hidden="true">
+                      <span className="so-wf-nav-btn is-active">
+                        <Icon name="clipboard-check" />
+                      </span>
+                      <span className="so-wf-nav-btn">
+                        <Icon name="users" />
+                      </span>
+                      <span className="so-wf-nav-btn">
+                        <Icon name="chat" />
+                      </span>
+                    </div>
+                    <div className="so-wf-main">
+                      <div className="so-wf-header">
+                        <strong>Candidate Pipeline</strong>
+                        <span>24 candidates</span>
+                      </div>
+                      <div className="so-wf-columns">
+                        <div className="so-wf-col so-wf-col--cream">
+                          <div className="so-wf-col-head">
+                            <span>Sourced</span>
+                            <span className="so-wf-badge">12</span>
+                          </div>
+                          <div className="so-wf-skeleton" />
+                          <div className="so-wf-skeleton" />
+                          <div className="so-wf-skeleton" />
+                        </div>
+                        <div className="so-wf-col so-wf-col--cream">
+                          <div className="so-wf-col-head">
+                            <span>Screened</span>
+                            <span className="so-wf-badge">8</span>
+                          </div>
+                          <div className="so-wf-skeleton" />
+                          <div className="so-wf-skeleton" />
+                        </div>
+                        <div className="so-wf-col so-wf-col--gray">
+                          <div className="so-wf-col-head">
+                            <span>Interview</span>
+                            <span className="so-wf-badge">4</span>
+                          </div>
+                          <div className="so-wf-skeleton" />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Band 3 (Warm Cream, Reversed): Intelligent Search */}
+        <section className="so-band so-band--cream">
+          <div className="container">
+            <div className="so-split so-split--reverse">
+              <div className="so-copy">
+                <h2 className="so-serif-title">Intelligent Search</h2>
+                <p className="so-body">
+                  Go beyond keywords to find hidden talent others miss. Search 1B+ profiles across
+                  external sources and your ATS with AI that understands context, not just terms.
+                </p>
+                <ul className="so-checklist">
+                  <li>Semantic search understands intent</li>
+                  <li>30+ smart filters for precise targeting</li>
+                  <li>Unified search across all talent pools</li>
+                </ul>
+              </div>
+
+              <div className="so-visual">
+                <div className="so-mac-window">
+                  <div className="so-mac-topbar">
+                    <div className="so-mac-dots" aria-hidden="true">
+                      <span className="dot-red" />
+                      <span className="dot-yellow" />
+                      <span className="dot-green" />
+                    </div>
+                    <span className="so-mac-title">Talent Search</span>
+                  </div>
+                  <div className="so-mac-body so-mac-body--padded">
+                    <div className="so-search-bar-mock">
+                      <Icon name="search" />
+                      <span>Senior ML Engineer, Python, TensorFlow...</span>
+                    </div>
+                    <div className="so-filter-chips-mock">
+                      <span className="so-chip is-active">AI/ML</span>
+                      <span className="so-chip">5+ years</span>
+                      <span className="so-chip">Remote</span>
+                      <span className="so-chip">+12 filters</span>
+                    </div>
+                    <p className="so-results-count">1,247 candidates found</p>
+                    <div className="so-mini-candidates">
+                      <div className="so-mini-cand">
+                        <span className="so-mini-avatar so-mini-avatar--dark">JL</span>
+                        <div className="so-mini-meta">
+                          <strong>Jennifer L.</strong>
+                          <span>ML Engineer @ Google</span>
+                        </div>
+                        <span className="so-mini-score">95%</span>
+                      </div>
+                      <div className="so-mini-cand">
+                        <span className="so-mini-avatar so-mini-avatar--mid">MK</span>
+                        <div className="so-mini-meta">
+                          <strong>Marcus K.</strong>
+                          <span>Senior AI Researcher @ Meta</span>
+                        </div>
+                        <span className="so-mini-score">92%</span>
+                      </div>
+                      <div className="so-mini-cand">
+                        <span className="so-mini-avatar so-mini-avatar--slate">SP</span>
+                        <div className="so-mini-meta">
+                          <strong>Sarah P.</strong>
+                          <span>Staff Engineer @ Netflix</span>
+                        </div>
+                        <span className="so-mini-score">89%</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Band 4 (White): Applicant Evaluation */}
+        <section className="so-band so-band--white">
+          <div className="container">
+            <div className="so-split">
+              <div className="so-copy">
+                <h2 className="so-serif-title">Applicant Evaluation</h2>
+                <p className="so-body">
+                  Process thousands of inbound applicants in hours, not weeks. AI evaluates candidates
+                  against your criteria and delivers qualified shortlists so you focus on the best.{' '}
+                  <a className="so-inline-link" href="/products/candidate-screening">
+                    See TalentPool365 Applicant Evaluation &amp; AI Screening.
+                  </a>
+                </p>
+                <ul className="so-checklist">
+                  <li>Automatically score and rank applicants</li>
+                  <li>Filter out unqualified candidates instantly</li>
+                  <li>Surface hidden gems you might have missed</li>
+                </ul>
+              </div>
+
+              <div className="so-visual">
+                <div className="so-mac-window">
+                  <div className="so-mac-topbar">
+                    <div className="so-mac-dots" aria-hidden="true">
+                      <span className="dot-red" />
+                      <span className="dot-yellow" />
+                      <span className="dot-green" />
+                    </div>
+                    <span className="so-mac-title">AI Video Screening</span>
+                  </div>
+                  <div className="so-mac-body so-mac-body--padded">
+                    <div className="so-eval-grid">
+                      <div className="so-video-panel">
+                        <div className="so-video-avatar">
+                          <Icon name="users" />
+                        </div>
+                        <span className="so-recording-pill">
+                          <span className="rec-dot" /> Recording
+                        </span>
+                      </div>
+                      <div className="so-eval-scores">
+                        <strong className="so-eval-heading">AI Evaluation</strong>
+                        <div className="so-score-bar-row">
+                          <span>Communication</span>
+                          <div className="so-score-track">
+                            <div className="so-score-fill" style={{ width: '85%' }} />
+                          </div>
+                          <strong>85</strong>
+                        </div>
+                        <div className="so-score-bar-row">
+                          <span>Technical Depth</span>
+                          <div className="so-score-track">
+                            <div className="so-score-fill" style={{ width: '92%' }} />
+                          </div>
+                          <strong>92</strong>
+                        </div>
+                        <div className="so-score-bar-row">
+                          <span>Problem Solving</span>
+                          <div className="so-score-track">
+                            <div className="so-score-fill" style={{ width: '78%' }} />
+                          </div>
+                          <strong>78</strong>
+                        </div>
+                        <div className="so-overall-match">
+                          <span>Overall Match</span>
+                          <strong>88%</strong>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      {/* 5. SeekOut Specialized Niche Talent Pools */}
+      <section className="seekout-niche-section">
         <div className="container">
           <SectionHead
-            eyebrow="Key capabilities"
-            title="Sourcing tools built to *beat the competition*"
-            body="Every capability described in the TalentPool365 sourcing engine."
+            eyebrow="Specialized Niche Sourcing"
+            title="Deep intelligence for *hard-to-fill positions*"
+            body="Traditional search engines only scratch the surface. TalentPool365 unlocks deep data across engineering, healthcare, and diversity pipelines."
           />
 
-          <div className="grid grid--2 capability-cards-grid">
-            {product.capabilities.map((cap, idx) => (
-              <Reveal as="article" key={cap.id} className="card capability-box" delay={idx % 2}>
-                <div className="cap-badge-num">0{idx + 1}</div>
-                <h3>{cap.title}</h3>
-                {cap.tagline && <p className="cap-tagline">{cap.tagline}</p>}
-                <p className="cap-body">{cap.body}</p>
-                <ul className="ticks">
-                  {cap.points.map((pt) => (
-                    <li key={pt}>{pt}</li>
-                  ))}
-                </ul>
-              </Reveal>
-            ))}
+          <div className="seekout-niche-grid">
+            <div className="niche-card">
+              <span className="niche-icon"><Icon name="cpu" /></span>
+              <h3>GitHub & Tech Talent</h3>
+              <p>Analyze public repositories, languages, code contributions, and technical papers to verify real engineering proficiency.</p>
+            </div>
+            <div className="niche-card">
+              <span className="niche-icon"><Icon name="pulse" /></span>
+              <h3>Healthcare & Clinical Staff</h3>
+              <p>Source verified RNs, doctors, and specialists with automatic credential tracking, state nursing licenses, and shift filters.</p>
+            </div>
+            <div className="niche-card">
+              <span className="niche-icon"><Icon name="shield" /></span>
+              <h3>Diversity & Bias-Reducer</h3>
+              <p>1-click blind sourcing hides candidate names, photos, gender, and school pedigree to build inclusive, merit-based candidate slates.</p>
+            </div>
+            <div className="niche-card">
+              <span className="niche-icon"><Icon name="building" /></span>
+              <h3>Two-Way ATS Sync</h3>
+              <p>Continuous bidirectional integration with Workday, Greenhouse, Lever, and SAP SuccessFactors. Never double-enter a record.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 6. Traditional Boolean Search vs. Seekout/TalentPool365 AI Sourcing */}
+      <section className="seekout-comparison-section">
+        <div className="container">
+          <SectionHead
+            eyebrow="Why Leading Teams Switch"
+            title="Traditional Boolean Search *vs. Agentic AI Sourcing*"
+            body="See why recruiting teams waste 20+ hours weekly on keyword search strings that modern AI solves in seconds."
+          />
+
+          <div className="comparison-table-wrap">
+            <table className="comparison-table seekout-compare-table">
+              <thead>
+                <tr>
+                  <th style={{ width: '30%' }}>Sourcing Capability</th>
+                  <th style={{ width: '35%' }} className="text-muted">Legacy Boolean & Job Boards</th>
+                  <th style={{ width: '35%' }} className="is-popular-col">TalentPool365 Agentic Sourcing</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Search Methodology</strong></td>
+                  <td>Brittle keyword syntax (AND, OR, NOT) that misses synonyms and context</td>
+                  <td className="is-popular-col"><strong>Natural Language Semantic AI</strong> that understands skills and project depth</td>
+                </tr>
+                <tr>
+                  <td><strong>Talent Pool Coverage</strong></td>
+                  <td>Fragmented: Job board active applicants only</td>
+                  <td className="is-popular-col"><strong>Unified 1B+ Profiles</strong> (ATS archive + LinkedIn + GitHub + Boards)</td>
+                </tr>
+                <tr>
+                  <td><strong>Outreach Engagement</strong></td>
+                  <td>Generic cold copy-pasted inmails with &lt;15% response rates</td>
+                  <td className="is-popular-col"><strong>Hyper-Personalized AI Sequences</strong> citing candidate work (4.2× higher replies)</td>
+                </tr>
+                <tr>
+                  <td><strong>Applicant Rediscovery</strong></td>
+                  <td>Old ATS resumes sit forgotten in a digital graveyard</td>
+                  <td className="is-popular-col"><strong>Instant Rediscovery:</strong> Past silver medalists ranked first for new roles</td>
+                </tr>
+                <tr>
+                  <td><strong>Bias Mitigation</strong></td>
+                  <td>Manual screening prone to unconscious name/school bias</td>
+                  <td className="is-popular-col"><strong>Built-in Bias Reducer Mode</strong> for objective, merit-first evaluation</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      {/* 7. Customer Testimonial Quote */}
+      <section className="seekout-quote-section">
+        <div className="container">
+          <div className="seekout-quote-box">
+            <blockquote>
+              “TalentPool365 gives us the speed and intelligence of a 20-person sourcing team.
+              We slashed our time-to-shortlist from two weeks down to 48 hours, and our recruiters
+              spend their days engaging top talent rather than fighting complex Boolean strings.”
+            </blockquote>
+            <cite>
+              <strong>Elena Rostova</strong>
+              <span>VP of Global Talent Acquisition · Enterprise Cloud Solutions</span>
+            </cite>
+          </div>
+        </div>
+      </section>
+
+      {/* 8. SeekOut Closing Call to Action */}
+      <section className="seekout-bottom-cta">
+        <div className="container">
+          <div className="seekout-cta-content">
+            <h2>Build a talent pipeline that never runs dry.</h2>
+            <p>Start sourcing smarter with TalentPool365 today.</p>
+            <div className="cta-button-group">
+              <a className="btn btn-primary btn-lg" href="/get-started#book-meeting">
+                Book a Demo
+              </a>
+              <a className="btn btn-outline btn-lg" href="/get-started#start-free-trial">
+                Start Free Trial
+              </a>
+            </div>
           </div>
         </div>
       </section>
