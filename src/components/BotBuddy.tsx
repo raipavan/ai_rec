@@ -29,12 +29,16 @@ export function BotBuddy({ role = 1, gesture = 'thumb', size = 240, className = 
 
     let frame = 0;
     let visible = false;
+    let targetX = 0;
+    let targetY = 0;
     let lookX = 0;
     let lookY = 0;
 
     const draw = (now: number) => {
       frame = 0;
       const time = still ? 1 : now / 1000;
+      lookX += (targetX - lookX) * 0.12;
+      lookY += (targetY - lookY) * 0.12;
       ctx.clearRect(0, 0, size, size);
       drawBot(ctx, size * 0.42, size * 0.4 + (still ? 0 : Math.sin(time * 2) * 3), size * 0.3, time, {
         role,
@@ -49,8 +53,8 @@ export function BotBuddy({ role = 1, gesture = 'thumb', size = 240, className = 
 
     const onPointer = (event: PointerEvent) => {
       const rect = canvas.getBoundingClientRect();
-      lookX = Math.max(-1, Math.min(1, (event.clientX - rect.left - rect.width / 2) / 320));
-      lookY = Math.max(-1, Math.min(1, (event.clientY - rect.top - rect.height / 2) / 320));
+      targetX = Math.max(-1, Math.min(1, (event.clientX - rect.left - rect.width / 2) / 320));
+      targetY = Math.max(-1, Math.min(1, (event.clientY - rect.top - rect.height / 2) / 320));
     };
     const observer = new IntersectionObserver((entries) => {
       visible = Boolean(entries[0]?.isIntersecting);

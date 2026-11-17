@@ -84,28 +84,63 @@ function makeParticles(total: number): Particle[] {
 
 type Ctx = CanvasRenderingContext2D;
 
-/** Scan cone from the bot's visor down onto the candidates it is working on. */
+/** Volumetric projection cone from the bot's visor onto the candidate cluster. */
 function drawBeam(ctx: Ctx, bx: number, by: number, sx: number, cy: number, radius: number, time: number, strength: number) {
   if (strength <= 0.02) return;
-  const sweep = sx + Math.sin(time * 1.7) * radius * 0.75;
-  const spread = Math.max(14, radius * 0.5);
-  const beam = ctx.createLinearGradient(bx, by, sweep, cy);
-  beam.addColorStop(0, `rgba(6, 182, 212, ${0.5 * strength})`);
-  beam.addColorStop(1, 'rgba(6, 182, 212, 0)');
+  const sweep = sx + Math.sin(time * 1.7) * radius * 0.72;
+  const spread = Math.max(16, radius * 0.54);
+  const targetY = cy + radius * 0.35;
+
+  // Outer volumetric cone
+  const beam = ctx.createLinearGradient(bx, by, sweep, targetY);
+  beam.addColorStop(0, `rgba(52, 211, 153, ${0.42 * strength})`);
+  beam.addColorStop(0.45, `rgba(56, 189, 248, ${0.22 * strength})`);
+  beam.addColorStop(1, 'rgba(56, 189, 248, 0)');
   ctx.fillStyle = beam;
   ctx.beginPath();
-  ctx.moveTo(bx - 4, by);
-  ctx.lineTo(bx + 4, by);
-  ctx.lineTo(sweep + spread, cy + radius * 0.4);
-  ctx.lineTo(sweep - spread, cy + radius * 0.4);
+  ctx.moveTo(bx - 5, by);
+  ctx.lineTo(bx + 5, by);
+  ctx.lineTo(sweep + spread, targetY);
+  ctx.lineTo(sweep - spread, targetY);
   ctx.closePath();
   ctx.fill();
 
-  ctx.strokeStyle = `rgba(255, 255, 255, ${0.7 * strength})`;
-  ctx.lineWidth = 1.5;
+  // Inner volumetric light shafts
+  for (const frac of [-0.45, 0, 0.45]) {
+    const ray = ctx.createLinearGradient(bx, by, sweep + spread * frac, targetY);
+    ray.addColorStop(0, `rgba(230, 255, 250, ${0.26 * strength})`);
+    ray.addColorStop(1, 'rgba(56, 189, 248, 0)');
+    ctx.strokeStyle = ray;
+    ctx.lineWidth = 1.6;
+    ctx.beginPath();
+    ctx.moveTo(bx + frac * 3, by);
+    ctx.lineTo(sweep + spread * frac, targetY);
+    ctx.stroke();
+  }
+
+  // Drifting illuminated data motes inside the cone
+  for (let i = 0; i < 6; i += 1) {
+    const p = (time * 0.48 + i / 6) % 1;
+    const my = mix(by + 10, targetY - 6, p);
+    const mx = mix(bx, sweep + Math.sin(time * 2.2 + i * 1.7) * spread * 0.55 * p, p);
+    ctx.fillStyle = `rgba(230, 255, 250, ${(1 - p) * 0.75 * strength})`;
+    ctx.beginPath();
+    ctx.arc(mx, my, 1.4, 0, Math.PI * 2);
+    ctx.fill();
+  }
+
+  // Elliptical laser scan ring where beam intersects candidate cluster
+  ctx.strokeStyle = `rgba(110, 231, 183, ${0.72 * strength})`;
+  ctx.lineWidth = 1.6;
   ctx.beginPath();
-  ctx.moveTo(sweep - spread, cy);
-  ctx.lineTo(sweep + spread, cy);
+  ctx.ellipse(sweep, cy, spread * 0.92, Math.max(4, spread * 0.2), 0, 0, Math.PI * 2);
+  ctx.stroke();
+
+  ctx.strokeStyle = `rgba(255, 255, 255, ${0.85 * strength})`;
+  ctx.lineWidth = 1.4;
+  ctx.beginPath();
+  ctx.moveTo(sweep - spread * 0.78, cy);
+  ctx.lineTo(sweep + spread * 0.78, cy);
   ctx.stroke();
 }
 
@@ -355,6 +390,7 @@ export function Agents() {
     let width = 0;
     let height = 0;
     let particles: Particle[] = [];
+    const ionTrail: { x: number; y: number; life: number; r: number }[] = [];
     let frame = 0;
     let visible = false;
     let shown = 0;
@@ -520,6 +556,34 @@ export function Agents() {
       const botY = cy - base - unit * 1.2 - (phase === 0 ? 0 : lift) + Math.sin(time * 2.1) * unit * 0.05;
       const tilt = phase === 0 ? 0 : Math.sin(Math.PI * fly) * 0.2;
       const side = phase === STAGES - 1 ? -1 : 1;
+      const flyingBoost = phase === 0 ? 0 : 1 - Math.abs(fly * 2 - 1);
+
+      /* Ion thruster flight trail behind the bot */
+      if (flyingBoost > 0.08) {
+        ionTrail.push({
+          x: botX - Math.sin(tilt) * unit * 1.15,
+          y: botY + Math.cos(tilt) * unit * 1.25,
+          life: 1,
+          r: Math.max(3, unit * 0.14 * flyingBoost),
+        });
+        if (ionTrail.length > 26) ionTrail.shift();
+      }
+      for (let i = ionTrail.length - 1; i >= 0; i -= 1) {
+        const pt = ionTrail[i];
+        pt.life -= 0.045;
+        if (pt.life <= 0) {
+          ionTrail.splice(i, 1);
+          continue;
+        }
+        const tGlow = ctx.createRadialGradient(pt.x, pt.y, 0, pt.x, pt.y, pt.r * 2.2);
+        tGlow.addColorStop(0, `rgba(230, 255, 250, ${pt.life * 0.48})`);
+        tGlow.addColorStop(0.45, `rgba(56, 189, 248, ${pt.life * 0.28})`);
+        tGlow.addColorStop(1, 'rgba(52, 211, 153, 0)');
+        ctx.fillStyle = tGlow;
+        ctx.beginPath();
+        ctx.arc(pt.x, pt.y, pt.r * 2.2, 0, Math.PI * 2);
+        ctx.fill();
+      }
 
       drawBeam(ctx, botX, botY, stationX(phase), cy, base * Math.max(CLUSTER[phase], 0.3), time, work * (hired > 0.5 ? 0 : 1));
       drawBot(ctx, botX, botY, unit, time, {
@@ -529,7 +593,7 @@ export function Agents() {
         work,
         side,
         happy: hired,
-        flying: phase === 0 ? 0 : 1 - Math.abs(fly * 2 - 1),
+        flying: flyingBoost,
       });
       if (work > 0.02) {
         ctx.save();
