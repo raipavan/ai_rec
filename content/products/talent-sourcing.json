@@ -6,73 +6,83 @@
   "bot": 0,
   "kind": "stage",
   "title": "Talent Sourcing",
-  "summary": "One search across your ATS, job boards, LinkedIn and referral pools.",
-  "headline": "Every candidate source, *in one search*",
-  "lede": "Describe the role once. TalentPool365 searches the database you already own alongside job boards and social channels, merges the duplicates and attaches every match to the requisition.",
+  "summary": "One search across your resume database, job boards, LinkedIn and referral pools.",
+  "headline": "Find the right candidates *before your competitors do*",
+  "lede": "TalentPool365 searches your resume database, job boards and social networks at the same time. It ranks the best-fit people so your team spends time talking to candidates instead of hunting for them.",
+  "sectionIntro": "TalentPool365 searches your resume database, job boards and social networks at the same time. It ranks the best-fit people so your team spends time talking to candidates instead of hunting for them.",
   "capabilities": [
     {
       "id": "ai-candidate-discovery",
       "title": "AI Candidate Discovery",
-      "body": "Turn a plain-language role description into a ranked list of people who fit it, including those who never used your exact keywords.",
+      "tagline": "Let AI find the people you’d never find manually.",
+      "body": "Describe the role once, and our AI scans millions of profiles to surface candidates who match on skills, experience and potential, not just keywords. It also finds strong candidates who don’t use the exact job title you searched for.",
       "points": [
-        "Matches on skills and experience, not job titles",
-        "Each match shows why it surfaced",
-        "Runs again automatically as new profiles arrive"
+        "Semantic matching that understands skills and context",
+        "Instant ranked shortlists with a match score",
+        "Finds passive candidates who aren’t actively applying",
+        "Learns from your hiring decisions to improve every search"
       ]
     },
     {
       "id": "resume-database-search",
       "title": "Resume Database Search",
-      "body": "Semantic search over every resume your team has ever collected, so past applicants are the first place you look instead of the last.",
+      "tagline": "Your past applicants are your best untapped talent.",
+      "body": "Search your entire resume archive in seconds. Natural-language search and smart filters turn old applications into ready-to-contact candidates.",
       "points": [
-        "Searches meaning, not just exact words",
-        "Filters for location, notice period and work rights",
-        "Finds silver medallists from earlier roles"
+        "Search by skill, location, experience, education or notice period",
+        "Ask in plain English, e.g. 'React developer, 4+ years, Bengaluru'",
+        "Automatic parsing of PDF, Word and other resume formats",
+        "Duplicate detection to keep your database clean"
       ]
     },
     {
       "id": "job-board-integration",
       "title": "Job Board Integration",
-      "body": "Post to your boards from the requisition and pull applicants back into one pipeline, tagged with where they came from.",
+      "tagline": "Post once. Reach everywhere.",
+      "body": "Publish jobs to multiple job boards from one dashboard, and bring every applicant back into one place. No more copy-pasting or checking separate inboxes.",
       "points": [
-        "Publish to several boards in one step",
-        "Applicants land in the same queue",
-        "Source kept on every profile for reporting"
+        "One-click multi-board posting",
+        "Applicants flow in automatically, already parsed and scored",
+        "Track which boards bring the best candidates",
+        "Your career page and job boards stay in sync"
       ]
     },
     {
       "id": "linkedin-social-sourcing",
       "title": "LinkedIn & Social Sourcing",
-      "body": "Bring passive candidates from LinkedIn and other professional networks into the same search, with outreach tracked next to the profile.",
+      "tagline": "Meet candidates where they already are.",
+      "body": "Reach professionals across LinkedIn and other social platforms, and start conversations that get replies. Profiles are matched against your open roles, and outreach is personalized at scale.",
       "points": [
-        "Passive profiles ranked beside applicants",
-        "Outreach history visible to the whole team",
-        "No copy and paste into spreadsheets"
+        "Identify relevant profiles from professional and social networks",
+        "AI-assisted, personalized outreach messages",
+        "Track responses and follow-ups in one view",
+        "Build your employer brand while you source"
       ]
     },
     {
       "id": "talent-pool-management",
       "title": "Talent Pool Management",
-      "body": "Group candidates into pools by skill, location or campaign and keep them warm, so the next requisition starts with a shortlist.",
+      "tagline": "Turn every candidate into a long-term relationship.",
+      "body": "Today’s silver medalist is tomorrow’s hire. Organize candidates into pools, keep them warm, and fill future roles faster.",
       "points": [
-        "Pools refresh as profiles change",
-        "Duplicates merged into one record",
-        "Consent and retention dates tracked per person"
+        "Create pools by skill, role, location or hiring stage",
+        "Tags, notes and activity history for every candidate",
+        "Automated re-engagement campaigns and updates",
+        "Instant shortlists from your pool when a new role opens"
       ]
     }
   ],
   "outcomes": [
-    {
-      "value": "30+",
-      "label": "channels searched at once, plus your own database"
-    },
-    {
-      "value": "3.4×",
-      "label": "more qualified candidates reach the shortlist stage"
-    },
-    {
-      "value": "1",
-      "label": "record per person, however many sources found them"
-    }
-  ]
+    { "value": "10×", "label": "faster search across candidate databases" },
+    { "value": "4.2×", "label": "higher outreach response rate" },
+    { "value": "68%", "label": "reduction in passive sourcing time" }
+  ],
+  "closingCta": {
+    "headline": "Build a talent pipeline that never runs dry.",
+    "body": "Start sourcing smarter with TalentPool365 today.",
+    "buttons": [
+      { "label": "Book a Demo", "href": "/get-started#book-meeting", "primary": true },
+      { "label": "Start Free Trial", "href": "/get-started#start-free-trial", "primary": false }
+    ]
+  }
 }

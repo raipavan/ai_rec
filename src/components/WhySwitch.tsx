@@ -11,7 +11,6 @@ const icons: Record<SwitchVisualKind, IconName> = {
 export function WhySwitch() {
   return (
     <section className="section why-band" id="why-switch">
-      <span className="why-bg" aria-hidden="true" />
       <div className="container">
         <div className="why-top">
           <span className="why-eyebrow">Why TalentPool365</span>

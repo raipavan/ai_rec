@@ -752,21 +752,14 @@ h3, h4 { font-weight: 600; }
   color: var(--color-secondary);
 }
 /* Cyan is only allowed as text on Deep Navy */
-.on-dark .accent,
-.why-band .accent { color: var(--color-accent); }
+.on-dark .accent { color: var(--color-accent); }
+.why-band .accent { color: var(--color-secondary); font-style: italic; }
 .role-swap { padding-right: .08em; }
 
-/* ---------- Deep Navy bands (brand guide blue, no photo washes) ---------- */
-/* The hero keeps its photo background (global.css); only the other two bands go plain navy. */
 .why-bg, .cta-bg { display: none; }
-.why-band { background: var(--color-primary); }
-.why-band::before {
-  background:
-    radial-gradient(820px 560px at 84% 6%, rgba(79, 70, 229, .46), transparent 64%),
-    radial-gradient(560px 440px at 4% 100%, rgba(6, 182, 212, .16), transparent 64%);
-}
-.why-band::after { opacity: .16; mix-blend-mode: soft-light; }
-.why-card { border-color: rgba(255, 255, 255, .18); background: rgba(255, 255, 255, .06); }
+.why-band { background: #ffffff; color: var(--color-text); }
+.why-band::before, .why-band::after { display: none; }
+.why-card { border: 1px solid var(--color-border); background: #ffffff; }
 
 /* ---------- AI agents: pinned, scroll-scrubbed scene ---------- */
 .agents {

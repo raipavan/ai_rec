@@ -8,6 +8,7 @@ export interface Capability {
   /** Anchor on the product page, e.g. /products/talent-sourcing#resume-database-search */
   id: string;
   title: string;
+  tagline?: string;
   body: string;
   points: string[];
 }
@@ -30,11 +31,17 @@ export interface ProductPage {
   /** Page headline; wrap the accent phrase in asterisks. */
   headline: string;
   lede: string;
+  sectionIntro?: string;
   capabilities: Capability[];
   /** Illustrative figures, in line with the rest of the site. Replace with approved numbers before launch. */
   outcomes: Outcome[];
   /** `stage` products run in order on one requisition; `layer` products sit across every stage. */
   kind: 'stage' | 'layer';
+  closingCta?: {
+    headline: string;
+    body: string;
+    buttons?: { label: string; href: string; primary?: boolean }[];
+  };
 }
 
 const files = import.meta.glob<ProductPage & { order?: number }>('../../content/products/*.json', {

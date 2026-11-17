@@ -3,76 +3,86 @@
   "slug": "compliance-security",
   "icon": "shield",
   "mock": 8,
-  "bot": 2,
+  "bot": 4,
   "kind": "layer",
   "title": "Compliance & Security",
-  "summary": "GDPR, audit trails, fair-hiring checks and the controls behind them.",
-  "headline": "Every decision *on the record*",
-  "lede": "Hiring is a regulated decision about a person. The platform is built so each score can be explained to a candidate, a client or a regulator, and so candidate data stays yours.",
+  "summary": "GDPR compliance, data privacy, immutable audit trails, Fair Hiring AI and security controls.",
+  "headline": "Hire with confidence. *Your data is protected.*",
+  "lede": "Recruitment involves some of the most sensitive personal data a company handles. TalentPool365 is built to help you protect that data, follow privacy regulations and keep AI-assisted hiring fair and transparent.",
+  "sectionIntro": "Recruitment involves some of the most sensitive personal data a company handles. TalentPool365 is built to help you protect that data, follow privacy regulations and keep AI-assisted hiring fair and transparent.",
   "capabilities": [
     {
       "id": "gdpr-compliance",
       "title": "GDPR Compliance",
-      "body": "Lawful basis, consent and retention handled per candidate, with access and erasure requests completed from one screen.",
+      "tagline": "Built to support your data protection obligations.",
+      "body": "Hiring teams need to handle candidate data lawfully. TalentPool365 gives you the tools to collect, use and delete personal data in line with GDPR requirements.",
       "points": [
-        "Retention periods by country and role",
-        "Subject access and erasure workflows",
-        "EU data residency on request"
+        "Candidate consent capture and tracking",
+        "Data retention rules with automatic deletion",
+        "Easy handling of access, correction and deletion requests",
+        "Clear records of how and why data is processed"
       ]
     },
     {
       "id": "data-privacy",
       "title": "Data Privacy",
-      "body": "Candidate data is encrypted, access is limited by role, and it is never used to train shared models.",
+      "tagline": "Candidate data stays private, and in the right hands.",
+      "body": "Only the people who need to see candidate information can see it. Your data is never sold, and you stay in control of how it is used.",
       "points": [
-        "Encryption in transit and at rest",
-        "Role-based access to candidate records",
-        "Your data is not used to train shared models"
+        "Role-based access to candidate and hiring data",
+        "Encryption of data in transit and at rest",
+        "Sensitive details can be restricted or masked",
+        "Transparent privacy notices for candidates"
       ]
     },
     {
       "id": "audit-trails",
       "title": "Audit Trails",
-      "body": "Every score, note, approval and status change is logged as it happens, so an audit pack is an export rather than a project.",
+      "tagline": "A clear record of every action and decision.",
+      "body": "Know who did what, and when. Every important action in the platform is logged, which supports internal reviews, compliance checks and accountability.",
       "points": [
-        "Who did what, and when, for every candidate",
-        "Tamper-evident log",
-        "Exports for internal and external auditors"
+        "Activity logs for candidate, job and offer changes",
+        "Records of approvals, feedback and hiring decisions",
+        "Searchable history by user, date or action",
+        "Exportable logs for audits and reviews"
       ]
     },
     {
       "id": "fair-hiring-ai",
       "title": "Fair Hiring AI",
-      "body": "Models are tested for bias every quarter and the results are shared with customers unedited. A person makes every rejection.",
+      "tagline": "AI that supports fair decisions, with people in charge.",
+      "body": "Our AI is designed to help recruiters evaluate candidates on skills and job-relevant criteria. Final hiring decisions always stay with your team.",
       "points": [
-        "Quarterly bias audits",
-        "Explanations available for every score",
-        "Aligned with the EU AI Act for high-risk systems"
+        "Evaluation focused on skills and job-related requirements",
+        "Explainable scores so you can see why a candidate ranked as they did",
+        "Ongoing monitoring for bias in screening outcomes",
+        "Human review at key decision points"
       ]
     },
     {
       "id": "security-controls",
       "title": "Security Controls",
-      "body": "The controls enterprise security teams ask for, independently audited each year.",
+      "tagline": "Enterprise-grade protection for your hiring data.",
+      "body": "Strong safeguards protect your platform and your candidates’ information from unauthorized access.",
       "points": [
-        "SOC 2 Type II certified",
-        "SSO / SAML and enforced multi-factor sign-in",
-        "99.9% uptime SLA on Enterprise"
+        "Secure login with multi-factor authentication",
+        "User permissions and access management",
+        "Regular backups and secure data storage",
+        "Monitoring to detect and respond to suspicious activity"
       ]
     }
   ],
   "outcomes": [
-    {
-      "value": "SOC 2",
-      "label": "Type II certified, audited every year"
-    },
-    {
-      "value": "100%",
-      "label": "of scores, notes and approvals in the audit trail"
-    },
-    {
-      "value": "Quarterly",
-      "label": "bias audits, shared with customers unedited"
-    }
-  ]
+    { "value": "100%", "label": "human oversight on all hiring decisions" },
+    { "value": "256-bit", "label": "AES encryption for data in transit and rest" },
+    { "value": "0", "label": "candidate data shared with third parties" }
+  ],
+  "closingCta": {
+    "headline": "Trust is part of every hire.",
+    "body": "Talk to us about how TalentPool365 protects your data and supports compliant, fair hiring.",
+    "buttons": [
+      { "label": "Book a Demo", "href": "/get-started#book-meeting", "primary": true },
+      { "label": "Contact Our Team", "href": "/company/contact", "primary": false }
+    ]
+  }
 }

@@ -6,73 +6,83 @@
   "bot": 2,
   "kind": "stage",
   "title": "AI Assessments",
-  "summary": "Technical, aptitude and cognitive tests that grade themselves against your bar.",
-  "headline": "Tests that *grade themselves* against your bar",
-  "lede": "Send calibrated assessments the moment a candidate is shortlisted. Results come back graded against the standard your team set, with the working shown.",
+  "summary": "Technical, aptitude, cognitive and behavioral tests with automated evaluation.",
+  "headline": "Test real ability, *not just resumes*",
+  "lede": "A resume shows what candidates say they can do. TalentPool365 shows what they can actually do. Assess technical skills, aptitude, thinking ability and behavior in one place, and get scored results without manual checking.",
+  "sectionIntro": "A resume shows what candidates say they can do. TalentPool365 shows what they can actually do. Assess technical skills, aptitude, thinking ability and behavior in one place, and get scored results without manual checking.",
   "capabilities": [
     {
       "id": "technical-assessments",
       "title": "Technical Assessments",
-      "body": "Role-specific tasks for engineering, data, finance and operations roles, built from a question library or your own material.",
+      "tagline": "Verify skills with real, role-relevant tests.",
+      "body": "Test candidates on the skills your job actually needs. Choose from ready-made tests or build your own, and see how candidates perform in practice.",
       "points": [
-        "Framework and language-specific question sets",
-        "Bring your own tasks and marking scheme",
-        "Difficulty calibrated to seniority"
+        "Coding, tools and domain-specific question banks",
+        "Custom assessments tailored to each role",
+        "Skill-level scoring, from beginner to expert",
+        "Auto-graded results available as soon as the test is submitted"
       ]
     },
     {
       "id": "aptitude-assessments",
       "title": "Aptitude Assessments",
-      "body": "Numerical, verbal and logical reasoning tests for roles where potential matters more than history.",
+      "tagline": "Measure how quickly candidates can learn and perform.",
+      "body": "Aptitude tests show whether a candidate can handle the demands of the job, especially for fresher and high-volume hiring where work history says little.",
       "points": [
-        "Short, mobile-friendly sittings",
-        "Benchmarked against the role, not the whole population",
-        "Suited to campus and volume hiring"
+        "Numerical, verbal and logical reasoning sections",
+        "Timed tests with randomized questions",
+        "Percentile scores to compare candidates fairly",
+        "Suitable for campus, entry-level and bulk hiring"
       ]
     },
     {
       "id": "cognitive-tests",
       "title": "Cognitive Tests",
-      "body": "Measure problem solving, attention and learning speed with tasks that adapt as the candidate answers.",
+      "tagline": "Understand how candidates think and solve problems.",
+      "body": "Cognitive tests evaluate problem-solving, attention to detail, memory and decision-making. These are strong indicators of how someone will handle new challenges.",
       "points": [
-        "Adaptive difficulty keeps tests brief",
-        "Accessible versions for candidates who need them",
-        "Plain-language result summaries"
+        "Problem-solving and critical thinking exercises",
+        "Pattern recognition and analytical reasoning tasks",
+        "Time-based scoring to show speed and accuracy",
+        "Consistent tests for every candidate, so comparisons are fair"
       ]
     },
     {
       "id": "behavioral-analysis",
       "title": "Behavioral Analysis",
-      "body": "Situational judgement scenarios that show how a candidate would handle the moments your role really involves.",
+      "tagline": "Find people who fit your team and culture.",
+      "body": "Skills get someone hired, but behavior decides whether they succeed. Our AI analyzes responses to assess work style, communication, teamwork and values.",
       "points": [
-        "Scenarios written around your competencies",
-        "Scored on the response, never on appearance or voice",
-        "Results map to interview follow-up questions"
+        "Situational and personality-based questions",
+        "Insights into communication and collaboration style",
+        "Fit indicators for specific roles and team environments",
+        "Helps hiring managers prepare better interview questions"
       ]
     },
     {
       "id": "automated-evaluation",
       "title": "Automated Evaluation",
-      "body": "Answers are marked against your rubric in seconds, and every mark links back to the line of the rubric it came from.",
+      "tagline": "Get scored results without the manual work.",
+      "body": "Every assessment is evaluated automatically and consistently. Recruiters get clear reports instead of spending hours reviewing answers.",
       "points": [
-        "Consistent marking across every candidate",
-        "Reviewers can override any mark, with a note",
-        "Results sync to the pipeline and your ATS"
+        "Instant scoring and detailed candidate reports",
+        "Combined score across technical, cognitive and behavioral results",
+        "Integrity checks to support fair, honest testing",
+        "Results linked to each candidate’s profile and ranking"
       ]
     }
   ],
   "outcomes": [
-    {
-      "value": "24/7",
-      "label": "candidates sit tests when it suits them"
-    },
-    {
-      "value": "40 sec",
-      "label": "to grade a completed assessment against your bar"
-    },
-    {
-      "value": "1",
-      "label": "rubric per role, applied to every candidate"
-    }
-  ]
+    { "value": "100%", "label": "automated grading on technical & cognitive tests" },
+    { "value": "4×", "label": "higher prediction accuracy for on-the-job success" },
+    { "value": "99.2%", "label": "assessment integrity with AI proctoring" }
+  ],
+  "closingCta": {
+    "headline": "Make every hiring decision with confidence.",
+    "body": "See how TalentPool365 assesses candidates faster and more fairly.",
+    "buttons": [
+      { "label": "Book a Demo", "href": "/get-started#book-meeting", "primary": true },
+      { "label": "Start Free Trial", "href": "/get-started#start-free-trial", "primary": false }
+    ]
+  }
 }

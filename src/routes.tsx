@@ -18,6 +18,7 @@ import { SolutionsPage } from './pages/SolutionsPage';
 import { IntegrationsPage } from './pages/IntegrationsPage';
 import { HowItWorksPage } from './pages/HowItWorksPage';
 import { CustomersPage } from './pages/CustomersPage';
+import { CaseStudiesPage } from './pages/CaseStudiesPage';
 import { ResourcesPage, BlogPage } from './pages/ResourcesPage';
 import { SupportPage } from './pages/SupportPage';
 import { LegalPage } from './pages/LegalPage';
@@ -69,6 +70,11 @@ export const routes: Record<string, Route> = {
     title: 'How It Works',
     description: 'Follow nine hiring steps, from a job requisition and AI sourcing to recruiter review and onboarding.',
     render: () => <HowItWorksPage />,
+  },
+  '/case-studies': {
+    title: 'Customer Case Studies',
+    description: 'Explore how companies cut time-to-hire by 68% and scale talent sourcing with TalentPool365.',
+    render: () => <CaseStudiesPage />,
   },
   '/customers': {
     title: 'Customers & Hiring ROI',

@@ -6,6 +6,7 @@ export interface IndustrySolution {
   id: string;
   icon: IconName;
   title: string;
+  tagline?: string;
   body: string;
   points: string[];
   statValue: string;
@@ -16,6 +17,7 @@ export interface SizeSolution {
   id: string;
   icon: IconName;
   title: string;
+  tagline?: string;
   /** Who this is, in hiring terms. */
   profile: string;
   body: string;
@@ -27,6 +29,7 @@ export interface UseCaseSolution {
   id: string;
   icon: IconName;
   title: string;
+  tagline?: string;
   body: string;
   points: string[];
   /** Product page slugs that do most of the work for this use case. */

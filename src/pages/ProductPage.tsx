@@ -8,15 +8,48 @@ import { ProductMock } from '../components/ProductMock';
 import { Reveal } from '../components/Reveal';
 import { SectionHead } from '../components/SectionHead';
 import { productPages, productPath, type ProductPage as ProductData } from '../data/products';
-import { useScrollProgress } from '../lib/useScrollProgress';
+import {
+  SourcingExperience,
+  ScreeningExperience,
+  AssessmentsExperience,
+  InterviewsExperience,
+  WorkspaceExperience,
+  EngagementExperience,
+  OfferManagementExperience,
+  AnalyticsExperience,
+  ComplianceExperience,
+} from '../components/ProductUniqueExperiences';
 
 export function ProductPage({ product }: { product: ProductData }) {
-  // The capability list fills a rail as the page scrolls, like "How it works" on the home page
-  const ledger = useScrollProgress<HTMLDivElement>('.ledger-row');
-
   const position = productPages.indexOf(product);
   const previous = productPages[position - 1];
   const next = productPages[position + 1];
+
+  // Helper to render the unique bespoke interactive layout for each product
+  const renderUniqueProductExperience = () => {
+    switch (product.slug) {
+      case 'talent-sourcing':
+        return <SourcingExperience product={product} />;
+      case 'candidate-screening':
+        return <ScreeningExperience product={product} />;
+      case 'ai-assessments':
+        return <AssessmentsExperience product={product} />;
+      case 'ai-interviews':
+        return <InterviewsExperience product={product} />;
+      case 'recruiter-workspace':
+        return <WorkspaceExperience product={product} />;
+      case 'candidate-engagement':
+        return <EngagementExperience product={product} />;
+      case 'hiring-offer-management':
+        return <OfferManagementExperience product={product} />;
+      case 'analytics-reporting':
+        return <AnalyticsExperience product={product} />;
+      case 'compliance-security':
+        return <ComplianceExperience product={product} />;
+      default:
+        return null;
+    }
+  };
 
   return (
     <>
@@ -26,7 +59,7 @@ export function ProductPage({ product }: { product: ProductData }) {
         lede={product.lede}
         actions={
           <>
-            <a className="btn btn-primary" href="/company/contact">
+            <a className="btn btn-primary" href="/get-started#book-meeting">
               Book a live demo
             </a>
             <a className="btn btn-outline" href="/pricing">
@@ -42,58 +75,10 @@ export function ProductPage({ product }: { product: ProductData }) {
         }
       />
 
-      <section className="section section--light" id="capabilities">
-        <div className="container">
-          <SectionHead
-            title={`What ${product.title} *does*`}
-            body={product.summary}
-          />
+      {/* Unique Bespoke Interactive Experience for this specific product */}
+      {renderUniqueProductExperience()}
 
-          <div className="ledger">
-            <nav className="ledger-index" aria-label={`${product.title} capabilities`}>
-              <ul>
-                {product.capabilities.map((capability, index) => (
-                  <li key={capability.id}>
-                    <a
-                      href={`#${capability.id}`}
-                      aria-current={ledger.active === index ? 'location' : undefined}
-                    >
-                      {capability.title}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </nav>
-
-            <div
-              className="ledger-rows"
-              ref={ledger.ref}
-              style={{ '--rail': ledger.progress } as CSSProperties}
-            >
-              {product.capabilities.map((capability, index) => (
-                <article
-                  className={`ledger-row${index <= ledger.active ? ' is-reached' : ''}${index === ledger.active ? ' is-current' : ''}`}
-                  id={capability.id}
-                  key={capability.id}
-                >
-                  <div>
-                    <h3>{capability.title}</h3>
-                    <p>{capability.body}</p>
-                  </div>
-                  <ul className="ticks">
-                    {capability.points.map((point, i) => (
-                      <li key={point} style={{ '--i': i } as CSSProperties}>
-                        {point}
-                      </li>
-                    ))}
-                  </ul>
-                </article>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
+      {/* Metrics outcome band */}
       <section className="section metrics on-dark" id="outcomes">
         <span className="grain" aria-hidden="true" />
         <div className="container">
@@ -111,11 +96,12 @@ export function ProductPage({ product }: { product: ProductData }) {
         </div>
       </section>
 
+      {/* Sits in hiring line track & pagination */}
       <section className="section" id="platform">
         <div className="container">
           <SectionHead
             title="Where it sits in the *hiring line*"
-            body="Every product shares one candidate record, so nothing is re-entered between steps."
+            body="Every product shares one unified candidate record, so nothing is re-entered between steps."
           />
 
           <Reveal as="ol" className="track">
@@ -136,7 +122,7 @@ export function ProductPage({ product }: { product: ProductData }) {
           <div className="pager">
             {previous ? (
               <a className="pager-link" href={productPath(previous)} rel="prev">
-                <span>Previous</span>
+                <span>Previous Product</span>
                 {previous.title}
               </a>
             ) : (
@@ -147,7 +133,7 @@ export function ProductPage({ product }: { product: ProductData }) {
             )}
             {next ? (
               <a className="pager-link pager-link--next" href={productPath(next)} rel="next">
-                <span>Next</span>
+                <span>Next Product</span>
                 {next.title}
               </a>
             ) : (
@@ -160,6 +146,7 @@ export function ProductPage({ product }: { product: ProductData }) {
         </div>
       </section>
 
+      {/* Product-Specific Closing CTA */}
       <CtaBand />
     </>
   );

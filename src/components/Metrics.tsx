@@ -22,10 +22,10 @@ function MetricCard({ metric, index }: { metric: Metric; index: number }) {
 
 export function Metrics() {
   return (
-    <section className="section metrics on-dark" id="metrics">
-      <span className="grain" aria-hidden="true" />
+    <section className="section metrics" id="metrics">
       <div className="container">
         <SectionHead
+          eyebrow="Proven impact"
           title="What changes in the *first quarter*"
           style={{ marginBottom: 0 }}
         />

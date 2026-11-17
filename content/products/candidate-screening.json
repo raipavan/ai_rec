@@ -6,73 +6,83 @@
   "bot": 1,
   "kind": "stage",
   "title": "Candidate Screening",
-  "summary": "Every application parsed, ranked and shortlisted, with the reasons shown.",
-  "headline": "Shortlists that arrive *with their reasons*",
-  "lede": "Every application is read, structured and scored against the role profile your panel agreed. Recruiters open a ranked list where each position can be explained in a sentence.",
+  "summary": "Screen hundreds of resumes in minutes, not days, with explainable AI scoring.",
+  "headline": "Screen hundreds of resumes *in minutes, not days*",
+  "lede": "TalentPool365 reads every resume, pulls out the skills that matter, and scores each candidate against your job requirements. Your recruiters get a ranked shortlist instead of a pile of applications.",
+  "sectionIntro": "TalentPool365 reads every resume, pulls out the skills that matter, and scores each candidate against your job requirements. Your recruiters get a ranked shortlist instead of a pile of applications.",
   "capabilities": [
     {
       "id": "resume-parsing",
       "title": "Resume Parsing",
-      "body": "Turn PDFs, Word files and scanned resumes into clean, structured profiles without retyping a line.",
+      "tagline": "Turn every resume into clean, searchable data.",
+      "body": "Resumes arrive in every format and layout. Our AI reads them all and converts them into structured candidate profiles, so nobody has to retype details by hand.",
       "points": [
-        "Handles mixed layouts and multiple languages",
-        "Work history, education and certifications extracted",
-        "Original document always one click away"
+        "Supports PDF, Word and other common formats",
+        "Extracts contact details, work history, education and certifications",
+        "Handles different layouts, including multi-column resumes",
+        "Duplicate profiles are flagged automatically"
       ]
     },
     {
       "id": "skill-extraction",
       "title": "Skill Extraction",
-      "body": "Identify the skills a candidate has actually used, how recently and for how long, rather than the ones listed in a keyword block.",
+      "tagline": "See the skills behind the job titles.",
+      "body": "A job title doesn’t tell you what someone can actually do. Our AI identifies hard skills, soft skills, tools and domain expertise from the full resume, including skills that aren’t listed in a skills section.",
       "points": [
-        "Skills tied to the roles they were used in",
-        "Related skills recognised, such as React and Next.js",
-        "Gaps against the role profile flagged"
+        "Detects skills from projects, roles and achievements",
+        "Recognizes related skills and alternate names, e.g. 'JS' and 'JavaScript'",
+        "Estimates experience level for each skill",
+        "Builds a skill profile for every candidate"
       ]
     },
     {
       "id": "ai-candidate-matching",
       "title": "AI Candidate Matching",
-      "body": "Score each candidate against the requirements of the role, weighting the criteria the way your hiring manager set them.",
+      "tagline": "Match on meaning, not just keywords.",
+      "body": "Our AI compares each candidate’s skills, experience and background with your job description. It understands context, so strong candidates aren’t missed because their resume uses different wording.",
       "points": [
-        "Must-haves and nice-to-haves weighted separately",
-        "The same rubric applied to every candidate",
-        "Protected characteristics excluded from scoring"
+        "Semantic matching between resumes and job requirements",
+        "Separate weighting for must-have and nice-to-have skills",
+        "A clear match score for every candidate",
+        "Fewer false rejections and fewer irrelevant applicants"
       ]
     },
     {
       "id": "candidate-ranking",
       "title": "Candidate Ranking",
-      "body": "See the whole applicant pool in order, with matched and missing skills side by side for each person.",
+      "tagline": "Know who to call first.",
+      "body": "Every applicant is scored and ranked automatically, so your team starts with the strongest fits. You can see why a candidate ranked where they did.",
       "points": [
-        "Reasons shown beside every score",
-        "Re-ranks when the role profile changes",
-        "No black-box numbers"
+        "Ranked lists for every open role",
+        "Transparent score breakdown by skills, experience and education",
+        "Adjustable criteria to match your hiring priorities",
+        "Rankings that improve as you give feedback on candidates"
       ]
     },
     {
       "id": "smart-shortlisting",
       "title": "Smart Shortlisting",
-      "body": "Propose a shortlist for recruiter review. Nobody is rejected by the model; a person confirms every decision.",
+      "tagline": "From 500 applicants to your best 10.",
+      "body": "Create a shortlist in one click. Set your criteria, and TalentPool365 selects the top candidates and prepares them for the next stage, whether that is assessment or interview.",
       "points": [
-        "Suggested shortlist with the evidence attached",
-        "Borderline candidates queued for a human look",
-        "Decisions and reviewers recorded"
+        "Automatic shortlists based on your match thresholds",
+        "Side-by-side candidate comparison",
+        "Shortlists shared with hiring managers for quick approval",
+        "Smooth hand-off to assessments and interviews"
       ]
     }
   ],
   "outcomes": [
-    {
-      "value": "92%",
-      "label": "of manual resume screening removed from recruiter workload"
-    },
-    {
-      "value": "8 min",
-      "label": "to score 214 applications on one requisition"
-    },
-    {
-      "value": "0",
-      "label": "candidates rejected without a human review"
-    }
-  ]
+    { "value": "85%", "label": "drop in manual resume screening hours" },
+    { "value": "3.8×", "label": "faster time to produce approved shortlists" },
+    { "value": "0", "label": "black-box scores: every rank is explainable" }
+  ],
+  "closingCta": {
+    "headline": "Hire on merit, at speed.",
+    "body": "See how TalentPool365 screens candidates faster, with less manual work.",
+    "buttons": [
+      { "label": "Book a Demo", "href": "/get-started#book-meeting", "primary": true },
+      { "label": "Start Free Trial", "href": "/get-started#start-free-trial", "primary": false }
+    ]
+  }
 }

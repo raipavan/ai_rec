@@ -67,7 +67,7 @@ export function Network() {
           const distance = Math.hypot(a.x - b.x, a.y - b.y);
           if (distance > reach) continue;
           const strength = 1 - distance / reach;
-          ctx.strokeStyle = `rgba(6, 182, 212, ${strength * (0.24 + near * 0.6)})`;
+          ctx.strokeStyle = `rgba(52, 211, 153, ${strength * (0.28 + near * 0.6)})`;
           ctx.beginPath();
           ctx.moveTo(a.x, a.y);
           ctx.lineTo(b.x, b.y);

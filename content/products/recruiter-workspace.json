@@ -6,73 +6,83 @@
   "bot": 4,
   "kind": "stage",
   "title": "Recruiter Workspace",
-  "summary": "A shared pipeline with notes, feedback and approval workflows.",
-  "headline": "One pipeline the *whole panel* works from",
-  "lede": "Recruiters, hiring managers and interviewers see the same candidates, the same evidence and the same next step. Nothing lives in a private inbox.",
+  "summary": "Your entire hiring pipeline, team feedback and approval workflows in one view.",
+  "headline": "Your entire hiring process, *in one place*",
+  "lede": "Stop switching between spreadsheets, inboxes and chat threads. The TalentPool365 Recruiter Workspace brings your pipeline, team and decisions together, so everyone knows where every candidate stands and what needs to happen next.",
+  "sectionIntro": "Stop switching between spreadsheets, inboxes and chat threads. The TalentPool365 Recruiter Workspace brings your pipeline, team and decisions together, so everyone knows where every candidate stands and what needs to happen next.",
   "capabilities": [
     {
       "id": "candidate-pipeline",
       "title": "Candidate Pipeline",
-      "body": "A board for every requisition showing who is at which stage, what they are waiting for and who owns the next move.",
+      "tagline": "See every candidate, at every stage, at a glance.",
+      "body": "Track candidates from first contact to offer on a visual board. Move people between stages with a simple drag and drop, and never lose track of who is waiting on whom.",
       "points": [
-        "Drag candidates between stages",
-        "Stalled candidates surfaced automatically",
-        "Two-way sync with your ATS stages"
+        "Customizable stages to match your hiring process",
+        "Drag-and-drop board and list views",
+        "Filter by role, stage, recruiter or source",
+        "Automatic updates when candidates complete assessments or interviews"
       ]
     },
     {
       "id": "hiring-dashboard",
       "title": "Hiring Dashboard",
-      "body": "Open roles, time in stage and upcoming interviews on one screen, for a recruiter’s own desk or the whole team.",
+      "tagline": "Know how your hiring is performing, in real time.",
+      "body": "Get a live view of open roles, applicants, interviews and offers. Spot bottlenecks early and see what’s working, without building reports by hand.",
       "points": [
-        "Personal and team views",
-        "Roles at risk highlighted early",
-        "Filters by department, location and recruiter"
+        "Open roles, pipeline and progress summaries",
+        "Time-to-hire and stage-wise conversion tracking",
+        "Source-wise insights to show where your best candidates come from",
+        "Shareable reports for leadership and hiring managers"
       ]
     },
     {
       "id": "team-collaboration",
       "title": "Team Collaboration",
-      "body": "Mention a colleague on a candidate, assign a task or share a shortlist with a hiring manager in one click.",
+      "tagline": "Recruiters and hiring managers, working as one team.",
+      "body": "Bring everyone involved in a hire into the same workspace. Share candidates, assign tasks and keep conversations attached to the people they’re about.",
       "points": [
-        "Mentions and tasks tied to the candidate",
-        "Hiring managers review without a full licence",
-        "Slack and Teams notifications"
+        "Invite recruiters, hiring managers and interviewers",
+        "Role-based access to control who sees what",
+        "@mentions and task assignments on candidate profiles",
+        "Shared candidate profiles instead of forwarded resumes"
       ]
     },
     {
       "id": "notes-feedback",
       "title": "Notes & Feedback",
-      "body": "Structured scorecards for every interviewer, collected before the debrief so opinions are formed independently.",
+      "tagline": "Capture every opinion, and keep it organized.",
+      "body": "Collect structured feedback after every interview and keep notes right on the candidate profile. Your team’s insights stay in one place and don’t get lost in email.",
       "points": [
-        "Scorecards match the role rubric",
-        "Feedback hidden until you submit your own",
-        "Reminders for overdue feedback"
+        "Private and shared notes on each candidate",
+        "Structured scorecards for consistent feedback",
+        "Interviewer ratings and recommendations",
+        "Complete history of comments and decisions for every candidate"
       ]
     },
     {
       "id": "approval-workflow",
       "title": "Approval Workflow",
-      "body": "Requisition, shortlist and offer approvals routed to the right people in the right order, with a record of who signed what.",
+      "tagline": "Get decisions made faster, with a clear paper trail.",
+      "body": "Set up approval steps for job requisitions, shortlists and offers. The right people are notified, so decisions don’t stall in someone’s inbox.",
       "points": [
-        "Approval chains by role, grade or budget",
-        "Approve from email or chat",
-        "Full history for audit"
+        "Custom approval chains for roles, budgets and offers",
+        "Automatic notifications and reminders to approvers",
+        "One-click approve or reject with comments",
+        "Audit trail showing who approved what and when"
       ]
     }
   ],
   "outcomes": [
-    {
-      "value": "41",
-      "label": "recruiter hours saved on every hire, on average"
-    },
-    {
-      "value": "1",
-      "label": "pipeline shared by recruiters, managers and interviewers"
-    },
-    {
-      "value": "No seat fees",
-      "label": "plans are priced by active roles, so the whole panel can review"
-    }
-  ]
+    { "value": "100%", "label": "pipeline visibility across all open requisitions" },
+    { "value": "2.5×", "label": "faster feedback turnaround from hiring managers" },
+    { "value": "0", "label": "lost candidate records or rogue spreadsheets" }
+  ],
+  "closingCta": {
+    "headline": "Give your hiring team one workspace to get it done.",
+    "body": "See how TalentPool365 keeps your pipeline moving and everyone aligned.",
+    "buttons": [
+      { "label": "Book a Demo", "href": "/get-started#book-meeting", "primary": true },
+      { "label": "Start Free Trial", "href": "/get-started#start-free-trial", "primary": false }
+    ]
+  }
 }

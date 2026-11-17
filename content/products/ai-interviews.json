@@ -6,83 +6,95 @@
   "bot": 3,
   "kind": "stage",
   "title": "AI Interviews",
-  "summary": "Structured video, voice and coding interviews scored on a consistent rubric.",
-  "headline": "Interviews that *don't wait* for calendars",
-  "lede": "Structured first-round interviews run whenever the candidate is ready. Each one is transcribed, time-stamped and scored on the rubric your panel agreed, then handed to a recruiter to decide.",
+  "summary": "Video, voice, conversational AI and live coding interviews available 24/7.",
+  "headline": "Interview every candidate, *on their schedule, not yours*",
+  "lede": "TalentPool365 runs structured interviews automatically, by video, voice, chat or live coding. Every candidate gets the same fair experience, and your team gets scored, searchable results without scheduling a single call.",
+  "sectionIntro": "TalentPool365 runs structured interviews automatically, by video, voice, chat or live coding. Every candidate gets the same fair experience, and your team gets scored, searchable results without scheduling a single call.",
   "capabilities": [
     {
       "id": "automated-video-interviews",
       "title": "Automated Video Interviews",
-      "body": "Candidates answer the same structured questions on camera, on a laptop or a phone, with nothing to install.",
+      "tagline": "Meet more candidates without more meetings.",
+      "body": "Candidates record answers to your questions whenever it suits them. Your team reviews responses at their own pace, so first-round interviews no longer depend on calendars and time zones.",
       "points": [
-        "Same questions, same order, for every candidate",
-        "Works in the browser on any device",
-        "Recordings reviewed at double speed"
+        "Role-specific question sets, ready-made or custom",
+        "Candidates respond anytime from any device",
+        "Recordings with transcripts for quick review",
+        "Share candidate responses with hiring managers in one click"
       ]
     },
     {
       "id": "voice-based-interviews",
       "title": "Voice-Based Interviews",
-      "body": "Phone-style interviews for roles where the voice is the job, such as contact centre and field roles.",
+      "tagline": "A real conversation, no video needed.",
+      "body": "Voice interviews are ideal for screening at scale and for roles where communication matters most, such as support, sales and operations. Candidates join with just a phone or laptop microphone.",
       "points": [
-        "Language and clarity assessed against the role",
-        "Twelve interview languages",
-        "Low-bandwidth friendly"
+        "AI asks questions and listens to spoken answers",
+        "Evaluates clarity, fluency and relevance of responses",
+        "Works well for high-volume and phone-first screening",
+        "Lower bandwidth needs than video"
       ]
     },
     {
       "id": "conversational-ai-interviews",
       "title": "Conversational AI Interviews",
-      "body": "An interviewer that listens and asks sensible follow-up questions, staying inside the topics your panel approved.",
+      "tagline": "Interviews that feel like a conversation, not a form.",
+      "body": "Our AI interviewer asks follow-up questions based on what the candidate says, digging deeper into experience and reasoning the way a skilled recruiter would.",
       "points": [
-        "Follow-ups drawn from the candidate’s own answers",
-        "Stays within your approved question plan",
-        "Candidates can ask about the role and process"
+        "Adaptive follow-up questions based on each answer",
+        "Covers experience, motivation and role-specific topics",
+        "Consistent structure so every candidate is assessed fairly",
+        "Available 24/7, in the candidate’s preferred time slot"
       ]
     },
     {
       "id": "coding-interviews",
       "title": "Coding Interviews",
-      "body": "A live editor with real test cases, where the candidate’s reasoning is captured as well as the final code.",
+      "tagline": "See how developers think, not just what they know.",
+      "body": "Run live coding sessions in a built-in editor. Evaluate problem-solving approach, code quality and technical depth in a real working environment.",
       "points": [
-        "Runs code against hidden and visible tests",
-        "Playback of how the solution was reached",
-        "Supports the common languages and frameworks"
+        "Online code editor supporting popular programming languages",
+        "Real-time code execution and automated test cases",
+        "Replay of the coding session to review the approach",
+        "Questions matched to the role and seniority level"
       ]
     },
     {
       "id": "proctoring-monitoring",
       "title": "Proctoring & Monitoring",
-      "body": "Integrity checks that flag unusual activity for a person to review. A flag alone never fails a candidate.",
+      "tagline": "Keep every interview honest and fair.",
+      "body": "Protect the integrity of your hiring process with smart monitoring that flags suspicious behavior, so you can trust the results.",
       "points": [
-        "Tab switches, second voices and screen sharing flagged",
-        "Every flag reviewed by a human before any action",
-        "Candidates told up front what is monitored"
+        "Identity verification before the interview begins",
+        "Tab-switch and screen activity detection",
+        "Flags for unusual behavior, reviewed by your team",
+        "Candidates are informed about monitoring upfront"
       ]
     },
     {
       "id": "interview-analytics",
       "title": "Interview Analytics",
-      "body": "Transcript, waveform and rubric scores in one view, so a panel can check the evidence in minutes.",
+      "tagline": "Turn every interview into a clear hiring insight.",
+      "body": "Stop relying on gut feeling. Get structured scores, summaries and comparisons so your team can make decisions with evidence.",
       "points": [
-        "Jump from a score to the moment it came from",
-        "Skills radar calibrated to the role profile",
-        "Compare finalists on the same criteria"
+        "Automatic transcripts and answer summaries",
+        "Scorecards by skill, communication and role fit",
+        "Side-by-side comparison of interviewed candidates",
+        "Dashboards showing interview completion and time-to-hire trends"
       ]
     }
   ],
   "outcomes": [
-    {
-      "value": "2M+",
-      "label": "interviews processed a year across 40 countries"
-    },
-    {
-      "value": "12",
-      "label": "interview languages, with the same scoring in each"
-    },
-    {
-      "value": "0",
-      "label": "installs needed on laptop or phone"
-    }
-  ]
+    { "value": "72%", "label": "faster first-round interview turnaround" },
+    { "value": "24/7", "label": "candidate self-serve interview availability" },
+    { "value": "94%", "label": "candidate completion rate" }
+  ],
+  "closingCta": {
+    "headline": "Interview smarter. Hire faster.",
+    "body": "See how TalentPool365 turns first-round interviews into a one-click process.",
+    "buttons": [
+      { "label": "Book a Demo", "href": "/get-started#book-meeting", "primary": true },
+      { "label": "Start Free Trial", "href": "/get-started#start-free-trial", "primary": false }
+    ]
+  }
 }

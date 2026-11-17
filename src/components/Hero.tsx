@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { heroProof, heroRoles, heroStages } from '../data/content';
-import { enterDelay, prefersReducedMotion } from '../lib/motion';
+import { enterDelay, prefersReducedMotion, useSceneDepth } from '../lib/motion';
 import { useAutoRotate } from '../lib/useAutoRotate';
 import { Icon } from './Icon';
 import { Network } from './Network';
@@ -24,6 +24,7 @@ export function Hero() {
   const role = useRotatingRole(heroRoles.length);
   const journey = useAutoRotate<HTMLDivElement>(heroStages.length, 3400);
   const sectionRef = useRef<HTMLElement>(null);
+  useSceneDepth(sectionRef);
 
   // 3D: the dashboard leans toward the pointer and its floating cards shift with depth
   useEffect(() => {
@@ -46,7 +47,6 @@ export function Hero() {
       <div className="container">
         <div className="hero-grid">
           <div className="hero-copy">
-            <p className="hero-kicker enter">The human side of AI hiring</p>
             <h1 className="enter" style={enterDelay(0)}>
               <span className="sr-only">Hire the people you need in days, not months.</span>
               <span aria-hidden="true">
@@ -106,7 +106,7 @@ export function Hero() {
                 <Icon name="trend" />
               </span>
               <span>
-                <strong>Your next great hire.</strong>Less admin. More human.
+                <strong>19 days</strong>median time-to-hire
               </span>
             </div>
 
@@ -150,6 +150,7 @@ export function Hero() {
             </div>
           </div>
         </div>
+        <a className="hero-story-entry" href="#agents"><span className="hero-scroll-mark" aria-hidden="true" /><span>Scroll into the hiring story</span><Icon name="arrow-right" /></a>
       </div>
     </section>
   );

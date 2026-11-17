@@ -4,11 +4,13 @@
       "id": "it-technology",
       "icon": "building",
       "title": "IT & Technology Recruitment",
-      "body": "Coding interviews, framework-specific assessments and Git-based screening for engineering, data and product roles.",
+      "tagline": "Find and verify tech talent in a competitive market.",
+      "body": "Skills change quickly and the best developers get several offers. Identify strong candidates early, test what they can actually do, and move before competitors do.",
       "points": [
-        "Live coding with playback of the reasoning",
-        "Assessments per language and framework",
-        "Rubrics agreed with the engineering panel"
+        "AI sourcing for developers, engineers, data and DevOps roles",
+        "Technical assessments and live coding interviews",
+        "Skill extraction that reads beyond job titles and tech buzzwords",
+        "Fast scheduling to keep in-demand candidates engaged"
       ],
       "statValue": "48 hrs",
       "statLabel": "median time to shortlist"
@@ -17,11 +19,13 @@
       "id": "healthcare",
       "icon": "pulse",
       "title": "Healthcare Recruitment",
-      "body": "Licence verification, credential tracking and shift-friendly scheduling for clinical and support staff.",
+      "tagline": "Hire qualified healthcare professionals, without the paperwork delay.",
+      "body": "Hospitals and clinics need qualified, credentialed staff, often urgently. Screen faster and keep a ready pipeline for critical roles.",
       "points": [
-        "Licences checked before the first interview",
-        "Expiry dates tracked per credential",
-        "Interviews that fit around shifts"
+        "Talent pools for doctors, nurses, technicians and support staff",
+        "Capture of qualifications, licenses and certifications in candidate profiles",
+        "Shift, location and availability-based matching",
+        "Automated follow-ups and document collection before joining"
       ],
       "statValue": "31%",
       "statLabel": "fewer credential drop-offs"
@@ -30,11 +34,13 @@
       "id": "bfsi",
       "icon": "bank",
       "title": "BFSI Recruitment",
-      "body": "Audit-ready screening, background checks and role-based assessments for regulated finance roles.",
+      "tagline": "Hire trusted talent for banking, finance and insurance.",
+      "body": "BFSI hiring demands accuracy, integrity and attention to regulation. Screen consistently, keep clear records, and handle high volumes for branch and sales roles.",
       "points": [
-        "Every decision logged for audit",
-        "Background checks tracked in the pipeline",
-        "Human review recorded before any rejection"
+        "Screening for relationship managers, analysts, sales and operations roles",
+        "Aptitude and behavioral assessments for customer-facing positions",
+        "Audit trails and approval workflows for every hiring decision",
+        "Secure handling of candidate data"
       ],
       "statValue": "100%",
       "statLabel": "audit trail coverage"
@@ -43,11 +49,13 @@
       "id": "manufacturing",
       "icon": "factory",
       "title": "Manufacturing Recruitment",
-      "body": "High-volume hiring for plant and floor roles with mobile-first applications and instant screening.",
+      "tagline": "Fill plant, floor and technical roles at scale.",
+      "body": "Manufacturing needs both skilled technicians and large numbers of operators, often across multiple locations. Keep production moving with a steady pipeline.",
       "points": [
-        "Apply from a phone in minutes",
-        "Shift and location preferences captured",
-        "Bulk offers for a whole intake"
+        "Bulk hiring for operators, supervisors and technicians",
+        "Skill and certification tracking, such as ITI and diploma holders",
+        "Mobile-friendly applications and WhatsApp updates for floor-level candidates",
+        "Location-wise pipelines and reporting across plants"
       ],
       "statValue": "12,000+",
       "statLabel": "hires processed in a single quarter"
@@ -56,11 +64,13 @@
       "id": "retail",
       "icon": "cart",
       "title": "Retail Recruitment",
-      "body": "Seasonal surge hiring with WhatsApp-first engagement and same-day interview loops.",
+      "tagline": "Hire quickly for stores, seasons and fast-growing chains.",
+      "body": "Retail hiring is high-volume, high-turnover and often seasonal. Cut the time between application and joining so stores are never short-staffed.",
       "points": [
-        "Store-level requisitions from one template",
-        "Apply and book interviews on WhatsApp",
-        "Seasonal pools reused year after year"
+        "Quick application and automated screening for store roles",
+        "Chatbot and WhatsApp engagement for entry-level candidates",
+        "Self-service interview scheduling by store and shift",
+        "Talent pools of past applicants for peak season hiring"
       ],
       "statValue": "3 days",
       "statLabel": "from application to store floor"
@@ -69,11 +79,13 @@
       "id": "bpo-contact-centers",
       "icon": "headset",
       "title": "BPO & Contact Centers",
-      "body": "Language tests, voice simulations and bulk scheduling built for thousand-seat hiring waves.",
+      "tagline": "Hire hundreds of agents, without hiring hundreds of recruiters.",
+      "body": "Contact centers need large volumes of people with strong communication skills, fast. Automate the first rounds and let recruiters focus on final selection.",
       "points": [
-        "Voice interviews scored for clarity and language",
-        "Typing and call-handling simulations",
-        "Hundreds of interviews scheduled at once"
+        "Voice-based AI interviews to assess spoken communication",
+        "Aptitude, typing and language assessments",
+        "Bulk screening, ranking and shortlisting",
+        "Automated scheduling, reminders and joining follow-ups"
       ],
       "statValue": "5,400",
       "statLabel": "agents screened in one campaign"
@@ -84,12 +96,14 @@
       "id": "startups",
       "icon": "rocket",
       "title": "Startups",
-      "profile": "First hires, no recruiting team yet",
-      "body": "Founders and hiring managers run a proper process without building a recruiting function first.",
+      "tagline": "Hire like a big team, even if you’re a small one.",
+      "profile": "First hires, no dedicated recruiting team yet",
+      "body": "When every hire matters and there’s no dedicated recruiter, speed and simplicity are everything. Automate the repetitive work and spend your time talking to the best candidates.",
       "points": [
-        "Live in an afternoon, no ATS required",
-        "Role templates and rubrics to start from",
-        "AI screening so nobody reads 300 resumes"
+        "Quick setup with no complicated training",
+        "AI sourcing and screening to replace manual resume sorting",
+        "Automated interviews and scheduling for founders and hiring managers",
+        "Affordable, flexible plans that grow with your team"
       ],
       "plan": "Starter"
     },
@@ -97,12 +111,14 @@
       "id": "mid-market",
       "icon": "users",
       "title": "Mid-Market",
-      "profile": "A small team hiring across several departments",
-      "body": "A handful of recruiters keep pace with growth by automating the steps that do not need their judgement.",
+      "tagline": "Scale your hiring without scaling your recruiting team.",
+      "profile": "Growing across multiple roles and teams at once",
+      "body": "Growing companies often hire across multiple roles and teams at once, with processes that start to break. Bring structure and visibility to hiring before it becomes a bottleneck.",
       "points": [
-        "Two-way sync with the ATS you already run",
-        "Assessments and AI interviews included",
-        "Shared scorecards for every hiring manager"
+        "A single workspace for recruiters and hiring managers",
+        "Structured pipelines, scorecards and approval workflows",
+        "Analytics to track time-to-hire and source performance",
+        "Integrations with the tools your team already uses"
       ],
       "plan": "Professional"
     },
@@ -110,12 +126,14 @@
       "id": "large-enterprises",
       "icon": "building",
       "title": "Large Enterprises",
-      "profile": "Many business units, one hiring standard",
-      "body": "Consistent, auditable hiring across business units, with approvals and controls your security team will sign off.",
+      "tagline": "Consistent, controlled hiring across every team and location.",
+      "profile": "Many business units, high volumes, strict governance",
+      "body": "Enterprises need to manage high volumes, many stakeholders and strict internal processes. Standardize how your teams hire while giving each department the flexibility it needs.",
       "points": [
-        "SSO / SAML and role-based access",
-        "Approval chains by grade and budget",
-        "Dedicated success manager"
+        "Bulk hiring with automated screening, assessments and interviews",
+        "Role-based access and customizable approval chains",
+        "Audit trails and reporting for leadership and compliance teams",
+        "Dedicated onboarding and support for large rollouts"
       ],
       "plan": "Enterprise"
     },
@@ -123,12 +141,14 @@
       "id": "global-organizations",
       "icon": "globe",
       "title": "Global Organizations",
-      "profile": "Hiring across countries, languages and rules",
-      "body": "One platform that respects local rules: retention periods, offer templates and interview languages set per country.",
+      "tagline": "Hire across borders with one connected platform.",
+      "profile": "Hiring across countries, multiple languages and regulations",
+      "body": "Hiring in multiple countries brings different languages, regulations and time zones. Keep a single view of talent worldwide while respecting local requirements.",
       "points": [
-        "Interviews in twelve languages",
-        "Data residency and retention by region",
-        "Offer templates per country and contract type"
+        "Centralized talent pools and reporting across regions",
+        "Candidate engagement across email, chat and WhatsApp",
+        "Privacy and data protection controls to support regional regulations",
+        "Asynchronous interviews that work across time zones"
       ],
       "plan": "Enterprise"
     }
@@ -138,10 +158,13 @@
       "id": "high-volume-hiring",
       "icon": "layers",
       "title": "High Volume Hiring",
-      "body": "Hundreds of openings for similar roles, filled in waves. Screening, assessments and scheduling run in bulk so recruiters only handle exceptions.",
+      "tagline": "Hire hundreds, without hiring hundreds of recruiters.",
+      "body": "When thousands apply for the same roles, manual screening can’t keep up. Automate the early stages and let your team focus on the final selection.",
       "points": [
-        "Thousands of applications ranked overnight",
-        "Bulk interview scheduling and offers"
+        "Bulk resume parsing, screening and ranking",
+        "Automated assessments and AI interviews",
+        "Chatbot, WhatsApp and email engagement to keep candidates moving",
+        "Self-service interview scheduling for large batches"
       ],
       "products": [
         "candidate-screening",
@@ -153,10 +176,13 @@
       "id": "campus-hiring",
       "icon": "cap",
       "title": "Campus Hiring",
-      "body": "Graduates have potential rather than history. Aptitude tests and structured interviews give every applicant from every campus the same chance.",
+      "tagline": "Run campus drives faster and smarter.",
+      "body": "Evaluate large groups of freshers fairly, even when resumes look alike. Use tests and interviews to find potential, not just marks.",
       "points": [
-        "Aptitude and cognitive tests on mobile",
-        "One drive across many campuses"
+        "Aptitude, cognitive and technical assessments for fresher screening",
+        "Bulk registration, shortlisting and result sharing",
+        "Proctored online tests for fair evaluation",
+        "Talent pools of campus candidates for future hiring"
       ],
       "products": [
         "ai-assessments",
@@ -168,10 +194,13 @@
       "id": "executive-hiring",
       "icon": "briefcase",
       "title": "Executive Hiring",
-      "body": "Small, confidential searches where the panel matters most. Restricted access, careful outreach and a clear record of every conversation.",
+      "tagline": "Discreet, structured hiring for senior leadership roles.",
+      "body": "Senior hires need a careful, confidential and well-documented process. Keep stakeholders aligned and decisions evidence-based.",
       "points": [
-        "Confidential requisitions with limited visibility",
-        "Interview kits for each panel member"
+        "Targeted sourcing and talent pools for leadership roles",
+        "Restricted access to keep searches confidential",
+        "Panel interview coordination with structured scorecards",
+        "Approval workflows and audit trails for final decisions"
       ],
       "products": [
         "talent-sourcing",
@@ -183,10 +212,13 @@
       "id": "contract-staffing",
       "icon": "file-check",
       "title": "Contract Staffing",
-      "body": "Short assignments need fast turnarounds. Keep pools of vetted contractors ready and redeploy them as contracts end.",
+      "tagline": "Fill temporary and project roles in days, not weeks.",
+      "body": "Contract hiring is about speed and flexibility. Reuse your talent pools to find available, pre-vetted people when a project starts.",
       "points": [
-        "Availability and end dates tracked per contractor",
-        "Contract-specific offer templates"
+        "Search past candidates by skill, availability and location",
+        "Quick screening and shortlisting for short-term needs",
+        "Fast offer generation and e-signature",
+        "Pre-onboarding checklists to get contractors started quickly"
       ],
       "products": [
         "talent-sourcing",
@@ -198,10 +230,13 @@
       "id": "internal-mobility",
       "icon": "refresh",
       "title": "Internal Mobility",
-      "body": "Fill roles with people you already employ. Match open positions to employee skills and run the same fair process for internal candidates.",
+      "tagline": "Find your next great hire inside your own company.",
+      "body": "Your best candidate may already work for you. Match employees to open roles based on their skills and growth, and retain talent while saving on hiring costs.",
       "points": [
-        "Employees matched to roles by skill",
-        "Internal and external candidates on one rubric"
+        "Skill-based matching of employees to internal openings",
+        "Internal talent pools by skill, experience and interest",
+        "Consistent assessment and approval processes",
+        "Reporting on internal moves and fill rates"
       ],
       "products": [
         "candidate-screening",
@@ -213,10 +248,13 @@
       "id": "recruitment-agencies",
       "icon": "handshake",
       "title": "Recruitment Agencies",
-      "body": "Run many clients from one desk. Each client gets its own pipeline, branded shortlists and a report that shows the work behind every submission.",
+      "tagline": "Fill more client roles with the same team.",
+      "body": "Agencies juggle multiple clients, roles and deadlines. Source faster, submit better-matched candidates and keep every client organized.",
       "points": [
-        "Separate workspaces per client",
-        "Shortlists shared with the evidence attached"
+        "Resume database search and AI sourcing across client requirements",
+        "Separate pipelines and workspaces per client",
+        "Shareable shortlists and candidate profiles for client review",
+        "Analytics on recruiter productivity and placements"
       ],
       "products": [
         "talent-sourcing",

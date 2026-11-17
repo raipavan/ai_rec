@@ -23,6 +23,19 @@ export function Header() {
   const caretRefs = useRef<Record<string, HTMLButtonElement | null>>({});
   const progressRef = useRef<HTMLSpanElement>(null);
 
+  useEffect(() => {
+    const header = headerRef.current;
+    if (!header) return;
+    const observer = new ResizeObserver(() => {
+      document.documentElement.style.setProperty('--header-h', `${header.offsetHeight}px`);
+    });
+    observer.observe(header);
+    return () => {
+      observer.disconnect();
+      document.documentElement.style.removeProperty('--header-h');
+    };
+  }, []);
+
   // Reading-progress line along the bottom edge of the header
   useEffect(() => {
     const onScroll = () => {

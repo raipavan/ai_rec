@@ -63,12 +63,16 @@ export function SolutionsPage() {
                   <Icon name={industry.icon} />
                 </span>
                 <h3>{industry.title}</h3>
+                {industry.tagline && <p className="sol-tagline">{industry.tagline}</p>}
                 <p>{industry.body}</p>
-                <ul className="ticks">
-                  {industry.points.map((point) => (
-                    <li key={point}>{point}</li>
-                  ))}
-                </ul>
+                <div className="sol-points-wrap">
+                  <span className="how-help-lbl">How we help:</span>
+                  <ul className="ticks">
+                    {industry.points.map((point) => (
+                      <li key={point}>{point}</li>
+                    ))}
+                  </ul>
+                </div>
                 <p className="sol-stat">
                   <strong>
                     <AnimatedValue value={industry.statValue} />
@@ -102,13 +106,17 @@ export function SolutionsPage() {
                   <Icon name={size.icon} />
                 </span>
                 <h3>{size.title}</h3>
+                {size.tagline && <p className="sol-tagline">{size.tagline}</p>}
                 <p className="size-profile">{size.profile}</p>
                 <p>{size.body}</p>
-                <ul className="ticks">
-                  {size.points.map((point) => (
-                    <li key={point}>{point}</li>
-                  ))}
-                </ul>
+                <div className="sol-points-wrap">
+                  <span className="how-help-lbl">How we help:</span>
+                  <ul className="ticks">
+                    {size.points.map((point) => (
+                      <li key={point}>{point}</li>
+                    ))}
+                  </ul>
+                </div>
                 <a className="more-link" href="/pricing">
                   Usually on {size.plan}
                   <Icon name="arrow-right" />
@@ -140,12 +148,16 @@ export function SolutionsPage() {
                 </span>
                 <div className="use-row-main">
                   <h3>{useCase.title}</h3>
+                  {useCase.tagline && <p className="sol-tagline">{useCase.tagline}</p>}
                   <p>{useCase.body}</p>
-                  <ul className="ticks">
-                    {useCase.points.map((point) => (
-                      <li key={point}>{point}</li>
-                    ))}
-                  </ul>
+                  <div className="sol-points-wrap">
+                    <span className="how-help-lbl">How we help:</span>
+                    <ul className="ticks">
+                      {useCase.points.map((point) => (
+                        <li key={point}>{point}</li>
+                      ))}
+                    </ul>
+                  </div>
                 </div>
                 <div className="use-row-products">
                   <p>Products used most</p>

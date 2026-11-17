@@ -95,9 +95,10 @@
       ]
     },
     {
-      "id": "integrations",
-      "label": "Integrations",
-      "href": "/integrations"
+      "id": "case-studies",
+      "label": "Case Studies",
+      "href": "/case-studies",
+      "match": "/case-studies"
     },
     {
       "id": "pricing",
@@ -208,7 +209,7 @@
         },
         {
           "label": "Case Studies",
-          "href": "/customers#case-studies"
+          "href": "/case-studies"
         },
         {
           "label": "ROI & Metrics",
@@ -224,7 +225,7 @@
       "title": "Customers",
       "links": [
         { "label": "Customer Success Stories", "href": "/customers" },
-        { "label": "Case Studies", "href": "/customers#case-studies" },
+        { "label": "Case Studies", "href": "/case-studies" },
         { "label": "Testimonials", "href": "/customers#stories" },
         { "label": "ROI Calculator", "href": "/customers#roi-calculator" },
         { "label": "Customer Videos", "href": "/customers#customer-videos" }

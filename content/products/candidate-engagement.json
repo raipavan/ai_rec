@@ -2,77 +2,87 @@
   "order": 6,
   "slug": "candidate-engagement",
   "icon": "chat",
-  "mock": 6,
-  "bot": 3,
+  "mock": 5,
+  "bot": 0,
   "kind": "stage",
   "title": "Candidate Engagement",
-  "summary": "Chatbot, WhatsApp and email follow-ups that keep every candidate informed.",
-  "headline": "Candidates who always know *where they stand*",
-  "lede": "Questions answered at any hour, reminders sent before anyone has to chase, and interviews booked without a single back-and-forth email.",
+  "summary": "AI chatbot, automated follow-ups, WhatsApp integration and interview self-scheduling.",
+  "headline": "Keep every candidate informed, *interested and moving forward*",
+  "lede": "Great candidates drop out when they’re left waiting. TalentPool365 keeps them engaged from application to offer with instant answers, timely follow-ups and easy scheduling, without adding to your team’s workload.",
+  "sectionIntro": "Great candidates drop out when they’re left waiting. TalentPool365 keeps them engaged from application to offer with instant answers, timely follow-ups and easy scheduling, without adding to your team’s workload.",
   "capabilities": [
     {
       "id": "ai-chatbot",
       "title": "AI Chatbot",
-      "body": "Answers candidate questions about the role, the process and their application status, on your careers page or in chat.",
+      "tagline": "Instant answers for candidates, any time of day.",
+      "body": "Candidates have questions about the role, the process and next steps. Our AI chatbot answers them right away on your career page, so no one is left guessing and your recruiters aren’t buried in repetitive messages.",
       "points": [
-        "Answers drawn from your approved content",
-        "Hands over to a recruiter when it should",
-        "Pre-screens with a few structured questions"
+        "Available 24/7 on your career page",
+        "Answers questions about roles, eligibility and the hiring process",
+        "Collects basic details and pre-screening answers",
+        "Hands over to a recruiter when a human is needed"
       ]
     },
     {
       "id": "automated-follow-ups",
       "title": "Automated Follow-Ups",
-      "body": "Nudges for incomplete applications, pending assessments and unsigned offers, sent on the schedule you choose.",
+      "tagline": "No candidate falls through the cracks.",
+      "body": "Set up follow-ups once and let TalentPool365 handle the rest. Candidates get reminders, status updates and nudges at the right moments, and your pipeline keeps moving.",
       "points": [
-        "Triggered by stage and by silence",
-        "Stops the moment the candidate acts",
-        "Tone and timing set per role"
+        "Triggered by candidate stage or activity",
+        "Reminders to complete assessments or interviews",
+        "Status updates so candidates always know where they stand",
+        "Automatic nudges for candidates who haven’t responded"
       ]
     },
     {
       "id": "whatsapp-integration",
       "title": "WhatsApp Integration",
-      "body": "Reach candidates where they already reply. Applications, reminders and scheduling all work inside a WhatsApp chat.",
+      "tagline": "Reach candidates where they actually reply.",
+      "body": "Candidates respond faster on WhatsApp than on almost any other channel. Send updates, reminders and interview details directly to the app they already use every day.",
       "points": [
-        "Apply and book interviews in the chat",
-        "Opt-in recorded for every candidate",
-        "Conversation history saved to the profile"
+        "Send job alerts, updates and reminders over WhatsApp",
+        "Two-way conversations managed from your workspace",
+        "Ready-to-use message templates",
+        "Candidate consent respected for every message"
       ]
     },
     {
       "id": "email-automation",
       "title": "Email Automation",
-      "body": "Templates for every stage that fill in the details themselves and send from the recruiter’s own address.",
+      "tagline": "Personal emails, sent at scale.",
+      "body": "Create email sequences for outreach, acknowledgements, rejections and offers. Each message is personalized with the candidate’s details, so it feels written for them.",
       "points": [
-        "Works with Outlook and Gmail",
-        "Personalised from the candidate record",
-        "Rejections that include useful feedback"
+        "Customizable, reusable email templates",
+        "Personalization with candidate name, role and stage",
+        "Scheduled sequences and bulk sending",
+        "Open and reply tracking to see what’s working"
       ]
     },
     {
       "id": "interview-scheduling",
       "title": "Interview Scheduling",
-      "body": "Candidates pick a slot from the panel’s real availability, and the invite, video link and reminders follow automatically.",
+      "tagline": "From “when are you free?” to booked in a click.",
+      "body": "Remove the back-and-forth. Candidates pick a time that suits them from your team’s available slots, and everyone gets the confirmation and reminders automatically.",
       "points": [
-        "Reads Outlook and Google calendars",
-        "Teams, Zoom and Google Meet links added",
-        "Rescheduling without recruiter involvement"
+        "Self-service slot booking for candidates",
+        "Calendar sync to avoid double bookings",
+        "Automatic confirmations, reminders and reschedule options",
+        "Supports both AI interviews and live interviews with your team"
       ]
     }
   ],
   "outcomes": [
-    {
-      "value": "24/7",
-      "label": "answers to candidate questions, in chat or WhatsApp"
-    },
-    {
-      "value": "3",
-      "label": "channels in one thread: WhatsApp, email and web chat"
-    },
-    {
-      "value": "0",
-      "label": "emails needed to book or move an interview"
-    }
-  ]
+    { "value": "89%", "label": "candidate response rate over WhatsApp" },
+    { "value": "3.4×", "label": "fewer candidate drop-offs during screening" },
+    { "value": "0 min", "label": "manual scheduling back-and-forth" }
+  ],
+  "closingCta": {
+    "headline": "Make every candidate feel valued, from first message to final offer.",
+    "body": "See how TalentPool365 keeps candidates engaged automatically.",
+    "buttons": [
+      { "label": "Book a Demo", "href": "/get-started#book-meeting", "primary": true },
+      { "label": "Start Free Trial", "href": "/get-started#start-free-trial", "primary": false }
+    ]
+  }
 }

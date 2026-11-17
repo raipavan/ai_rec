@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState, type ReactNode } from 'react';
 import { accent } from '../lib/accent';
-import { enterDelay, prefersReducedMotion } from '../lib/motion';
+import { enterDelay, prefersReducedMotion, useSceneDepth } from '../lib/motion';
 import { Network } from './Network';
 
 export interface Crumb {
@@ -43,6 +43,7 @@ function useRotatingWord(count: number) {
  */
 export function PageHero({ crumbs, title, rotate, lede, actions, aside, compact }: PageHeroProps) {
   const sectionRef = useRef<HTMLElement>(null);
+  useSceneDepth(sectionRef);
   const word = useRotatingWord(rotate?.length ?? 0);
   const [before, , after] = title.split('*');
 
