@@ -1,10 +1,7 @@
 import { useState } from 'react';
-import { CtaBand } from '../components/CtaBand';
-import { Icon } from '../components/Icon';
+import { CinematicCard } from '../components/CinematicMotion';
 import { LeadForm, type LeadField } from '../components/LeadForm';
-import { PageHero } from '../components/PageHero';
-import { Reveal } from '../components/Reveal';
-import { SectionHead } from '../components/SectionHead';
+import { SkCtaBanner, SkFaq, SkHero } from '../components/SeekOutUI';
 
 const quoteFields: LeadField[] = [
   { name: 'name', label: 'Full name', required: true, autoComplete: 'name' },
@@ -77,29 +74,33 @@ const faqs = [
 
 export function PricingPage() {
   const [annual, setAnnual] = useState(true);
-  const [activeFaq, setActiveFaq] = useState<number | null>(0);
 
   return (
-    <>
-      <PageHero
-        crumbs={[{ label: 'Pricing' }]}
-        title="Simple pricing that *grows with your hiring.*"
-        lede="Whether you’re making your first hire or running recruitment across multiple countries, there’s a TalentPool365 plan to fit. Start small, upgrade when you’re ready, and only pay for the hiring power you need."
-        actions={
-          <div className="hero-action-buttons">
-            <a className="btn btn-primary" href="/get-started#start-free-trial">
-              Start 14-day free trial
-            </a>
-            <a className="btn btn-outline" href="#compare-plans">
-              Compare plans table
-            </a>
-          </div>
-        }
+    <main className="sk-page">
+      <SkHero
+        eyebrow="TRANSPARENT PRICING"
+        eyebrowIcon="chart"
+        title="Plans that scale with your hiring ambitions"
+        subtitle="Whether you are making your first hire or running recruitment across multiple countries, start small, upgrade when you are ready, and only pay for the hiring power you need."
+        primaryCta={{ label: 'Start 14-day free trial →', href: '/get-started#start-free-trial' }}
+        secondaryCta={{ label: 'Compare plans', href: '#compare-plans' }}
+        image="/assets/pages/hero-pricing.jpg"
+        imageAlt="Scalable pricing plans illustration"
       />
 
-      {/* Pricing Tiers Section */}
-      <section className="section section--light" id="plans">
+      {/* SeekOut Soft Mint Trial Banner + Pricing Cards */}
+      <section className="sk-band sk-band--white" id="plans">
         <div className="container">
+          <div className="sk-promo-banner" style={{ marginBottom: 44 }}>
+            <div>
+              <h2>Try TalentPool365 free for 14 days</h2>
+              <p>Run AI sourcing, semantic resume screening, and automated interviews on a live role. No credit card required.</p>
+            </div>
+            <a className="sk-btn-orange" href="/get-started#start-free-trial">
+              Get free trial →
+            </a>
+          </div>
+
           <div className="pricing-toggle-wrap">
             <span className={!annual ? 'is-selected' : ''}>Monthly Billing</span>
             <button
@@ -117,7 +118,7 @@ export function PricingPage() {
 
           <div className="pricing-plans-grid">
             {/* Starter Plan */}
-            <Reveal as="article" className="pricing-plan-card" delay={0}>
+            <CinematicCard className="pricing-plan-card" variant="up" delay={0}>
               <div className="plan-card-header">
                 <span className="plan-badge">Starter Plan</span>
                 <h3>Starter</h3>
@@ -128,7 +129,6 @@ export function PricingPage() {
                 </div>
                 <p className="plan-trial-note">Free for 14 days, no card required</p>
               </div>
-
               <div className="plan-body">
                 <h4>Everything you need to move from spreadsheets to smarter hiring:</h4>
                 <ul className="ticks">
@@ -141,16 +141,15 @@ export function PricingPage() {
                   <li>Standard email support</li>
                 </ul>
               </div>
-
               <div className="plan-card-footer">
-                <a className="btn btn-outline btn-block" href="/get-started#start-free-trial">
+                <a className="sk-btn-outline-dark" style={{ width: '100%' }} href="/get-started#start-free-trial">
                   Start Free Trial
                 </a>
               </div>
-            </Reveal>
+            </CinematicCard>
 
             {/* Professional Plan */}
-            <Reveal as="article" className="pricing-plan-card is-popular" delay={1}>
+            <CinematicCard className="pricing-plan-card is-popular" variant="zoom" delay={1}>
               <div className="popular-ribbon">Most Popular</div>
               <div className="plan-card-header">
                 <span className="plan-badge plan-badge--popular">Professional Plan</span>
@@ -162,9 +161,8 @@ export function PricingPage() {
                 </div>
                 <p className="plan-trial-note">Billed annually or monthly</p>
               </div>
-
               <div className="plan-body">
-                <h4>Everything in Starter, plus more automation & insight:</h4>
+                <h4>Everything in Starter, plus more automation &amp; insight:</h4>
                 <ul className="ticks">
                   <li>Advanced AI screening, ranking and smart shortlisting</li>
                   <li>Full AI assessments: technical, aptitude, cognitive and behavioral</li>
@@ -177,16 +175,15 @@ export function PricingPage() {
                   <li>Priority technical support</li>
                 </ul>
               </div>
-
               <div className="plan-card-footer">
-                <a className="btn btn-primary btn-block" href="/get-started#book-meeting">
-                  Book a Demo & Trial
+                <a className="sk-btn-orange" style={{ width: '100%' }} href="/get-started#book-meeting">
+                  Book a Demo &amp; Trial →
                 </a>
               </div>
-            </Reveal>
+            </CinematicCard>
 
             {/* Enterprise Plan */}
-            <Reveal as="article" className="pricing-plan-card" delay={2}>
+            <CinematicCard className="pricing-plan-card" variant="up" delay={2}>
               <div className="plan-card-header">
                 <span className="plan-badge">Enterprise Plan</span>
                 <h3>Enterprise</h3>
@@ -195,41 +192,41 @@ export function PricingPage() {
                   <strong style={{ fontSize: '2rem' }}>Custom</strong>
                   <span>tailored to volume</span>
                 </div>
-                <p className="plan-trial-note">Volume discounts & custom contracts</p>
+                <p className="plan-trial-note">Volume discounts &amp; custom contracts</p>
               </div>
-
               <div className="plan-body">
-                <h4>Everything in Professional, plus scale & control:</h4>
+                <h4>Everything in Professional, plus scale &amp; control:</h4>
                 <ul className="ticks">
                   <li>Unlimited high-volume candidate hiring pipeline</li>
                   <li>Advanced role-based access and custom approval chains</li>
                   <li>Full immutable audit trails and compliance security controls</li>
-                  <li>Developer REST API access & custom webhooks</li>
+                  <li>Developer REST API access &amp; custom webhooks</li>
                   <li>Diversity analytics and recruiter productivity leaderboard</li>
                   <li>Single sign-on (SAML / SSO) and custom data residency</li>
-                  <li>Dedicated account manager & guided rollout</li>
+                  <li>Dedicated account manager &amp; guided rollout</li>
                   <li>Guaranteed 99.9% uptime SLA</li>
                 </ul>
               </div>
-
               <div className="plan-card-footer">
-                <a className="btn btn-outline btn-block" href="#custom-quote">
+                <a className="sk-btn-green" style={{ width: '100%' }} href="#custom-quote">
                   Contact Sales for Quote
                 </a>
               </div>
-            </Reveal>
+            </CinematicCard>
           </div>
         </div>
       </section>
 
-      {/* Feature Comparison Table Section */}
-      <section className="section" id="compare-plans">
+      {/* Feature Comparison Table in Warm Cream Band */}
+      <section className="sk-band sk-band--cream" id="compare-plans">
         <div className="container">
-          <SectionHead
-            eyebrow="Detailed Breakdown"
-            title="Compare features across *every plan*"
-            body="Review side-by-side capabilities so you select the exact hiring power your team requires."
-          />
+          <div className="sk-section-head">
+            <span className="sk-pill-tag">DETAILED BREAKDOWN</span>
+            <h2 className="sk-serif-h2">TalentPool365 plans &amp; features</h2>
+            <p className="sk-section-sub">
+              Review side-by-side capabilities so you select the exact hiring power your team requires.
+            </p>
+          </div>
 
           <div className="comparison-table-wrap">
             <table className="comparison-table">
@@ -256,28 +253,26 @@ export function PricingPage() {
         </div>
       </section>
 
-      {/* Request Custom Quote Form Section */}
-      <section className="section section--light" id="custom-quote">
+      {/* Request Custom Quote Form */}
+      <section className="sk-band sk-band--white" id="custom-quote">
         <div className="container">
-          <div className="split" style={{ alignItems: 'start' }}>
-            <div className="split-copy">
-              <span className="eyebrow">Enterprise & High Volume</span>
-              <h2>
-                Need something different? <em className="accent">Let’s build a plan around you.</em>
-              </h2>
-              <p>
+          <div className="sk-split" style={{ alignItems: 'start' }}>
+            <div className="sk-split-copy">
+              <span className="sk-pill-tag">ENTERPRISE &amp; HIGH VOLUME</span>
+              <h2 className="sk-serif-h2">Need something different? Let’s build a plan around you.</h2>
+              <p className="sk-section-sub">
                 If you hire at high volumes, need specialized ATS/HRMS integrations, or have strict compliance
                 and data residency requirements, our enterprise solutions architects will configure a custom plan.
               </p>
-              <ul className="ticks" style={{ marginTop: 24 }}>
-                <li>Custom requisition & candidate allowances</li>
-                <li>Tailored enterprise onboarding & recruiter training</li>
-                <li>Security review & Data Protection Impact Assessment (DPIA) assistance</li>
+              <ul className="sk-checklist" style={{ marginTop: 20 }}>
+                <li>Custom requisition &amp; candidate allowances</li>
+                <li>Tailored enterprise onboarding &amp; recruiter training</li>
+                <li>Security review &amp; Data Protection Impact Assessment (DPIA) assistance</li>
                 <li>Dedicated Customer Success Manager and bespoke SLAs</li>
               </ul>
             </div>
 
-            <div className="split-media card" style={{ padding: '32px' }}>
+            <div className="sk-card" style={{ padding: 32 }}>
               <h3 style={{ marginBottom: 16 }}>Request a Custom Quote</h3>
               <LeadForm
                 fields={quoteFields}
@@ -290,42 +285,8 @@ export function PricingPage() {
         </div>
       </section>
 
-      {/* Frequently Asked Questions Section */}
-      <section className="section" id="faq">
-        <div className="container">
-          <SectionHead
-            eyebrow="Got questions?"
-            title="Frequently asked *billing questions*"
-            body="Everything you need to know about subscriptions, trials, and data security."
-          />
-
-          <div className="faq-accordion-list">
-            {faqs.map((item, index) => {
-              const isOpen = activeFaq === index;
-              return (
-                <div key={item.q} className={`faq-card${isOpen ? ' is-open' : ''}`}>
-                  <button
-                    type="button"
-                    className="faq-question-btn"
-                    onClick={() => setActiveFaq(isOpen ? null : index)}
-                    aria-expanded={isOpen}
-                  >
-                    <span>{item.q}</span>
-                    <Icon name={isOpen ? 'chevron-down' : 'chevron-right'} />
-                  </button>
-                  {isOpen && (
-                    <div className="faq-answer-body">
-                      <p>{item.a}</p>
-                    </div>
-                  )}
-                </div>
-              );
-            })}
-          </div>
-        </div>
-      </section>
-
-      <CtaBand />
-    </>
+      <SkFaq title="Frequently asked billing questions" items={faqs} />
+      <SkCtaBanner />
+    </main>
   );
 }

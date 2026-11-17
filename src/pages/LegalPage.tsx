@@ -1,7 +1,6 @@
 import { useState } from 'react';
-import { CtaBand } from '../components/CtaBand';
 import { Icon } from '../components/Icon';
-import { PageHero } from '../components/PageHero';
+import { SkCtaBanner, SkHero } from '../components/SeekOutUI';
 
 const privacySections = [
   {
@@ -216,39 +215,19 @@ export function LegalPage() {
   const [activeTab, setActiveTab] = useState<'privacy' | 'terms' | 'gdpr'>('privacy');
 
   return (
-    <>
-      <PageHero
-        crumbs={[{ label: 'Legal & Trust' }]}
-        title="Trust starts with *clear, transparent commitments.*"
-        lede="Explore TalentPool365's complete Privacy Policy, Terms of Service, and GDPR compliance framework. We protect your candidate and corporate data with enterprise rigor."
-        actions={
-          <div className="hero-action-buttons">
-            <button
-              type="button"
-              className={`btn${activeTab === 'privacy' ? ' btn-primary' : ' btn-outline'}`}
-              onClick={() => setActiveTab('privacy')}
-            >
-              Privacy Policy (16 Sections)
-            </button>
-            <button
-              type="button"
-              className={`btn${activeTab === 'terms' ? ' btn-primary' : ' btn-outline'}`}
-              onClick={() => setActiveTab('terms')}
-            >
-              Terms of Service (22 Sections)
-            </button>
-            <button
-              type="button"
-              className={`btn${activeTab === 'gdpr' ? ' btn-primary' : ' btn-outline'}`}
-              onClick={() => setActiveTab('gdpr')}
-            >
-              GDPR & Trust Architecture
-            </button>
-          </div>
-        }
+    <main className="sk-page">
+      <SkHero
+        eyebrow="SECURITY & COMPLIANCE"
+        eyebrowIcon="shield"
+        title="Security and Trust at TalentPool365"
+        subtitle="Explore TalentPool365's complete Privacy Policy, Terms of Service, and GDPR compliance framework. We protect candidate and corporate data with enterprise rigor."
+        primaryCta={{ label: 'Contact Trust Team →', href: '/company/contact' }}
+        secondaryCta={{ label: 'Read Privacy Policy', href: '#legal-docs' }}
+        image="/assets/pages/hero-security.jpg"
+        imageAlt="TalentPool365 security and compliance illustration"
       />
 
-      <section className="section section--light">
+      <section className="sk-band sk-band--cream" id="legal-docs">
         <div className="container legal-layout-new">
           <aside className="legal-sidebar-menu">
             <div className="legal-sidebar-box">
@@ -382,7 +361,11 @@ export function LegalPage() {
         </div>
       </section>
 
-      <CtaBand />
-    </>
+      <SkCtaBanner
+        title="Need a Security Review or executable DPA?"
+        subtitle="Our Data Protection Officer and security architects are ready to support your compliance review."
+        primary={{ label: 'Contact Trust Team →', href: '/company/contact' }}
+      />
+    </main>
   );
 }

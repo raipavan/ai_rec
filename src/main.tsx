@@ -4,6 +4,7 @@ import App from './App';
 import './styles/global.css';
 import './styles/showcase.css';
 import './styles/pages.css';
+import './styles/seekout.css';
 
 const root = document.getElementById('root');
 

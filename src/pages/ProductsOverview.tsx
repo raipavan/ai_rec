@@ -1,129 +1,164 @@
-import type { CSSProperties } from 'react';
-import { CtaBand } from '../components/CtaBand';
+import { CinematicCard } from '../components/CinematicMotion';
 import { Icon } from '../components/Icon';
-import { LogoMarquee } from '../components/LogoMarquee';
-import { Metrics } from '../components/Metrics';
-import { PageHero } from '../components/PageHero';
-import { Reveal } from '../components/Reveal';
-import { SectionHead } from '../components/SectionHead';
+import { ProductMock } from '../components/ProductMock';
+import { SkCtaBanner, SkHero, SkLogoMarquee } from '../components/SeekOutUI';
 import { productPages, productPath } from '../data/products';
-import { useScrollProgress } from '../lib/useScrollProgress';
 
 const stages = productPages.filter((product) => product.kind === 'stage');
 const layers = productPages.filter((product) => product.kind === 'layer');
 
 export function ProductsOverview() {
-  const line = useScrollProgress<HTMLOListElement>('.line-row');
-
   return (
-    <>
-      <PageHero
-        crumbs={[{ label: 'Products' }]}
-        title="One platform, from requisition to *signed offer*"
-        lede="Most teams stitch together five tools to move a candidate from applied to hired. TalentPool365 runs the whole line, so the evidence behind every decision travels with the candidate."
-        actions={
-          <>
-            <a className="btn btn-primary" href="/company/contact">
-              Book a live demo
-            </a>
-            <a className="btn btn-outline" href="/pricing">
-              See pricing
-            </a>
-          </>
-        }
-        aside={
-          <>
-            <img
-              className="page-hero-shot"
-              src="/assets/dashboard-hero.jpg"
-              width="1536"
-              height="1024"
-              decoding="async"
-              alt="TalentPool365 hiring dashboard showing a candidate pipeline, funnel chart and KPI cards"
-            />
-            <div className="hero-chip page-hero-chip">
-              <span className="dot" aria-hidden="true">
-                <Icon name="layers" />
-              </span>
-              <span>
-                <strong>9 products</strong>one candidate record
-              </span>
-            </div>
-          </>
-        }
+    <main className="sk-page">
+      <SkHero
+        eyebrow="TALENTPOOL365 PLATFORM"
+        eyebrowIcon="layers"
+        title="One platform, from requisition to signed offer"
+        subtitle="Most teams stitch together five disconnected tools to move a candidate from applied to hired. TalentPool365 runs the whole hiring line so the evidence behind every decision travels with the candidate."
+        primaryCta={{ label: 'Book a demo →', href: '/get-started#book-meeting' }}
+        secondaryCta={{ label: 'See pricing', href: '/pricing' }}
+        stats={[
+          { value: '1B+', label: 'Profiles & ATS archives' },
+          { value: '9 products', label: 'One candidate record' },
+          { value: '68%', label: 'Faster time-to-hire' },
+        ]}
+        image="/assets/pages/hero-platform.jpg"
+        imageAlt="TalentPool365 AI recruitment platform overview illustration"
       />
 
-      <LogoMarquee />
+      <SkLogoMarquee />
 
-      <section className="section section--light" id="stages">
+      {/* 7 Cinematic Split Stage Showcase Cards */}
+      <section className="sk-band sk-band--cream" id="stages">
         <div className="container">
-          <SectionHead
-            title="Seven products, *one requisition*"
-            body="Each product does one job and hands the candidate to the next. Start with the step that hurts most and add the rest when you are ready."
-          />
+          <div className="sk-section-head">
+            <span className="sk-pill-tag">SEVEN HIRING STAGES</span>
+            <h2 className="sk-serif-h2">Seven products, one unified requisition</h2>
+            <p className="sk-section-sub">
+              Each product runs its stage in the pipeline and passes structured evidence cleanly to the next.
+              Inspect each live workspace preview below.
+            </p>
+          </div>
 
-          <ol className="line" ref={line.ref} style={{ '--rail': line.progress } as CSSProperties}>
+          {/* Interactive Stage Jump Bar */}
+          <nav className="po-stage-nav" aria-label="Jump to hiring stage">
             {stages.map((product, index) => (
-              <li
-                className={`line-row${index <= line.active ? ' is-reached' : ''}${index === line.active ? ' is-current' : ''}`}
-                key={product.slug}
-              >
-                <span className="icon-tile">
-                  <Icon name={product.icon} />
-                </span>
-                <div className="line-main">
-                  <h3>
-                    <a href={productPath(product)}>{product.title}</a>
-                  </h3>
-                  <p>{product.summary}</p>
-                </div>
-                <ul className="chip-list" aria-label={`${product.title} capabilities`}>
-                  {product.capabilities.map((capability, i) => (
-                    <li key={capability.id} style={{ '--i': i } as CSSProperties}>
-                      <a className="chip" href={`${productPath(product)}#${capability.id}`}>
-                        {capability.title}
-                      </a>
-                    </li>
-                  ))}
-                </ul>
-              </li>
+              <a key={product.slug} className="po-stage-pill" href={`#stage-${product.slug}`}>
+                <b>0{index + 1}</b>
+                <span>{product.title}</span>
+              </a>
             ))}
-          </ol>
-        </div>
-      </section>
+          </nav>
 
-      <section className="section" id="layers">
-        <div className="container">
-          <SectionHead
-            title="Two layers under *every stage*"
-            body="Reporting and compliance are not steps in the process. They run underneath all of it, from the first search to the signed offer."
-          />
+          <div className="po-stage-list">
+            {stages.map((product, index) => (
+              <CinematicCard
+                key={product.slug}
+                id={`stage-${product.slug}`}
+                variant={index % 2 === 0 ? 'left' : 'right'}
+                delay={index % 2}
+                tilt={0.45}
+                className={`po-stage-bento${index % 2 === 1 ? ' po-stage-bento--reverse' : ''}`}
+              >
+                <div className="po-bento-copy">
+                  <div className="po-stage-meta">
+                    <span className="po-stage-num">STAGE 0{index + 1}</span>
+                    <span className="sk-icon-box" style={{ width: 34, height: 34 }}>
+                      <Icon name={product.icon} />
+                    </span>
+                    <strong style={{ fontSize: '0.85rem', color: '#146E63', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
+                      {product.title}
+                    </strong>
+                  </div>
 
-          <div className="grid layer-grid">
-            {layers.map((product, index) => (
-              <Reveal as="article" className="card layer-card" key={product.slug} delay={index}>
-                <span className="icon-tile">
-                  <Icon name={product.icon} />
-                </span>
-                <h3>{product.title}</h3>
-                <p>{product.lede}</p>
-                <ul className="ticks">
-                  {product.capabilities.map((capability) => (
-                    <li key={capability.id}>{capability.title}</li>
-                  ))}
-                </ul>
-                <a className="more-link" href={productPath(product)}>
-                  Explore {product.title}
-                  <Icon name="arrow-right" />
-                </a>
-              </Reveal>
+                  <h3 className="po-bento-title">{product.headline.replace(/\*/g, '')}</h3>
+                  <p className="po-bento-sub">{product.lede}</p>
+
+                  <div className="po-outcomes-strip">
+                    {product.outcomes.slice(0, 3).map((outcome) => (
+                      <div key={outcome.label} className="po-outcome-box">
+                        <strong>{outcome.value}</strong>
+                        <span>{outcome.label}</span>
+                      </div>
+                    ))}
+                  </div>
+
+                  <div className="po-cap-chips" aria-label={`${product.title} capabilities`}>
+                    {product.capabilities.map((cap) => (
+                      <a key={cap.id} className="po-cap-chip" href={`${productPath(product)}#${cap.id}`}>
+                        {cap.title}
+                      </a>
+                    ))}
+                  </div>
+
+                  <div className="po-bento-actions">
+                    <a className="sk-btn-green" href={productPath(product)}>
+                      Explore {product.title} <Icon name="arrow-right" />
+                    </a>
+                    <a className="sk-btn-outline-dark" href="/get-started#book-meeting">
+                      See it live
+                    </a>
+                  </div>
+                </div>
+
+                <div className="po-bento-stage">
+                  <ProductMock index={product.mock} title={product.title} />
+                </div>
+              </CinematicCard>
             ))}
           </div>
         </div>
       </section>
 
-      <Metrics />
-      <CtaBand />
-    </>
+      {/* 2 Dark Obsidian-Emerald Command Layer Cards */}
+      <section className="sk-band sk-band--white" id="layers">
+        <div className="container">
+          <div className="sk-section-head">
+            <span className="sk-pill-tag">PLATFORM FOUNDATION</span>
+            <h2 className="sk-serif-h2">Two command layers under every stage</h2>
+            <p className="sk-section-sub">
+              Analytics and compliance are built directly into the foundation — monitoring funnel velocity,
+              scoring fairness, and immutable audit logs across every requisition.
+            </p>
+          </div>
+
+          <div className="sk-grid-2">
+            {layers.map((product, idx) => (
+              <CinematicCard key={product.slug} variant="zoom" delay={idx} className="po-layer-command">
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                  <span className="sk-pill-tag" style={{ marginBottom: 0 }}>
+                    FOUNDATION LAYER
+                  </span>
+                  <span className="sk-icon-box" style={{ background: 'rgba(190,232,213,0.16)', color: '#6EE7B7' }}>
+                    <Icon name={product.icon} />
+                  </span>
+                </div>
+
+                <h3>{product.title}</h3>
+                <p>{product.lede}</p>
+
+                <div className="po-layer-mock-wrap">
+                  <ProductMock index={product.mock} title={product.title} />
+                </div>
+
+                <ul className="sk-checklist">
+                  {product.capabilities.map((cap) => (
+                    <li key={cap.id}>{cap.title}</li>
+                  ))}
+                </ul>
+
+                <div style={{ marginTop: 'auto', paddingTop: 8 }}>
+                  <a className="sk-btn-orange" href={productPath(product)}>
+                    Explore {product.title} →
+                  </a>
+                </div>
+              </CinematicCard>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <SkCtaBanner />
+    </main>
   );
 }

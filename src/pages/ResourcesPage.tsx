@@ -1,13 +1,11 @@
 import { useEffect, useState } from 'react';
 import { scrollToHash, useHash } from '../lib/router';
-import { CtaBand } from '../components/CtaBand';
+import { CinematicCard } from '../components/CinematicMotion';
 import { DemoVideo } from '../components/DemoVideo';
 import { Faq } from '../components/Faq';
 import { Icon } from '../components/Icon';
-import { PageHero } from '../components/PageHero';
-import { Reveal } from '../components/Reveal';
 import { SectionHead } from '../components/SectionHead';
-import { SubNav } from '../components/SubNav';
+import { SkCtaBanner, SkHero, SkVectorArt } from '../components/SeekOutUI';
 import { resources } from '../data/resources';
 
 const glossary = [
@@ -163,88 +161,74 @@ export function ResourcesPage() {
   );
 
   return (
-    <>
-      <PageHero
-        crumbs={[{ label: 'Resources' }]}
-        title="Practical guides for *smarter talent acquisition.*"
-        lede="Explore practical AI recruitment playbooks, frameworks, checklists and plain-language definitions. Everything here is open to read without gated lead forms."
-        actions={
-          <div className="hero-action-buttons">
-            <a className="btn btn-primary" href="#guides">
-              Explore Resource Library <Icon name="arrow-right" />
-            </a>
-            <a className="btn btn-outline" href="/blog">
-              Read the Recruitment Blog
-            </a>
-          </div>
-        }
-      />
-
-      <SubNav
-        label="Resource sections"
-        links={[
-          { label: 'Learning library', href: '#guides' },
-          { label: 'Product videos', href: '#product-videos' },
-          { label: 'FAQs', href: '#faq' },
-          { label: 'Glossary', href: '#glossary' },
-        ]}
-      />
-
-      <section className="section section--light" id="guides">
-        <div className="container">
-          <SectionHead
-            eyebrow="Knowledge library"
-            title="Actionable playbooks for *your next hiring surge*"
-            body="Original frameworks designed to help HR leaders, recruiters, and hiring managers design faster, fairer hiring workflows."
+    <main className="sk-page">
+      <SkHero
+        centered
+        eyebrow="RESOURCES"
+        eyebrowIcon="file-check"
+        title="TalentPool365 Resource Hub"
+        subtitle="Practical AI recruitment playbooks, evaluation frameworks, checklists, and plain-language guides — open to read with zero gated forms."
+      >
+        <div className="sk-hero-search-wrap">
+          <span className="sk-hero-search-icon" aria-hidden="true">
+            <Icon name="search" />
+          </span>
+          <label htmlFor="resource-search" className="sr-only">
+            Search resources
+          </label>
+          <input
+            id="resource-search"
+            type="search"
+            className="sk-hero-search-input"
+            value={query}
+            placeholder="Search resources (interviews, scoring, sourcing...)"
+            onChange={(event) => setQuery(event.target.value)}
           />
+        </div>
+        <div className="sk-hero-filters" role="group" aria-label="Resource types">
+          {categories.map((item) => (
+            <button
+              key={item}
+              type="button"
+              className={`sk-filter-pill${category === item ? ' is-active' : ''}`}
+              onClick={() => setCategory(item)}
+            >
+              {item}
+            </button>
+          ))}
+        </div>
+      </SkHero>
 
-          <div className="catalog-toolbar">
-            <div className="filter" role="group" aria-label="Resource types">
-              {categories.map((item) => (
-                <button
-                  key={item}
-                  type="button"
-                  className={`filter-opt${category === item ? ' is-active' : ''}`}
-                  onClick={() => setCategory(item)}
-                >
-                  {item}
-                </button>
-              ))}
-            </div>
-
-            <div className="field search-field">
-              <label htmlFor="resource-search" className="sr-only">Search resources</label>
-              <input
-                id="resource-search"
-                type="search"
-                value={query}
-                placeholder="Try interviews, employer branding, or scoring..."
-                onChange={(event) => setQuery(event.target.value)}
-              />
-            </div>
-          </div>
-
-          <p className="result-count" role="status">
+      <section className="sk-band sk-band--white" id="guides">
+        <div className="container">
+          <p className="result-count" role="status" style={{ marginBottom: 24 }}>
             Showing {shown.length} practical resource{shown.length === 1 ? '' : 's'}
           </p>
 
-          <div className="resource-grid">
-            {shown.map((item) => (
-              <article className="card resource-card" id={item.id} key={item.id}>
-                <span className="resource-meta">{item.type}</span>
-                <h2>{item.title}</h2>
-                <p>{item.intro}</p>
-                <details className="resource-details">
-                  <summary>
-                    Read full brief <span className="sr-only">: {item.title}</span>
-                  </summary>
-                  <div>
-                    {item.paragraphs.map((text) => (
-                      <p key={text}>{text}</p>
-                    ))}
-                  </div>
-                </details>
-              </article>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 20 }}>
+            {shown.map((item, idx) => (
+              <CinematicCard className="sk-card sk-res-horizontal-card" variant="left" delay={idx % 3} tilt={0.45} id={item.id} key={item.id}>
+                <div className="sk-res-media">
+                  <SkVectorArt kind={idx % 3 === 0 ? 'cover-1' : idx % 3 === 1 ? 'cover-2' : 'cover-3'} />
+                </div>
+                <div className="sk-cover-card-body">
+                  <span className="sk-pill-tag" style={{ width: 'fit-content', marginBottom: 2 }}>
+                    {item.type}
+                  </span>
+                  <h3>{item.title}</h3>
+                  <p>{item.intro}</p>
+                  <details className="resource-details" style={{ marginTop: 'auto', paddingTop: 8 }}>
+                    <summary>
+                      Read full brief <span className="sr-only">: {item.title}</span>
+                    </summary>
+                    <div>
+                      {item.paragraphs.map((text) => (
+                        <p key={text}>{text}</p>
+                      ))}
+                    </div>
+                  </details>
+                </div>
+              </CinematicCard>
             ))}
           </div>
 
@@ -254,31 +238,29 @@ export function ResourcesPage() {
               <p>Try searching for a different term or clear the filter.</p>
               <button
                 type="button"
-                className="btn btn-outline"
+                className="sk-btn-green"
                 onClick={() => {
                   setQuery('');
                   setCategory(categories[0]);
                 }}
               >
-                Clear Search & Filters
+                Clear Search &amp; Filters
               </button>
             </div>
           )}
         </div>
       </section>
 
-      <section className="section" id="product-videos">
+      <section className="sk-band sk-band--cream" id="product-videos">
         <div className="container split">
           <div className="split-copy">
-            <span className="eyebrow">Product walkthrough</span>
-            <h2>
-              See the platform. <em className="accent">Follow the work.</em>
-            </h2>
-            <p>
+            <span className="sk-pill-tag">PRODUCT WALKTHROUGH</span>
+            <h2 className="sk-serif-h2">See the platform. Follow the work.</h2>
+            <p className="sk-section-sub">
               A guided walkthrough of the TalentPool365 workflow: from automated AI sourcing and semantic
               screening to proctored assessments, video interviews, and digital offers.
             </p>
-            <a className="more-link" href="/how-it-works">
+            <a className="sk-card-link" style={{ marginTop: 14 }} href="/how-it-works">
               Explore all nine hiring steps <Icon name="arrow-right" />
             </a>
           </div>
@@ -288,7 +270,7 @@ export function ResourcesPage() {
 
       <Faq contactHref="/company/contact" />
 
-      <section className="section section--light" id="glossary">
+      <section className="sk-band sk-band--cream" id="glossary">
         <div className="container">
           <SectionHead
             eyebrow="Terminology"
@@ -306,8 +288,8 @@ export function ResourcesPage() {
         </div>
       </section>
 
-      <CtaBand />
-    </>
+      <SkCtaBanner />
+    </main>
   );
 }
 
@@ -339,112 +321,101 @@ export function BlogPage() {
   });
 
   return (
-    <>
-      <PageHero
-        crumbs={[{ label: 'Resources', href: '/resources' }, { label: 'Blog' }]}
-        title="Insights, guides and ideas for *smarter hiring.*"
-        lede="Practical advice for recruiters, HR leaders and hiring managers. Learn how to source better, screen faster, interview fairly and make AI work for your talent team."
-        actions={
-          <div className="hero-action-buttons">
-            <a className="btn btn-primary" href="#articles-feed">
-              Read latest articles
-            </a>
-            <a className="btn btn-outline" href="/resources">
-              Browse resource library
-            </a>
-          </div>
-        }
-      />
+    <main className="sk-page">
+      <SkHero
+        centered
+        eyebrow="RECRUITMENT BLOG"
+        eyebrowIcon="megaphone"
+        title="Insights, guides and ideas for smarter hiring"
+        subtitle="Practical advice for recruiters, HR leaders, and hiring managers. Learn how to source better, screen faster, interview fairly, and make AI work for your team."
+      >
+        <div className="sk-hero-search-wrap">
+          <span className="sk-hero-search-icon" aria-hidden="true">
+            <Icon name="search" />
+          </span>
+          <label htmlFor="blog-search" className="sr-only">
+            Search articles
+          </label>
+          <input
+            id="blog-search"
+            type="search"
+            className="sk-hero-search-input"
+            placeholder="Search articles by keyword..."
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+          />
+        </div>
+        <div className="sk-hero-filters" role="group" aria-label="Blog categories">
+          {blogCategories.map((cat) => (
+            <button
+              key={cat}
+              type="button"
+              className={`sk-filter-pill${selectedCategory === cat ? ' is-active' : ''}`}
+              onClick={() => setSelectedCategory(cat)}
+            >
+              {cat}
+            </button>
+          ))}
+        </div>
+      </SkHero>
 
-      {/* Featured Article Hero */}
-      <section className="section section--light" id="featured-article">
+      {/* Featured Editorial Story */}
+      <section className="sk-band sk-band--cream" id="featured-article">
         <div className="container">
-          <SectionHead eyebrow="Featured editorial" title="The lead story in modern talent acquisition" />
-
-          <Reveal as="div" className="featured-blog-card">
-            <div className="featured-blog-badge-row">
-              <span className="badge-tag">{featured.category}</span>
-              <span className="badge-meta">{featured.readTime} · {featured.date}</span>
+          <div className="sk-card sk-card--top-accent" style={{ padding: 36 }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', flexWrap: 'wrap', gap: 10 }}>
+              <span className="sk-pill-tag" style={{ marginBottom: 0 }}>
+                FEATURED · {featured.category}
+              </span>
+              <span style={{ fontSize: '0.85rem', color: '#64748b', fontWeight: 600 }}>
+                {featured.readTime} · {featured.date}
+              </span>
             </div>
-
-            <h2 className="featured-blog-title">{featured.title}</h2>
-            <p className="featured-blog-tagline">{featured.tagline}</p>
-            <p className="featured-blog-summary">{featured.summary}</p>
-
-            <div className="featured-blog-actions">
+            <h2 className="sk-serif-h2" style={{ marginTop: 8 }}>{featured.title}</h2>
+            <p style={{ fontSize: '1.05rem', color: '#146E63', fontWeight: 600 }}>{featured.tagline}</p>
+            <p>{featured.summary}</p>
+            <div>
               <button
                 type="button"
-                className="btn btn-primary"
+                className="sk-btn-orange"
                 onClick={() => setReadingPost(featured)}
               >
-                Read Full Article <Icon name="arrow-right" />
+                Read Full Article →
               </button>
             </div>
-          </Reveal>
+          </div>
         </div>
       </section>
 
-      {/* Articles Feed with Search & Category Filters */}
-      <section className="section" id="articles-feed">
+      {/* 2-Column Article Grid */}
+      <section className="sk-band sk-band--white" id="articles-feed">
         <div className="container">
-          <SectionHead
-            eyebrow="Latest Articles"
-            title="Ideas from *the hiring front lines*"
-            body="Explore strategies for skills-based hiring, candidate engagement, and high-volume recruitment."
-          />
-
-          {/* Search & Category Filter Bar */}
-          <div className="catalog-toolbar">
-            <div className="filter" role="group" aria-label="Blog categories">
-              {blogCategories.map((cat) => (
-                <button
-                  key={cat}
-                  type="button"
-                  className={`filter-opt${selectedCategory === cat ? ' is-active' : ''}`}
-                  onClick={() => setSelectedCategory(cat)}
-                >
-                  {cat}
-                </button>
-              ))}
-            </div>
-
-            <div className="field search-field">
-              <label htmlFor="blog-search" className="sr-only">Search articles</label>
-              <input
-                id="blog-search"
-                type="search"
-                placeholder="Search articles by keyword..."
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-              />
-            </div>
-          </div>
-
-          <p className="result-count" role="status">
+          <p className="result-count" role="status" style={{ marginBottom: 24 }}>
             Showing {filteredPosts.length} article{filteredPosts.length === 1 ? '' : 's'}
           </p>
 
-          <div className="blog-posts-grid">
+          <div className="sk-grid-2">
             {filteredPosts.map((post, idx) => (
-              <Reveal as="article" key={post.id} className="blog-post-card" delay={idx % 3}>
-                <div className="blog-card-meta">
-                  <span className="blog-card-cat">{post.category}</span>
-                  <span className="blog-card-time">{post.readTime}</span>
+              <CinematicCard key={post.id} variant="up" delay={idx % 2} className="sk-blog-editorial-card">
+                <div className="sk-blog-masthead">
+                  <span>{post.category}</span>
+                  <span>{post.readTime} · {post.date}</span>
                 </div>
-
-                <h3 className="blog-card-title">{post.title}</h3>
-                <p className="blog-card-tagline">{post.tagline}</p>
-
-                <div className="blog-card-footer">
+                <h3>{post.title}</h3>
+                <p className="sk-blog-quote-lead">{post.tagline}</p>
+                <p style={{ fontSize: '0.9rem', color: '#475569', margin: 0 }}>{post.summary}</p>
+                <div style={{ marginTop: 'auto', paddingTop: 10, display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                  <span style={{ fontSize: '0.78rem', color: '#64748b' }}>{post.author}</span>
                   <button
                     type="button"
-                    className="more-link"
+                    className="sk-card-link"
+                    style={{ background: 'none', border: 'none', padding: 0, cursor: 'pointer', marginTop: 0 }}
                     onClick={() => setReadingPost(post)}
                   >
-                    Read article <span aria-hidden="true">&rarr;</span>
+                    Read article <Icon name="arrow-right" />
                   </button>
                 </div>
-              </Reveal>
+              </CinematicCard>
             ))}
           </div>
 
@@ -454,7 +425,7 @@ export function BlogPage() {
               <p>Try searching for a different keyword or resetting your category filter.</p>
               <button
                 type="button"
-                className="btn btn-primary"
+                className="sk-btn-green"
                 onClick={() => {
                   setSearchQuery('');
                   setSelectedCategory('All');
@@ -523,7 +494,7 @@ export function BlogPage() {
         </div>
       )}
 
-      <CtaBand />
-    </>
+      <SkCtaBanner />
+    </main>
   );
 }

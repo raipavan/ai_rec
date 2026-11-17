@@ -1,7 +1,7 @@
-import { useState } from 'react';
+import { useRef, useState, type CSSProperties } from 'react';
 import type { ProductPage as ProductData } from '../data/products';
+import { CinematicCard, useScrollProgressTrack } from './CinematicMotion';
 import { Icon } from './Icon';
-import { Reveal } from './Reveal';
 import { SectionHead } from './SectionHead';
 
 // -------------------------------------------------------------
@@ -855,20 +855,41 @@ export function ScreeningExperience({ product }: { product: ProductData }) {
             body="Review the 5 stages of automated screening in TalentPool365."
           />
 
-          <div className="grid grid--2 capability-cards-grid">
-            {product.capabilities.map((cap, idx) => (
-              <Reveal as="article" key={cap.id} className="card capability-box" delay={idx % 2}>
-                <div className="cap-badge-num">0{idx + 1}</div>
-                <h3>{cap.title}</h3>
-                {cap.tagline && <p className="cap-tagline">{cap.tagline}</p>}
-                <p className="cap-body">{cap.body}</p>
-                <ul className="ticks">
-                  {cap.points.map((pt) => (
-                    <li key={pt}>{pt}</li>
-                  ))}
-                </ul>
-              </Reveal>
-            ))}
+          {/* 1. Candidate Screening — Stacked Pipeline Deck */}
+          <div className="ux-screen-deck">
+            {product.capabilities.map((cap, idx) => {
+              const score = [96, 94, 91, 89, 87][idx % 5];
+              return (
+                <CinematicCard
+                  key={cap.id}
+                  id={cap.id}
+                  variant={idx % 2 === 0 ? 'left' : 'right'}
+                  delay={idx}
+                  className={`ux-screen-row${idx % 2 === 1 ? ' ux-screen-row--cream' : ''}`}
+                >
+                  <div className="ux-screen-step">0{idx + 1}</div>
+                  <div className="ux-screen-main">
+                    <h3>{cap.title}</h3>
+                    {cap.tagline && <p className="ux-screen-tagline">{cap.tagline}</p>}
+                    <p>{cap.body}</p>
+                  </div>
+                  <div className="ux-screen-meter-box">
+                    <div className="ux-screen-meter-head">
+                      <span>Screening Signal</span>
+                      <span>{score}% Match</span>
+                    </div>
+                    <div className="ux-screen-bar">
+                      <i style={{ width: `${score}%` }} />
+                    </div>
+                    <ul className="ticks">
+                      {cap.points.map((pt) => (
+                        <li key={pt}>{pt}</li>
+                      ))}
+                    </ul>
+                  </div>
+                </CinematicCard>
+              );
+            })}
           </div>
         </div>
       </section>
@@ -1052,19 +1073,34 @@ export function AssessmentsExperience({ product }: { product: ProductData }) {
             body="Review the 5 pillars of the TalentPool365 assessment engine."
           />
 
-          <div className="grid grid--2 capability-cards-grid">
+          {/* 2. AI Assessments — Asymmetric Bento Matrix */}
+          <div className="ux-assess-bento">
             {product.capabilities.map((cap, idx) => (
-              <Reveal as="article" key={cap.id} className="card capability-box" delay={idx % 2}>
-                <div className="cap-badge-num">0{idx + 1}</div>
-                <h3>{cap.title}</h3>
-                {cap.tagline && <p className="cap-tagline">{cap.tagline}</p>}
-                <p className="cap-body">{cap.body}</p>
+              <CinematicCard
+                key={cap.id}
+                id={cap.id}
+                variant="zoom"
+                delay={idx}
+                className={`ux-assess-card${idx === 0 ? ' ux-assess-card--featured' : ''}`}
+              >
+                <div>
+                  <span className="ux-assess-medallion" style={{ marginBottom: 12 }}>
+                    0{idx + 1}
+                  </span>
+                  <h3>{cap.title}</h3>
+                  {cap.tagline && (
+                    <p style={{ fontWeight: 600, color: idx === 0 ? '#BEE8D5' : '#146E63', margin: '0 0 8px' }}>
+                      {cap.tagline}
+                    </p>
+                  )}
+                  <p style={{ margin: 0, lineHeight: 1.6 }}>{cap.body}</p>
+                </div>
                 <ul className="ticks">
                   {cap.points.map((pt) => (
                     <li key={pt}>{pt}</li>
                   ))}
                 </ul>
-              </Reveal>
+              </CinematicCard>
             ))}
           </div>
         </div>
@@ -1078,6 +1114,8 @@ export function AssessmentsExperience({ product }: { product: ProductData }) {
 // -------------------------------------------------------------
 export function InterviewsExperience({ product }: { product: ProductData }) {
   const [interviewMode, setInterviewMode] = useState<'video' | 'voice' | 'coding'>('video');
+  const reelRef = useRef<HTMLDivElement>(null);
+  useScrollProgressTrack(reelRef);
 
   return (
     <div className="product-custom-experience interviews-experience">
@@ -1217,11 +1255,21 @@ async def process_batch(user_ids: list[int]):
             body="Review the 6 components of the AI interviews platform."
           />
 
-          <div className="grid grid--2 capability-cards-grid">
+          {/* 3. AI Interviews — Scroll-Lit Vertical Timeline Reel */}
+          <div className="ux-interview-reel" ref={reelRef}>
             {product.capabilities.map((cap, idx) => (
-              <Reveal as="article" key={cap.id} className="card capability-box" delay={idx % 2}>
-                <div className="cap-badge-num">0{idx + 1}</div>
-                <h3>{cap.title}</h3>
+              <CinematicCard
+                key={cap.id}
+                id={cap.id}
+                variant="left"
+                delay={idx}
+                className="ux-interview-card"
+              >
+                <span className="ux-interview-node">{idx + 1}</span>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: 8, marginBottom: 8 }}>
+                  <h3 style={{ margin: 0 }}>{cap.title}</h3>
+                  <span className="sk-pill-tag" style={{ marginBottom: 0 }}>Rubric Stage 0{idx + 1}</span>
+                </div>
                 {cap.tagline && <p className="cap-tagline">{cap.tagline}</p>}
                 <p className="cap-body">{cap.body}</p>
                 <ul className="ticks">
@@ -1229,7 +1277,7 @@ async def process_batch(user_ids: list[int]):
                     <li key={pt}>{pt}</li>
                   ))}
                 </ul>
-              </Reveal>
+              </CinematicCard>
             ))}
           </div>
         </div>
@@ -1374,20 +1422,36 @@ export function WorkspaceExperience({ product }: { product: ProductData }) {
             body="Review the 5 core modules of the Recruiter Workspace."
           />
 
-          <div className="grid grid--2 capability-cards-grid">
-            {product.capabilities.map((cap, idx) => (
-              <Reveal as="article" key={cap.id} className="card capability-box" delay={idx % 2}>
-                <div className="cap-badge-num">0{idx + 1}</div>
-                <h3>{cap.title}</h3>
-                {cap.tagline && <p className="cap-tagline">{cap.tagline}</p>}
-                <p className="cap-body">{cap.body}</p>
-                <ul className="ticks">
-                  {cap.points.map((pt) => (
-                    <li key={pt}>{pt}</li>
-                  ))}
-                </ul>
-              </Reveal>
-            ))}
+          {/* 4. Recruiter Workspace — Kanban Command Columns */}
+          <div className="ux-kanban-grid">
+            {product.capabilities.map((cap, idx) => {
+              const colors = ['#146E63', '#FF7A00', '#0EA5E9', '#8B5CF6', '#10B981'];
+              return (
+                <CinematicCard
+                  key={cap.id}
+                  id={cap.id}
+                  variant="up"
+                  delay={idx}
+                  className="ux-kanban-col"
+                  style={{ '--col-accent': colors[idx % colors.length] } as CSSProperties}
+                >
+                  <div className="ux-kanban-bar">
+                    <span className="ux-kanban-dots" aria-hidden="true"><i /><i /><i /></span>
+                    <span style={{ fontSize: '0.7rem', fontWeight: 700, color: '#64748b' }}>COLUMN 0{idx + 1}</span>
+                  </div>
+                  <div className="ux-kanban-body">
+                    <h3 style={{ margin: 0 }}>{cap.title}</h3>
+                    {cap.tagline && <p className="cap-tagline" style={{ margin: 0 }}>{cap.tagline}</p>}
+                    <p className="cap-body" style={{ margin: 0 }}>{cap.body}</p>
+                    <ul className="ticks" style={{ marginTop: 'auto', paddingTop: 8 }}>
+                      {cap.points.map((pt) => (
+                        <li key={pt}>{pt}</li>
+                      ))}
+                    </ul>
+                  </div>
+                </CinematicCard>
+              );
+            })}
           </div>
         </div>
       </section>
@@ -1550,19 +1614,29 @@ export function EngagementExperience({ product }: { product: ProductData }) {
             body="Review the 5 capabilities powering candidate engagement."
           />
 
-          <div className="grid grid--2 capability-cards-grid">
+          {/* 5. Candidate Engagement — Conversational Speech Bubble Cards */}
+          <div className="ux-chat-cards">
             {product.capabilities.map((cap, idx) => (
-              <Reveal as="article" key={cap.id} className="card capability-box" delay={idx % 2}>
-                <div className="cap-badge-num">0{idx + 1}</div>
-                <h3>{cap.title}</h3>
-                {cap.tagline && <p className="cap-tagline">{cap.tagline}</p>}
-                <p className="cap-body">{cap.body}</p>
+              <CinematicCard
+                key={cap.id}
+                id={cap.id}
+                variant={idx % 2 === 0 ? 'left' : 'right'}
+                delay={idx}
+                className={`ux-chat-bubble${idx % 2 === 1 ? ' ux-chat-bubble--right' : ''}`}
+              >
+                <div className="ux-chat-status">
+                  <span>{idx % 2 === 0 ? 'WhatsApp Channel' : 'Email & Calendar'}</span>
+                  <span>✓✓ Delivered · Read</span>
+                </div>
+                <h3 style={{ margin: '0 0 6px' }}>{cap.title}</h3>
+                {cap.tagline && <p className="cap-tagline" style={{ margin: '0 0 8px' }}>{cap.tagline}</p>}
+                <p className="cap-body" style={{ margin: '0 0 12px' }}>{cap.body}</p>
                 <ul className="ticks">
                   {cap.points.map((pt) => (
                     <li key={pt}>{pt}</li>
                   ))}
                 </ul>
-              </Reveal>
+              </CinematicCard>
             ))}
           </div>
         </div>
@@ -1676,20 +1750,36 @@ export function OfferManagementExperience({ product }: { product: ProductData })
             body="Review the 5 capabilities that ensure successful hiring closes."
           />
 
-          <div className="grid grid--2 capability-cards-grid">
-            {product.capabilities.map((cap, idx) => (
-              <Reveal as="article" key={cap.id} className="card capability-box" delay={idx % 2}>
-                <div className="cap-badge-num">0{idx + 1}</div>
-                <h3>{cap.title}</h3>
-                {cap.tagline && <p className="cap-tagline">{cap.tagline}</p>}
-                <p className="cap-body">{cap.body}</p>
-                <ul className="ticks">
-                  {cap.points.map((pt) => (
-                    <li key={pt}>{pt}</li>
-                  ))}
-                </ul>
-              </Reveal>
-            ))}
+          {/* 6. Hiring & Offer Management — Executive Document Folio Stack */}
+          <div className="ux-offer-stack">
+            {product.capabilities.map((cap, idx) => {
+              const seals = ['APPROVED', 'E-SIGNED', 'VERIFIED', 'HANDOVER', 'AUDIT-READY'];
+              return (
+                <CinematicCard
+                  key={cap.id}
+                  id={cap.id}
+                  variant="zoom"
+                  delay={idx}
+                  className="ux-offer-folio"
+                >
+                  <span className="ux-offer-seal">
+                    <Icon name="file-check" /> {seals[idx % seals.length]}
+                  </span>
+                  <h3>{cap.title}</h3>
+                  {cap.tagline && <p className="cap-tagline" style={{ margin: 0 }}>{cap.tagline}</p>}
+                  <p className="cap-body" style={{ margin: 0 }}>{cap.body}</p>
+                  <ul className="ticks">
+                    {cap.points.map((pt) => (
+                      <li key={pt}>{pt}</li>
+                    ))}
+                  </ul>
+                  <div className="ux-offer-signline">
+                    <span>Document Folio #{idx + 1}</span>
+                    <span>TalentPool365 Sign-Off</span>
+                  </div>
+                </CinematicCard>
+              );
+            })}
           </div>
         </div>
       </section>
@@ -1811,19 +1901,37 @@ export function AnalyticsExperience({ product }: { product: ProductData }) {
             body="Review the 5 reporting capabilities built into TalentPool365."
           />
 
-          <div className="grid grid--2 capability-cards-grid">
+          {/* 7. Analytics & Reporting — Dark-Glass Telemetry Tiles */}
+          <div className="ux-analytics-tiles">
             {product.capabilities.map((cap, idx) => (
-              <Reveal as="article" key={cap.id} className="card capability-box" delay={idx % 2}>
-                <div className="cap-badge-num">0{idx + 1}</div>
+              <CinematicCard
+                key={cap.id}
+                id={cap.id}
+                variant="up"
+                delay={idx}
+                className="ux-telemetry-tile"
+              >
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                  <span className="sk-pill-tag" style={{ marginBottom: 0 }}>KPI TELEMETRY 0{idx + 1}</span>
+                  <span style={{ color: '#34D399', fontSize: '0.78rem', fontWeight: 700 }}>LIVE SYNC</span>
+                </div>
                 <h3>{cap.title}</h3>
-                {cap.tagline && <p className="cap-tagline">{cap.tagline}</p>}
-                <p className="cap-body">{cap.body}</p>
+                {cap.tagline && <p style={{ color: '#BEE8D5', fontWeight: 600 }}>{cap.tagline}</p>}
+                <p>{cap.body}</p>
+                <svg className="ux-sparkline" viewBox="0 0 260 46" preserveAspectRatio="none" aria-hidden="true">
+                  <path
+                    d={idx % 2 === 0 ? 'M0 38 C40 34, 70 18, 120 22 C170 26, 200 10, 260 6' : 'M0 34 C50 28, 90 36, 140 18 C180 6, 220 14, 260 8'}
+                    fill="none"
+                    stroke="#34D399"
+                    strokeWidth="2.2"
+                  />
+                </svg>
                 <ul className="ticks">
                   {cap.points.map((pt) => (
                     <li key={pt}>{pt}</li>
                   ))}
                 </ul>
-              </Reveal>
+              </CinematicCard>
             ))}
           </div>
         </div>
@@ -1916,20 +2024,35 @@ export function ComplianceExperience({ product }: { product: ProductData }) {
             body="Review the 5 compliance controls built into the platform."
           />
 
-          <div className="grid grid--2 capability-cards-grid">
-            {product.capabilities.map((cap, idx) => (
-              <Reveal as="article" key={cap.id} className="card capability-box" delay={idx % 2}>
-                <div className="cap-badge-num">0{idx + 1}</div>
-                <h3>{cap.title}</h3>
-                {cap.tagline && <p className="cap-tagline">{cap.tagline}</p>}
-                <p className="cap-body">{cap.body}</p>
-                <ul className="ticks">
-                  {cap.points.map((pt) => (
-                    <li key={pt}>{pt}</li>
-                  ))}
-                </ul>
-              </Reveal>
-            ))}
+          {/* 8. Compliance & Security — Audit Vault Ledger Rows */}
+          <div className="ux-vault-rows">
+            {product.capabilities.map((cap, idx) => {
+              const stamps = ['GDPR READY', 'SOC 2 TYPE II', 'FAIR AI AUDIT', 'AES-256 VAULT', 'RBAC CONTROL'];
+              return (
+                <CinematicCard
+                  key={cap.id}
+                  id={cap.id}
+                  variant="left"
+                  delay={idx}
+                  className="ux-vault-row"
+                >
+                  <div className="ux-vault-shield">
+                    <Icon name="shield" />
+                  </div>
+                  <div>
+                    <h3 style={{ margin: '0 0 4px' }}>{cap.title}</h3>
+                    {cap.tagline && <p className="cap-tagline" style={{ margin: '0 0 6px' }}>{cap.tagline}</p>}
+                    <p className="cap-body" style={{ margin: '0 0 10px' }}>{cap.body}</p>
+                    <ul className="ticks" style={{ display: 'flex', flexWrap: 'wrap', gap: '8px 20px' }}>
+                      {cap.points.map((pt) => (
+                        <li key={pt}>{pt}</li>
+                      ))}
+                    </ul>
+                  </div>
+                  <span className="ux-vault-stamp">{stamps[idx % stamps.length]}</span>
+                </CinematicCard>
+              );
+            })}
           </div>
         </div>
       </section>

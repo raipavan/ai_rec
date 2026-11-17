@@ -1,7 +1,6 @@
-import { CtaBand } from '../components/CtaBand';
 import { Icon } from '../components/Icon';
-import { PageHero } from '../components/PageHero';
 import { Reveal } from '../components/Reveal';
+import { SkCtaBanner, SkHero, SkVectorArt } from '../components/SeekOutUI';
 
 const workflow = [
   { title: 'Create job requisition', owner: 'Your hiring team', body: 'Agree on the role, the must-have skills and what good looks like before applications arrive. Set the scorecard and approval owners together.', output: 'An approved role and a shared evaluation rubric', href: '/products/recruiter-workspace' },
@@ -16,6 +15,51 @@ const workflow = [
 ];
 
 export function HowItWorksPage() {
-  return <><PageHero crumbs={[{ label: 'How it works' }]} title="From an open role to *a first day.*" lede="One connected workflow, nine clear steps. AI handles the repetitive work. Your team owns the decisions that matter." actions={<a className="btn btn-primary" href="/get-started">Walk through your hiring process <Icon name="arrow-right" /></a>} />
-    <section className="section section--light"><div className="container"><ol className="workflow-list">{workflow.map((step, index) => <Reveal as="li" className="workflow-step" variant={index % 2 ? 'right' : 'left'} key={step.title}><span className="workflow-number" aria-hidden="true">{String(index + 1).padStart(2, '0')}</span><div className="workflow-copy"><span className="resource-meta">{step.owner}</span><h2>{step.title}</h2><p>{step.body}</p><div className="workflow-output"><Icon name="file-check" /><span>{step.output}</span></div><a className="more-link" href={step.href}>Explore the product <span className="sr-only">for {step.title}</span><Icon name="arrow-right" /></a></div></Reveal>)}</ol></div></section><CtaBand /></>;
+  return (
+    <main className="sk-page">
+      <SkHero
+        eyebrow="NINE-STEP WORKFLOW"
+        eyebrowIcon="sliders"
+        title="From an open role to a first day"
+        subtitle="One connected workflow, nine clear steps. AI handles the repetitive busywork while your recruiting team and hiring managers own every human decision."
+        primaryCta={{ label: 'Walk through your process →', href: '/get-started' }}
+        secondaryCta={{ label: 'Explore products', href: '/products' }}
+        aside={<SkVectorArt kind="how-it-works" />}
+      />
+
+      <section className="sk-band sk-band--cream">
+        <div className="container">
+          <ol className="workflow-list">
+            {workflow.map((step, index) => (
+              <Reveal
+                as="li"
+                className="workflow-step"
+                variant={index % 2 ? 'right' : 'left'}
+                key={step.title}
+              >
+                <span className="workflow-number" aria-hidden="true">
+                  {String(index + 1).padStart(2, '0')}
+                </span>
+                <div className="workflow-copy">
+                  <span className="sk-pill-tag" style={{ marginBottom: 8 }}>{step.owner}</span>
+                  <h2>{step.title}</h2>
+                  <p>{step.body}</p>
+                  <div className="workflow-output">
+                    <Icon name="file-check" />
+                    <span>{step.output}</span>
+                  </div>
+                  <a className="sk-card-link" href={step.href}>
+                    Explore the product <span className="sr-only">for {step.title}</span>
+                    <Icon name="arrow-right" />
+                  </a>
+                </div>
+              </Reveal>
+            ))}
+          </ol>
+        </div>
+      </section>
+
+      <SkCtaBanner />
+    </main>
+  );
 }

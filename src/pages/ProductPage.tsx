@@ -1,12 +1,8 @@
 import type { CSSProperties } from 'react';
-import { AnimatedValue } from '../components/AnimatedValue';
 import { BotBuddy } from '../components/BotBuddy';
-import { CtaBand } from '../components/CtaBand';
 import { Icon } from '../components/Icon';
-import { PageHero } from '../components/PageHero';
 import { ProductMock } from '../components/ProductMock';
-import { Reveal } from '../components/Reveal';
-import { SectionHead } from '../components/SectionHead';
+import { SkCtaBanner, SkHero, SkLogoMarquee } from '../components/SeekOutUI';
 import { productPages, productPath, type ProductPage as ProductData } from '../data/products';
 import {
   SourcingExperience,
@@ -25,14 +21,17 @@ export function ProductPage({ product }: { product: ProductData }) {
   const previous = productPages[position - 1];
   const next = productPages[position + 1];
 
-  // Talent Sourcing has a dedicated SeekOut Recruit replicated experience as full page layout
+  // Talent Sourcing keeps its full dedicated SeekOut Recruit page layout
   if (product.slug === 'talent-sourcing') {
     return (
       <main className="product-page-main">
         <SourcingExperience product={product} />
 
-        {/* Adjacent product pagination */}
-        <section className="section product-pager-section" id="platform" style={{ padding: '40px 0', background: '#f8fafc', borderTop: '1px solid var(--color-border)' }}>
+        <section
+          className="section product-pager-section"
+          id="platform"
+          style={{ padding: '40px 0', background: '#f8fafc', borderTop: '1px solid var(--color-border)' }}
+        >
           <div className="container">
             <nav className="product-pager" aria-label="Adjacent products">
               {previous ? (
@@ -40,13 +39,17 @@ export function ProductPage({ product }: { product: ProductData }) {
                   <span className="pager-direction">← Previous product</span>
                   <span className="pager-title">{previous.title}</span>
                 </a>
-              ) : <span />}
+              ) : (
+                <span />
+              )}
               {next ? (
                 <a className="product-pager-link product-pager-link--next" href={productPath(next)}>
                   <span className="pager-direction">Next product →</span>
                   <span className="pager-title">{next.title}</span>
                 </a>
-              ) : <span />}
+              ) : (
+                <span />
+              )}
             </nav>
           </div>
         </section>
@@ -54,11 +57,8 @@ export function ProductPage({ product }: { product: ProductData }) {
     );
   }
 
-  // Helper to render the unique bespoke interactive layout for each product
   const renderUniqueProductExperience = () => {
     switch (product.slug) {
-      case 'talent-sourcing':
-        return <SourcingExperience product={product} />;
       case 'candidate-screening':
         return <ScreeningExperience product={product} />;
       case 'ai-assessments':
@@ -81,59 +81,40 @@ export function ProductPage({ product }: { product: ProductData }) {
   };
 
   return (
-    <>
-      <PageHero
-        crumbs={[{ label: 'Products', href: '/products' }, { label: product.title }]}
-        title={product.headline}
-        lede={product.lede}
-        actions={
-          <>
-            <a className="btn btn-primary" href="/get-started#book-meeting">
-              Book a live demo
-            </a>
-            <a className="btn btn-outline" href="/pricing">
-              See pricing
-            </a>
-          </>
-        }
+    <main className="sk-page">
+      <SkHero
+        eyebrow={`TALENTPOOL365 · ${product.title.toUpperCase()}`}
+        eyebrowIcon={product.icon}
+        title={product.headline.replace(/\*/g, '')}
+        subtitle={product.lede}
+        primaryCta={{ label: 'Book a live demo →', href: '/get-started#book-meeting' }}
+        secondaryCta={{ label: 'See pricing', href: '/pricing' }}
+        stats={product.outcomes.slice(0, 3).map((o) => ({ value: o.value, label: o.label }))}
         aside={
-          <>
+          <div style={{ position: 'relative', width: '100%' }}>
             <ProductMock index={product.mock} title={product.title} />
-            <BotBuddy role={product.bot} gesture="wave" size={168} className="page-hero-bot" />
-          </>
+            <BotBuddy role={product.bot} gesture="wave" size={148} className="page-hero-bot" />
+          </div>
         }
       />
+
+      <SkLogoMarquee />
 
       {/* Unique Bespoke Interactive Experience for this specific product */}
       {renderUniqueProductExperience()}
 
-      {/* Metrics outcome band */}
-      <section className="section metrics on-dark" id="outcomes">
-        <span className="grain" aria-hidden="true" />
-        <div className="container">
-          <SectionHead title="What it *changes*" style={{ marginBottom: 0 }} />
-          <div className="metrics-grid metrics-grid--3">
-            {product.outcomes.map((outcome, index) => (
-              <Reveal className="metric" key={outcome.label} delay={index}>
-                <strong>
-                  <AnimatedValue value={outcome.value} />
-                </strong>
-                <span>{outcome.label}</span>
-              </Reveal>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* Sits in hiring line track & pagination */}
-      <section className="section" id="platform">
+      <section className="sk-band sk-band--cream" id="platform">
         <div className="container">
-          <SectionHead
-            title="Where it sits in the *hiring line*"
-            body="Every product shares one unified candidate record, so nothing is re-entered between steps."
-          />
+          <div className="sk-section-head">
+            <span className="sk-pill-tag">UNIFIED WORKFLOW</span>
+            <h2 className="sk-serif-h2">Where it sits in the hiring line</h2>
+            <p className="sk-section-sub">
+              Every product shares one unified candidate record, so nothing is re-entered between steps.
+            </p>
+          </div>
 
-          <Reveal as="ol" className="track">
+          <ol className="track">
             {productPages.map((item, index) => (
               <li
                 key={item.slug}
@@ -146,7 +127,7 @@ export function ProductPage({ product }: { product: ProductData }) {
                 </a>
               </li>
             ))}
-          </Reveal>
+          </ol>
 
           <div className="pager">
             {previous ? (
@@ -175,8 +156,7 @@ export function ProductPage({ product }: { product: ProductData }) {
         </div>
       </section>
 
-      {/* Product-Specific Closing CTA */}
-      <CtaBand />
-    </>
+      <SkCtaBanner />
+    </main>
   );
 }

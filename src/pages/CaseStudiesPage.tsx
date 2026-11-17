@@ -1,10 +1,9 @@
 import { useState } from 'react';
 import { AnimatedValue } from '../components/AnimatedValue';
-import { CtaBand } from '../components/CtaBand';
 import { Icon } from '../components/Icon';
-import { PageHero } from '../components/PageHero';
 import { Reveal } from '../components/Reveal';
 import { SectionHead } from '../components/SectionHead';
+import { SkCtaBanner, SkHero, SkLogoMarquee, SkVectorArt } from '../components/SeekOutUI';
 
 interface CaseStudyStory {
   id: string;
@@ -236,22 +235,23 @@ export function CaseStudiesPage() {
   });
 
   return (
-    <>
-      <PageHero
-        crumbs={[{ label: 'Case Studies' }]}
-        title="See how teams hire faster with *TalentPool365.*"
-        lede="Real hiring challenges, real results. Explore how companies across industries use TalentPool365 to cut time-to-hire, improve candidate quality and scale recruitment without adding headcount."
-        actions={
-          <div className="hero-action-buttons">
-            <a className="btn btn-primary" href="/get-started#book-meeting">
-              Book a live demo
-            </a>
-            <a className="btn btn-outline" href="#stories-grid">
-              Browse case studies
-            </a>
-          </div>
-        }
+    <main className="sk-page">
+      <SkHero
+        eyebrow="CUSTOMER STORIES"
+        eyebrowIcon="trend"
+        title="TalentPool365 Customers Delivering Proven Results"
+        subtitle="Real hiring challenges, real results. Explore how recruiting teams across industries use TalentPool365 to cut time-to-hire, improve candidate quality, and scale without adding headcount."
+        primaryCta={{ label: 'Book a demo →', href: '/get-started#book-meeting' }}
+        secondaryCta={{ label: 'Browse case studies', href: '#stories-grid' }}
+        stats={[
+          { value: '68%', label: 'Faster time-to-hire' },
+          { value: '14 days', label: 'Saved per hire' },
+          { value: '250K+', label: 'Candidates screened' },
+        ]}
+        aside={<SkVectorArt kind="customers" />}
       />
+
+      <SkLogoMarquee />
 
       {/* Results at a Glance Section */}
       <section className="section section--light" id="results-at-glance">
@@ -666,7 +666,42 @@ export function CaseStudiesPage() {
         </div>
       </section>
 
-      <CtaBand />
-    </>
+      {/* Analyst Recognition Strip in Warm Cream Band */}
+      <section className="sk-band sk-band--cream">
+        <div className="container">
+          <div className="sk-section-head sk-section-head--center">
+            <span className="sk-pill-tag">ANALYST &amp; PEER RECOGNITION</span>
+            <h2 className="sk-serif-h2">Recognized by the teams who use it every day</h2>
+          </div>
+          <div className="sk-grid-4">
+            <article className="sk-card" style={{ textAlign: 'center', alignItems: 'center' }}>
+              <span className="sk-pill-tag" style={{ marginBottom: 4 }}>G2 Leader</span>
+              <h3>4.8 / 5 Rating</h3>
+              <p>Top-rated Enterprise AI Recruiting &amp; Talent Intelligence suite.</p>
+            </article>
+            <article className="sk-card" style={{ textAlign: 'center', alignItems: 'center' }}>
+              <span className="sk-pill-tag" style={{ marginBottom: 4 }}>TrustRadius</span>
+              <h3>Top Rated 2026</h3>
+              <p>Verified buyer satisfaction for automated candidate screening.</p>
+            </article>
+            <article className="sk-card" style={{ textAlign: 'center', alignItems: 'center' }}>
+              <span className="sk-pill-tag" style={{ marginBottom: 4 }}>HR Executive</span>
+              <h3>Top HR Product</h3>
+              <p>Awarded for explainable, fair-hiring AI evaluation rubrics.</p>
+            </article>
+            <article className="sk-card" style={{ textAlign: 'center', alignItems: 'center' }}>
+              <span className="sk-pill-tag" style={{ marginBottom: 4 }}>SOC 2 Type II</span>
+              <h3>Enterprise Trust</h3>
+              <p>Audited security, GDPR compliance, and zero model training on client data.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <SkCtaBanner
+        title="Ready to join them?"
+        subtitle="See how TalentPool365 handles your toughest open requisition with live candidate sourcing, screening, and structured scorecards."
+      />
+    </main>
   );
 }

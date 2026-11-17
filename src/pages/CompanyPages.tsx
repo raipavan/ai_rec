@@ -1,15 +1,16 @@
 import { useState, type CSSProperties, type ReactNode } from 'react';
 import { About } from '../components/About';
 import { AnimatedValue } from '../components/AnimatedValue';
+import { CinematicCard } from '../components/CinematicMotion';
 import { Contact } from '../components/Contact';
 import { CtaBand } from '../components/CtaBand';
 import { Icon } from '../components/Icon';
 import { LeadForm, type LeadField } from '../components/LeadForm';
 import { Metrics } from '../components/Metrics';
-import { PageHero } from '../components/PageHero';
 import { RailLayout, RailSteps } from '../components/RailSteps';
 import { Reveal } from '../components/Reveal';
 import { SectionHead } from '../components/SectionHead';
+import { SkHero, SkVectorArt } from '../components/SeekOutUI';
 import { SubNav } from '../components/SubNav';
 import {
   benefits,
@@ -45,20 +46,21 @@ interface CompanyShellProps {
 }
 
 /** Shared frame of the seven company pages: hero plus the company navigation. */
-function CompanyShell({ path, label, title, rotate, lede, actions, children }: CompanyShellProps) {
+function CompanyShell({ path, label, title, lede, children }: CompanyShellProps) {
   return (
-    <>
-      <PageHero
-        compact
-        crumbs={[{ label: 'Company', href: '/company/about' }, { label }]}
-        title={title}
-        rotate={rotate}
-        lede={lede}
-        actions={actions}
+    <main className="sk-page">
+      <SkHero
+        eyebrow={`COMPANY · ${label.toUpperCase()}`}
+        eyebrowIcon="building"
+        title={title.replace(/\*/g, '')}
+        subtitle={lede}
+        primaryCta={{ label: 'Book a demo →', href: '/get-started#book-meeting' }}
+        secondaryCta={{ label: 'Contact us', href: '/company/contact' }}
+        aside={<SkVectorArt kind="about" />}
       />
       <SubNav label="Company pages" links={companyLinks} current={path} />
       {children}
-    </>
+    </main>
   );
 }
 
@@ -384,26 +386,36 @@ export function TechnologyPage() {
         </div>
       </section>
 
-      <section className="section metrics on-dark" id="platform">
-        <span className="grain" aria-hidden="true" />
+      <section className="sk-band sk-band--cream" id="platform">
         <div className="container">
-          <SectionHead title="The platform *underneath*" style={{ marginBottom: 0 }} />
-          <div className="metrics-grid">
+          <div className="sk-section-head">
+            <span className="sk-pill-tag">INFRASTRUCTURE &amp; RELIABILITY</span>
+            <h2 className="sk-serif-h2">The platform underneath</h2>
+            <p className="sk-section-sub">
+              Enterprise security, audited uptime, and low-latency pipelines engineered to run across global hiring teams.
+            </p>
+          </div>
+
+          <div className="sk-grid-4" style={{ marginBottom: 28 }}>
             {platformFacts.map((fact, index) => (
-              <Reveal className="metric" key={fact.label} delay={index}>
-                <strong>
+              <CinematicCard key={fact.label} variant="zoom" delay={index} className="tech-stat-card">
+                <strong className="tech-stat-val">
                   <AnimatedValue value={fact.value} />
                 </strong>
-                <span>{fact.label}</span>
-              </Reveal>
+                <span className="tech-stat-lbl">{fact.label}</span>
+              </CinematicCard>
             ))}
           </div>
-          <div className="grid grid-3 fact-grid">
+
+          <div className="sk-grid-3">
             {buildingBlocks.map((block, index) => (
-              <Reveal key={block.title} delay={index}>
+              <CinematicCard key={block.title} variant="up" delay={index} className="sk-card sk-card--top-accent">
+                <span className="sk-pill-tag" style={{ width: 'fit-content', marginBottom: 4 }}>
+                  CORE LAYER 0{index + 1}
+                </span>
                 <h3>{block.title}</h3>
                 <p>{block.body}</p>
-              </Reveal>
+              </CinematicCard>
             ))}
           </div>
         </div>

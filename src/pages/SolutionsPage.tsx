@@ -1,11 +1,10 @@
 import type { CSSProperties } from 'react';
 import { AnimatedValue } from '../components/AnimatedValue';
-import { CtaBand } from '../components/CtaBand';
 import { Icon } from '../components/Icon';
 import { Metrics } from '../components/Metrics';
-import { PageHero } from '../components/PageHero';
 import { Reveal } from '../components/Reveal';
 import { SectionHead } from '../components/SectionHead';
+import { SkCtaBanner, SkHero, SkVectorArt } from '../components/SeekOutUI';
 import { SubNav } from '../components/SubNav';
 import { productBySlug } from '../data/products';
 import {
@@ -23,23 +22,15 @@ export function SolutionsPage() {
   const active = useActiveSection(sectionIds);
 
   return (
-    <>
-      <PageHero
-        compact
-        crumbs={[{ label: 'Solutions' }]}
-        title="Built for the way *you* hire"
-        rotate={['startups', 'hospitals', 'banks', 'factories', 'retailers', 'agencies']}
-        lede="A hospital, a bank and a ten-person startup do not hire the same way. Find your industry, your size or the kind of hiring you are doing, and see what the platform does for it."
-        actions={
-          <>
-            <a className="btn btn-primary" href="/company/contact">
-              Talk to a specialist
-            </a>
-            <a className="btn btn-outline" href="/products">
-              See the platform
-            </a>
-          </>
-        }
+    <main className="sk-page">
+      <SkHero
+        eyebrow="INDUSTRY & SIZE SOLUTIONS"
+        eyebrowIcon="building"
+        title="Built for the way your sector hires"
+        subtitle="A hospital, a bank, and a fast-growing startup do not hire the same way. Find your industry, company size, or hiring scenario and see how TalentPool365 fits."
+        primaryCta={{ label: 'Talk to a specialist →', href: '/company/contact' }}
+        secondaryCta={{ label: 'See the platform', href: '/products' }}
+        aside={<SkVectorArt kind="solutions" />}
       />
 
       <SubNav
@@ -181,7 +172,7 @@ export function SolutionsPage() {
       </section>
 
       <Metrics />
-      <CtaBand />
-    </>
+      <SkCtaBanner />
+    </main>
   );
 }

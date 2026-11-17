@@ -1,9 +1,8 @@
 import { useState } from 'react';
-import { CtaBand } from '../components/CtaBand';
 import { Icon } from '../components/Icon';
-import { PageHero } from '../components/PageHero';
 import { Reveal } from '../components/Reveal';
 import { SectionHead } from '../components/SectionHead';
+import { SkCtaBanner, SkHero, SkLogoMarquee } from '../components/SeekOutUI';
 
 interface IntegrationItem {
   name: string;
@@ -257,31 +256,30 @@ export function IntegrationsPage() {
   });
 
   return (
-    <>
-      <PageHero
-        crumbs={[{ label: 'Integrations' }]}
-        title="Connect TalentPool365 to the hiring systems *you already use.*"
-        lede="You shouldn’t have to replace your ATS or HRMS to get smarter hiring. TalentPool365 works alongside your existing tools, so candidate data, statuses and decisions stay in sync without double entry."
-        actions={
-          <div className="hero-action-buttons">
-            <a className="btn btn-primary" href="#directory">
-              Explore integrations <Icon name="arrow-right" />
-            </a>
-            <a className="btn btn-outline" href="#api-documentation">
-              Developer API
-            </a>
-          </div>
-        }
+    <main className="sk-page">
+      <SkHero
+        eyebrow="ECOSYSTEM & API"
+        eyebrowIcon="layers"
+        title="Recruiting AI that works inside your stack"
+        subtitle="You should not have to replace your ATS or HRMS to hire smarter. TalentPool365 syncs candidate profiles, scores, and statuses directly inside the tools your team already uses."
+        primaryCta={{ label: 'Book a demo →', href: '/get-started#book-meeting' }}
+        secondaryCta={{ label: 'See all integrations ↓', href: '#directory' }}
         aside={
-          <div className="connection-map" aria-label="Ecosystem connections">
-            <span>ATS & HRMS</span>
-            <span>Calendar & Video</span>
-            <strong>TalentPool<span>365</span></strong>
-            <span>Messaging & Email</span>
-            <span>REST API & Webhooks</span>
+          <div className="sk-mosaic" aria-label="Ecosystem partner mosaic">
+            <div className="sk-mosaic-tile">Workday</div>
+            <div className="sk-mosaic-tile">Greenhouse</div>
+            <div className="sk-mosaic-tile">SAP</div>
+            <div className="sk-mosaic-tile">Lever</div>
+            <div className="sk-mosaic-tile sk-mosaic-tile--center">TalentPool365</div>
+            <div className="sk-mosaic-tile">Oracle HCM</div>
+            <div className="sk-mosaic-tile">Zoom</div>
+            <div className="sk-mosaic-tile">WhatsApp</div>
+            <div className="sk-mosaic-tile">Slack</div>
           </div>
         }
       />
+
+      <SkLogoMarquee />
 
       {/* Why Connect Section */}
       <section className="section section--light" id="why-connect">
@@ -640,7 +638,7 @@ X-TP365-Signature: sha256=d3b07384d113edec49eaa6...
         </div>
       </section>
 
-      <CtaBand />
-    </>
+      <SkCtaBanner />
+    </main>
   );
 }
